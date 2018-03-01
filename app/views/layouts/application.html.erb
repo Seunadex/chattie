@@ -9,38 +9,25 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <%= link_to root_path, class: "navbar-brand" do %>
-            Chattie
-          <% end %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
-                <%= yield :right_nav %>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%= current_user.username %>
-                    </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <%= link_to 'Settings', edit_user_registration_path, class: 'dropdown-item'%>
-                      <hr>
-                      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item'%>
-                  </div>
-                </li>
-
-              <% else %>
-              <li class="nav-item"><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link'%></li>
-              <li class="nav-item"><%= link_to 'Log in', new_user_session_path, class: 'nav-link'%></li>
-              <% end %>
+    <%= render  "layouts/partials/navbar" %>
+    <div class="fluid-container main">
+      <div class="row">
+        <div class="col-sm-2 left-side">
+          <% if user_signed_in? %>
+            <h3>Chatrooms</h3>
+            <ul>
+              <% current_user.chatrooms.each do |chatroom| %>
+                <li><%= link_to chatroom.name, chatroom %></li>
+                <% end %>
             </ul>
-          </div>
-        </nav>
+          <% end %>
+        </div>
+
+        <div class="col-sm-10 offset-sm-2 right-side">
+          <%= yield %>
+        </div>
       </div>
-    <%= yield %>
+    </div>
+    
   </body>
 </html>

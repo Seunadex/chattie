@@ -13,3 +13,17 @@
  */
 
  @import 'bootstrap';
+
+ .main {
+   margin-top: 7em;
+
+   .left-side {
+    position: fixed;
+    top: 70px;
+    left: 0;
+   }
+
+   .right-side {
+    
+   }
+ }

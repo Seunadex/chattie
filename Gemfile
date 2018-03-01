@@ -30,6 +30,8 @@ gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'pry'
+
 gem 'bootstrap'
 gem 'devise'
 gem 'jquery-rails'

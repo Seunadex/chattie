@@ -10,6 +10,7 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms/1
   # GET /chatrooms/1.json
   def show
+    @messages = @chatroom.messages.order(created_at: :desc).limit(100).reverse
   end
 
   # GET /chatrooms/new
@@ -64,7 +65,7 @@ class ChatroomsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_chatroom
-      @chatroom = Chatroom.find(params[:id])
+      @chatroom = Chatroom.get_chatroom(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
