@@ -8,12 +8,12 @@
 <!-- <%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
 <%= link_to 'Back', chatrooms_path %> -->
 
-<div data-behavior='messages' id="seun">
+<div data-behavior='messages' id="seun" data-chatroom-id='<%= @chatroom.id %>'>
   <% @messages.each do |message| %>
-    <div><strong><%= message.user.username %></strong>: <%= message.body %></div>
+    <%= render message %>
   <% end %>
 </div>
 
-<%= form_for [@chatroom, Message.new] do |f| %>
+<%= form_for [@chatroom, Message.new], remote: true do |f| %>
   <%= f.text_area :body, rows: 1, class: "form-control", autofocus: true %>
 <% end %>

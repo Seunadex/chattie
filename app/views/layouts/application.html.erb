@@ -17,7 +17,7 @@
             <h3>Chatrooms</h3>
             <ul>
               <% current_user.chatrooms.each do |chatroom| %>
-                <li><%= link_to chatroom.name, chatroom %></li>
+                <li><%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %></li>
                 <% end %>
             </ul>
           <% end %>
