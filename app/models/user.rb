@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :messages
 
-  validates :username, :login, :email, :password, presence: true
+  validates :username, :email, :password, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
