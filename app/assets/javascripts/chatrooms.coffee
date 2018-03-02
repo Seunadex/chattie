@@ -13,7 +13,6 @@ $(document).on "turbolinks:load", ->
 
     chatroom_id = $("[data-behavior='messages']").data("chatroom-id")
     body = $("#message_body")
-    console.log body.val()
     
     App.chatrooms.send_message(chatroom_id, body.val())
     body.val('')
