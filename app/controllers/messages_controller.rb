@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
   end
 
   private
+
   def set_chatroom
     @chatroom = Chatroom.get_chatroom(params[:chatroom_id])
   end
