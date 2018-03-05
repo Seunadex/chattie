@@ -14,16 +14,85 @@
 
  @import 'bootstrap';
 
- .main {
-   margin-top: 7em;
-
-   .left-side {
-    position: fixed;
-    top: 70px;
-    left: 0;
-   }
-
-   .right-side {
-    
-   }
+ body {
+  background-color: #e4ebed;
  }
+
+ .main {
+   margin-top: 3em;
+
+   .btn-primary {
+    color: #fff;
+    background-color: #6d45cc;
+    border-color: #6d45cc;
+  }
+
+  .login {
+    background-color: #fff;
+  }
+
+  input {
+    outline: none;
+  }
+
+  .left-side {
+    background-color: #6d45cc;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    top: 55px;
+    left: 0;
+    padding-top: 20px;
+  }
+
+  .right-side {
+    color: rgb(77, 75, 75);
+    padding-left: 35px;
+    display: flex;
+    flex-direction: column;
+
+    .name-header {
+      position: fixed;
+      flex: 1;
+      margin-top: 30px;
+      width: 100%;
+      background-color: inherit;
+    }
+
+    #message-wrapper {
+      flex: 5;
+      height: 500px;
+      overflow: auto;
+      margin-top: 70px;
+      // background-color: aqua;
+      padding-bottom: 10px;
+
+      @media screen and (min-width: 1600px) {
+        height: 50em;
+      }
+
+      .message-content {
+        font-size: 14px;
+      }
+    }
+  
+    .new_message {
+      flex: 1;
+      position: fixed;
+      bottom: 20px;
+      width: 80%
+    }
+  }
+
+}
+
+ .alert {
+   position: absolute;
+   width: 30%;
+   top: 70px;
+   right: 100px;
+   z-index: 1;
+ }
+
+
+

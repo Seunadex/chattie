@@ -2,17 +2,32 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+handleVisibilityChange = ->
+  $strike = $(".strike")
+  if $strike.length > 0
+    chatroomId = $("[data-behavior='messages']").data("chatroom-id")
+    App.last_read.update(chatroomId)
+    $strike.remove()
+
+scroll_bottom = () ->
+  seun = $('#new_message').scrollTop($('#new_message')[0].scrollHeight)
+  # console.log seun
+
+
 $(document).on "turbolinks:load", ->
-  $("#new_message").on "keypress", (e) ->
-    if e && e.keyCode == 13
-      e.preventDefault()
+  $(document).on 'click', handleVisibilityChange
+  # scroll_bottom()
+
+  $("#new_message").on "keypress", (event) ->
+    if event && event.keyCode == 13
+      event.preventDefault()
       $(this).submit()
 
-  $("#new_message").on "submit", (e) ->
-    e.preventDefault()
+  $("#new_message").on "submit", (event) ->
 
-    chatroom_id = $("[data-behavior='messages']").data("chatroom-id")
+    chatroomId = $("[data-behavior='messages']").data("chatroom-id")
     body = $("#message_body")
     
-    App.chatrooms.send_message(chatroom_id, body.val())
-    body.val('')
+    App.chatrooms.send_message(chatroomId, body.val())
+    event.preventDefault()
+    event.target.vallue = ''

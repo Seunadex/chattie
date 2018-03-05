@@ -1,1 +1,4 @@
-<div><strong><%= message.user.username %></strong>: <%= message.body %></div>
+<div>
+  <div class="message-owner"><strong><%= message.user.username %></strong></div>
+  <div class="message-content"><%= message.body %></div>
+</div>

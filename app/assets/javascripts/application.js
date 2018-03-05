@@ -17,3 +17,16 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require_tree .
+
+// $(document).ready(function() {
+//    $('.alert-close').click(function() {
+//      $('.alert').addClass('fade-out');
+//     });
+//     alert('jdknflks');
+// })
+
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+  });
+}, 2000);

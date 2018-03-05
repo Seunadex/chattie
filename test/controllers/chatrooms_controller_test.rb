@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ChatroomsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,8 +16,9 @@ class ChatroomsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create chatroom" do
-    assert_difference('Chatroom.count') do
-      post chatrooms_url, params: { chatroom: { name: @chatroom.name } }
+    assert_difference("Chatroom.count") do
+      post chatrooms_url,
+           params: { chatroom: { name: @chatroom.name } }
     end
 
     assert_redirected_to chatroom_url(Chatroom.last)
@@ -34,12 +35,13 @@ class ChatroomsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update chatroom" do
-    patch chatroom_url(@chatroom), params: { chatroom: { name: @chatroom.name } }
+    patch chatroom_url(@chatroom),
+          params: { chatroom: { name: @chatroom.name } }
     assert_redirected_to chatroom_url(@chatroom)
   end
 
   test "should destroy chatroom" do
-    assert_difference('Chatroom.count', -1) do
+    assert_difference("Chatroom.count", -1) do
       delete chatroom_url(@chatroom)
     end
 
