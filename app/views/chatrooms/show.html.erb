@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+
+<%= render  "layouts/partials/success_alert" %>
+
 
 <p>
   <strong>Name:</strong>
@@ -7,7 +9,7 @@
 
 <% unread_messages = false %>
 
-<div data-behavior='messages' id="seun" data-chatroom-id='<%= @chatroom.id %>'>
+<div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' id="message-wrapper">
   <% @messages.each do |message| %>
     <% if !unread_messages && check_message(message) %>
       <% unread_messages = true %>
@@ -17,6 +19,6 @@
   <% end %>
 </div>
 
-<%= form_for [@chatroom, Message.new] do |f| %>
-  <%= f.text_area :body, rows: 1, class: "form-control", autofocus: true %>
+<%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
+  <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true %>
 <% end %>

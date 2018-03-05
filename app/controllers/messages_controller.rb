@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
     message.user = current_user
     message.save
     MessageRelayJob.perform_later(message)
+    # binding.pry
   end
 
   def show

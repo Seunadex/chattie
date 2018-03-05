@@ -12,7 +12,7 @@ class ChatroomsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    @chatroom = Chatroom.get_chatroom(data["chatroom_id"])
+    @chatroom = current_user.Chatroom.get_chatroom(data["chatroom_id"])
     message = @chatroom.messages.create(body: data["body"], user: current_user)
     MessageRelayJob.perform_later(message)
   end

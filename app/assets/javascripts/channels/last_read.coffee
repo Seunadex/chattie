@@ -1,7 +1,7 @@
 App.last_read = App.cable.subscriptions.create "LastReadChannel",
-  connected ->
+  connected: ->
 
-  disconnected ->
+  disconnected: ->
 
   received: (data) ->
 

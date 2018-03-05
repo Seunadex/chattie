@@ -14,6 +14,25 @@
 
  @import 'bootstrap';
 
+ body {
+  background-color: #f4f8f9;
+  font-family: Dinpro;
+
+  .btn-primary {
+    color: #fff;
+    background-color: #6d45cc;
+    border-color: #6d45cc;
+  }
+
+  .login {
+    background-color: #fff;
+  }
+
+  input {
+    outline: none;
+  }
+ }
+
  .main {
    margin-top: 7em;
 
@@ -24,6 +43,27 @@
    }
 
    .right-side {
-    
+    background-color: rgba(0, 0, 0, 0.59);
+    color: #fff;
+   }
+
+   #message-wrapper {
+    height: 400px;
+    overflow: auto;
+    // margin-bottom: 50px;
+   }
+
+   .new_message {
+     position: fixed;
+     bottom: 20;
    }
  }
+
+ .alert {
+   position: absolute;
+   width: 30%;
+   right: 100px;
+ }
+
+
+

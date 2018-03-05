@@ -6,7 +6,6 @@ class MessageRelayJob < ApplicationJob
       username: message.user.username,
       body: message.body,
       chatroom_id: message.chatroom.id
-      # checks which chatroom has an unread meassages
     }
   end
 end

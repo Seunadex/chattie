@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   root to: "chatrooms#index"
 
-  mount ActionCable.server => '/cable'
+  # mount ActionCable.server => '/cable'
+  # mount ActionCable.server, at: '/cable'
 end
