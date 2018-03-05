@@ -1,8 +1,9 @@
 
-<p>
-  <strong>Name:</strong>
-  <%= @chatroom.name %>
-</p>
+<div class="name-header">
+  <p>
+    <strong><%= @chatroom.name.capitalize %></strong>
+  </p>
+</div>
 
 <% unread_messages = false %>
 
