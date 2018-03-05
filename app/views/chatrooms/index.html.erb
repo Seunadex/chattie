@@ -1,43 +1,30 @@
 
-<h1>Chatrooms</h1>
+<div class="index-page">
+<%= link_to 'New Chatroom', new_chatroom_path, { :class=>"btn btn-primary new-chatroom-btn" } %>
+<h3>Chatrooms</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @chatrooms.each do |chatroom| %>
-      <tr>
-        <td><%= chatroom.name %></td>
-        <td><%= link_to chatroom  do %>
+<div class="room-container">
+  <% @chatrooms.each do |chatroom| %>
+    <div class="card">
+      <%= chatroom.name %>
+        <div class="icon-link">
+        <p><%= link_to chatroom  do %>
           <%= fa_icon "eye" %>
-          <% end %>
-        </td>
-        <td><%= link_to edit_chatroom_path(chatroom) do %>
+        <% end %></p>
+        <p><%= link_to edit_chatroom_path(chatroom) do %>
           <%= fa_icon "edit" %>
-          <% end %>
-        </td>
-        <td><%= link_to chatroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <% end %></p>
+        <p><%= link_to chatroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
           <%= fa_icon "trash" %>
-          <% end %>
-        </td>
-        <td><%= link_to chatroom_chatroom_users_path(chatroom), method: :post do %>
+        <% end %></p>
+        <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :post do %>
           <%= fa_icon "sign-in" %>
-          <% end %>
-        </td>
-        <td><%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
+        <% end %></p>
+        <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
           <%= fa_icon "times-circle" %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Chatroom', new_chatroom_path %>
+        <% end %></p>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

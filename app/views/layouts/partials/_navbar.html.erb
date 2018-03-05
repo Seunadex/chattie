@@ -12,7 +12,7 @@
             <% if user_signed_in? %>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= fa_icon "user-circle 2x" %> <%= current_user.username %>
+                  <%= fa_icon "user-circle" %>  <%= current_user.username %>
                   </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <%= link_to 'Settings', edit_user_registration_path, class: 'dropdown-item'%>
@@ -22,7 +22,7 @@
               </li>
 
             <% else %>
-            <li class="nav-item"><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link'%></li>
+            <li class="nav-item"> <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link'%></li>
             <li class="nav-item"><%= link_to 'Log in', new_user_session_path, class: 'nav-link'%></li>
             <% end %>
           </ul>
