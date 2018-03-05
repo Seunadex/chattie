@@ -36,4 +36,8 @@ class User < ApplicationRecord
       where(username: conditions[:username]).first
     end
   end
+
+  def self.get_users
+    User.all
+  end
 end

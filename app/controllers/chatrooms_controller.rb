@@ -1,5 +1,6 @@
 class ChatroomsController < ApplicationController
   before_action :set_chatroom, only: %i(show edit update destroy)
+  before_action :get_all_users
 
   # GET /chatrooms
   # GET /chatrooms.json
@@ -80,6 +81,10 @@ class ChatroomsController < ApplicationController
   end
 
   private
+
+  def get_all_users
+    @users = User.get_users
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_chatroom

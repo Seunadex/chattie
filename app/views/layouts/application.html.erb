@@ -10,6 +10,7 @@
 
   <body>
     <%= render  "layouts/partials/navbar" %>
+    <%= render  "layouts/partials/success_alert" %>
     <div class="fluid-container main">
       <div class="row">
         <div class="col-sm-2 left-side">
@@ -22,7 +23,7 @@
             </ul>
             <h5>Users</h5>
             <ul>
-              <% (User.all - [current_user]).each do |user| %>
+              <% (get_other_users).each do |user| %>
                 <li><%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></li>
               <% end %>
             </ul>

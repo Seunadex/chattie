@@ -1,7 +1,4 @@
 
-<%= render  "layouts/partials/success_alert" %>
-
-
 <p>
   <strong>Name:</strong>
   <%= @chatroom.name %>
@@ -20,5 +17,5 @@
 </div>
 
 <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
-  <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true %>
+  <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name}" %>
 <% end %>
