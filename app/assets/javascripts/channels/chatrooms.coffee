@@ -6,10 +6,10 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log data
    # Called when there's incoming data on the websocket for this channel
     current_chatroom = $("[data-behavior='messages'][data-chatroom-id='#{data.chatroom_id}']")
     if current_chatroom.length > 0
+
       if document.hidden
         if $(".strike").length == 0
           current_chatroom.append("<div class='strike'><span>Unread messages</span></div>")
@@ -19,6 +19,10 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
         App.last_read.update(data.chatroom_id)
       
       current_chatroom.append("<div><strong>#{data.username}:</strong> #{data.body}</div>")
+      messages_to_bottom = ->
+        scroll = $('#message-wrapper')
+        scroll.scrollTop(scroll.prop("scrollHeight"))
+      messages_to_bottom()
     else
       $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']")
         .attr("style": 'font-weight: bold; color: red')
