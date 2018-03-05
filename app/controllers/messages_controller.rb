@@ -10,9 +10,7 @@ class MessagesController < ApplicationController
     # binding.pry
   end
 
-  def show
-    
-  end
+  def show; end
 
   private
 
