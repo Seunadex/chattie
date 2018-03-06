@@ -24,9 +24,9 @@ $(document).on "turbolinks:load", ->
       $(this).submit()
 
   $("#new_message").on "submit", (event) ->
+    event.preventDefault()
     chatroomId = $("[data-behavior='messages']").data("chatroom-id")
     body = $("#message_body")
     
     App.chatrooms.send_message(chatroomId, body.val())
-    event.preventDefault()
-    event.target.vallue = ''
+    event.target.value = ''

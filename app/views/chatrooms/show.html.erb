@@ -11,7 +11,7 @@
   <% @messages.each do |message| %>
     <% if !unread_messages && check_message(message) %>
       <% unread_messages = true %>
-      <div class="strike"><span>Unread Messages</span></div>
+      <div class="strike"><span>New Messages</span></div>
     <% end %>
     <%= render message %>
   <% end %>
