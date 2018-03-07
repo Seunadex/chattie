@@ -10,26 +10,21 @@
 
   <body>
     <%= render  "layouts/partials/navbar" %>
-    <div class="container d-none">
-        <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
-        <% if alert %><div class="alert alert-warning"><%= alert %></div><% end %>
-      </div>
+    <%= render "layouts/partials/success_alert" %>
+
     <div class="fluid-container main">
       <div class="row">
         <div class="col-sm-2 left-side">
           <% if user_signed_in? %>
-            <h5>Chatrooms</h5>
-            <ul>
+            <h6>Chatrooms</h6>
               <% current_user.chatrooms.each do |chatroom| %>
-                <li class="list"><%= fa_icon "hashtag bullet" %> <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %></li>
+                <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %></div>
                 <% end %>
-            </ul>
-            <h5>Users</h5>
-            <ul>
+        </br >
+            <h6>Direct Messages</h6>
               <% (get_other_users).each do |user| %>
-                <li class="list"><%= fa_icon "hashtag bullet" %> <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></li>
+                <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></div>
               <% end %>
-            </ul>
           <% end %>
 
         </div>

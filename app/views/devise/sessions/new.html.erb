@@ -3,6 +3,7 @@
     <h1 class="text-center"><%= fa_icon "user" %></h1>
     <hr>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
       <div class="form-group">
         <%= f.text_field :login, autofocus: true, placeholder: 'Email or Username', class: 'form-control', required: true %>
       </div>
