@@ -74,7 +74,7 @@ class ChatroomsController < ApplicationController
     respond_to do |format|
       format.html do
         redirect_to chatrooms_url,
-                    notice: "Chatroom was successfully destroyed."
+                    notice: "Chatroom was successfully deleted."
       end
       format.json { head :no_content }
     end
