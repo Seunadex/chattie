@@ -15,18 +15,33 @@
     <div class="fluid-container main">
       <div class="row">
         <div class="col-sm-2 left-side">
+          <div class="scroll">
           <% if user_signed_in? %>
             <h6>Chatrooms</h6>
-              <% current_user.chatrooms.each do |chatroom| %>
-                <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %></div>
+                <% if current_user.chatrooms.length > 0 %>
+                  <% current_user.chatrooms.each do |chatroom| %>
+                    <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %><span class="badge badge-default hide-badge chatroom-<%= chatroom.id %>-span">New</span></div>
+                  <% end %>
+                <% else %>
+                  <div class="nothing">
+                    <p>No Channels yet!!!</p>
+                  </div>
                 <% end %>
-        </br >
+            </br >
+            <div class="direct-message">
             <h6>Direct Messages</h6>
-              <% (get_other_users).each do |user| %>
-                <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></div>
+              <% if (get_other_users).length > 0 %>
+                <% (get_other_users).each do |user| %>
+                  <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></div>
+                <% end %>
+              <% else %>
+               <div class="nothing">
+                <p>Nobody here yet!!!</p>
+              </div>
               <% end %>
-          <% end %>
-
+            <% end %>
+            </div>
+        </div>
         </div>
 
         <div class="col-sm-10 offset-sm-2 right-side">

@@ -13,8 +13,8 @@ class Chatroom < ApplicationRecord
   end
 
   def self.direct_message_for_users(users)
-    user_ids = users.map(&:id).sort
-    name = "DM:#{user_ids.join(':')}"
+    user_name = users.map(&:username).sort
+    name = "#{user_name.join(' and ')}"
 
     if chatroom = direct_messages.where(name: name).first
       chatroom
@@ -24,5 +24,11 @@ class Chatroom < ApplicationRecord
       chatroom.save
       chatroom
     end
+  end
+
+  def self.join_chatroom(set_chatroom, current_user_id)
+    set_chatroom.chatroom_users.where(
+      user_id: current_user_id
+    ).first_or_create
   end
 end

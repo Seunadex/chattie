@@ -43,9 +43,7 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
         scroll.scrollTop(scroll.prop("scrollHeight"))
       messages_to_bottom()
     else
-      $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']")
-        .attr("style": 'font-weight: bold;')
-
+      $(".chatroom-#{data.chatroom_id}-span").removeClass('hide-badge').addClass('show-badge')
   send_message: (chatroom_id, message) ->
     @perform "send_message", { chatroom_id: chatroom_id, body: message }
   

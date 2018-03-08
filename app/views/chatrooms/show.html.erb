@@ -18,5 +18,5 @@
 </div>
 
 <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
-  <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name}" %>
+  <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message @#{@chatroom.name.split(' and ')[0]}" %>
 <% end %>

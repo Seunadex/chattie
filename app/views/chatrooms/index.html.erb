@@ -4,7 +4,8 @@
 <h3>Chatrooms</h3>
 
 <div class="room-container">
-  <% @chatrooms.each do |chatroom| %>
+  <% if @chatrooms.length > 0 %>
+    <% @chatrooms.each do |chatroom| %>
     <div class="card">
       <%= chatroom.name %>
         <div class="icon-link">
@@ -26,8 +27,13 @@
           <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
             <%= fa_icon "times-circle" %>
           <% end %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+      <div class="no-room">
+        <h4>No Chatrooms yet!!!</h4>
+      </div>
   <% end %>
   </div>
 </div>

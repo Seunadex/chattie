@@ -1,5 +1,8 @@
-<h1>New Chatroom</h1>
+<div class="login">
+  <h3>New Chatroom</h3>
+  <div class="new-room">
+    <%= render 'form', chatroom: @chatroom %>
+    <%= link_to 'Back', chatrooms_path %>
+  </div>
 
-<%= render 'form', chatroom: @chatroom %>
-
-<%= link_to 'Back', chatrooms_path %>
+</div>

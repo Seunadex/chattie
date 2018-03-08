@@ -32,6 +32,7 @@ class ChatroomsController < ApplicationController
 
     respond_to do |format|
       if @chatroom.save
+        join_room(@chatroom)
         format.html do
           redirect_to @chatroom,
                       notice: "Chatroom was successfully created."
@@ -81,6 +82,12 @@ class ChatroomsController < ApplicationController
   end
 
   private
+
+  def join_room(chatroom)
+    chatroom.chatroom_users.where(
+      user_id: current_user.id
+    ).first_or_create
+  end
 
   def get_all_users
     @users = User.get_users
