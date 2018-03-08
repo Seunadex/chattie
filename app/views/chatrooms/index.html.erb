@@ -14,15 +14,18 @@
         <p><%= link_to edit_chatroom_path(chatroom) do %>
           <%= fa_icon "edit" %>
         <% end %></p>
-        <p><%= link_to chatroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <%= fa_icon "trash" %>
-        <% end %></p>
+        <% if current_user.admin? %>
+          <p><%= link_to chatroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= fa_icon "trash" %>
+          <% end %></p>
+        <% end %>
         <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :post do %>
           <%= fa_icon "sign-in" %>
         <% end %></p>
-        <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
-          <%= fa_icon "times-circle" %>
-        <% end %></p>
+        
+          <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
+            <%= fa_icon "times-circle" %>
+          <% end %></p>
       </div>
     </div>
   <% end %>
