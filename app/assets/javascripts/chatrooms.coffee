@@ -19,7 +19,7 @@ $(document).on "turbolinks:load", ->
   $(document).on 'click', handleVisibilityChange
 
   $("#new_message").on "keypress", (event) ->
-    if event && event.keyCode == 13
+    if event && event.keyCode == 13 && !event.shiftKey
       event.preventDefault()
       $(this).submit()
 

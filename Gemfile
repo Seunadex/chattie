@@ -34,7 +34,7 @@ gem 'redis', '~> 3.0'
 gem 'pry'
 gem "font-awesome-rails"
 
-
+gem 'kramdown'
 
 gem 'bootstrap'
 gem 'devise'

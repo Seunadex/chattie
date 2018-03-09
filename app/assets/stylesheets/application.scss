@@ -236,10 +236,6 @@ a.list:hover {
       }
     }
 
-    // .chatroom-header {
-    //   display: inline;
-    // }
-
     .nothing {
       font-size: 14px;
       color: #b5b8b9;
@@ -266,6 +262,14 @@ a.list:hover {
     padding-left: 35px;
     display: flex;
     flex-direction: column;
+
+    code {
+      font-family: monospace;
+      white-space: pre-wrap;
+      padding: 3px 10px;
+      display: inline-block;
+      background-color: rgba(193, 191, 191, 0.442);
+    }
 
     .name-header {
       position: fixed;
