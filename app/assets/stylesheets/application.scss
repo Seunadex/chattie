@@ -63,7 +63,7 @@ input#user_login.form-control,
   box-shadow: none;
   
   &:focus {
-    border-color: #6d45cc;
+    border-color: #431c43;
   }
 }
 
@@ -95,6 +95,7 @@ input#user_login.form-control,
   margin-bottom: 20px;
   margin-top: 20px;
   border: none;
+  font-family: $font-family-medium;
 }
 
 .index-page {
@@ -132,7 +133,7 @@ nav {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
 textarea#message_body.form-control {
-  border: 1px solid #6d45cc;
+  border: 1px solid #431c43;
   box-shadow: none;
 }
 
@@ -146,24 +147,28 @@ li {
   list-style-type: none;
 }
 
-.list:visited {
-  background-color: #3b38eb; 
-}
 
-.list:hover {
+a.list:hover {
   text-decoration: none;
-  background-color: #b282f5; 
+  background-color: #4f314f; 
 }
 
 .fa {
-  color: #9775e8;
+  color: #7a237a;
+  font-size: 14px;
+}
+
+.fa-bullet {
+  color: rgba(157, 154, 154, 0.655);
   font-size: 11px;
 }
+
+
 
   
   .nav-link,
   .navbar-brand {
-    color: #6d45cc !important;
+    color: #431c43 !important;
     font-weight: bold;
   }
 
@@ -171,9 +176,9 @@ li {
    margin-top: 3em;
 
    .btn-primary {
-    color: #fff;
-    background-color: #6d45cc;
-    border-color: #6d45cc;
+    color: rgb(178, 174, 174);
+    background-color: #431c43;
+    border-color: #431c43;
   }
 
   .login {
@@ -185,7 +190,7 @@ li {
     }
 
     input#chatroom_name {
-      border: 1px solid #6d45cc;
+      border: 1px solid #431c43;
     }
 
     .new-room {
@@ -199,18 +204,18 @@ li {
   }
 
   .left-side {
-    background-color: #6d45cc;
-    color: #fff;
+    background-color: #431c43;
+    color: #ff9900;
     height: 100vh;
     position: fixed;
     top: 57px;
     left: 0;
     padding-top: 20px;
     overflow: auto;
+    font-family: $font-family-light;
 
     .badge {
       color: red;
-      // display: none;
     }
 
     .hide-badge {
@@ -219,10 +224,6 @@ li {
 
     .show-badge {
       display: inline-block;
-    }
-    
-    .scroll {
-      // height: auto;
     }
 
     .nothing {
