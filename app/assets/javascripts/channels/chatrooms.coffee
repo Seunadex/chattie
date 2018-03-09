@@ -28,22 +28,15 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
           new Notification(data.username, { body: data.body })
       else
         App.last_read.update(data.chatroom_id)
-      
-      current_chatroom.append("""
-      <div class="message-container">
-        <div class="message-owner">
-          <strong>#{data.username}</strong>
-          <span class="timestamp">#{formatTime(time)}</span>
-        </div>
-        <div class="message-content">#{data.body}</div>
-      </div>
-      """)
+
+      current_chatroom.append(data.message)
       messages_to_bottom = ->
         scroll = $('#message-wrapper')
         scroll.scrollTop(scroll.prop("scrollHeight"))
       messages_to_bottom()
     else
       $(".chatroom-#{data.chatroom_id}-span").removeClass('hide-badge').addClass('show-badge')
+
   send_message: (chatroom_id, message) ->
     @perform "send_message", { chatroom_id: chatroom_id, body: message }
   
