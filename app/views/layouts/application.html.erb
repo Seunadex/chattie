@@ -17,7 +17,10 @@
         <div class="col-sm-2 left-side">
           <div class="scroll">
           <% if user_signed_in? %>
-            <h6>Chatrooms</h6>
+           <div class="chatroom-header"> <span>Chatrooms</span><p><%= link_to new_chatroom_path do %>
+              <%= fa_icon "plus-circle add-icon" %>
+            <% end %></p>
+            </div>
                 <% if current_user.chatrooms.length > 0 %>
                   <% current_user.chatrooms.each do |chatroom| %>
                     <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %><span class="badge badge-default hide-badge chatroom-<%= chatroom.id %>-span">New</span></div>

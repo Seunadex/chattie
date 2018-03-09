@@ -139,8 +139,8 @@ textarea#message_body.form-control {
 
 textarea {
   -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+  -moz-box-shadow: none;
+   box-shadow: none;
 }
 
 li {
@@ -226,6 +226,20 @@ a.list:hover {
       display: inline-block;
     }
 
+    .chatroom-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .fa-add-icon {
+        color: #ff9900;
+      }
+    }
+
+    // .chatroom-header {
+    //   display: inline;
+    // }
+
     .nothing {
       font-size: 14px;
       color: #b5b8b9;
@@ -237,8 +251,14 @@ a.list:hover {
     }
 
     a {
+      text-decoration: none;
       color: rgba(255, 255, 255, 0.734);
     }
+
+    .list:hover {
+      background-color: #151415;
+    }
+
   }
 
   .right-side {
