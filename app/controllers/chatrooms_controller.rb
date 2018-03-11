@@ -16,6 +16,7 @@ class ChatroomsController < ApplicationController
       chatroom_id: @chatroom.id
     )
     @current_chatroom_user = ChatroomUser.get_chatroom_users(params[:id]).count
+    @chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
   end
 
   # GET /chatrooms/new

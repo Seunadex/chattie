@@ -31,4 +31,8 @@ class Chatroom < ApplicationRecord
       user_id: current_user_id
     ).first_or_create
   end
+
+  def self.get_chatroom_purpose(set_chatroom)
+    set_chatroom.purpose
+  end
 end
