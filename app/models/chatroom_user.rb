@@ -7,4 +7,8 @@ class ChatroomUser < ApplicationRecord
   def set_last_read
     self.last_read_at = Time.zone.now
   end
+
+  def self.get_chatroom_users(chatroom_id)
+    ChatroomUser.joins(:chatroom).where('chatroom_id = ?', chatroom_id)
+  end
 end

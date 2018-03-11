@@ -277,13 +277,23 @@ a.list:hover {
       margin-top: 30px;
       width: 100%;
       background-color: inherit;
+
+      .users {
+        font-family: $font-family-light;
+        font-size: 11px;
+        margin-bottom: 20px;
+      }
+
+      hr {
+        margin-top: -1rem;
+      }
     }
 
     #message-wrapper {
       flex: 5;
-      height: 500px;
+      height: 460px;
       overflow: auto;
-      margin-top: 70px;
+      margin-top: 90px;
       padding-bottom: 10px;
 
       @media screen and (min-width: 1600px) {

@@ -15,6 +15,7 @@ class ChatroomsController < ApplicationController
     @chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
+    @current_chatroom_user = ChatroomUser.get_chatroom_users(params[:id]).count
   end
 
   # GET /chatrooms/new

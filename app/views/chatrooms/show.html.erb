@@ -1,8 +1,9 @@
 
 <div class="name-header">
   <p>
-    <strong><%= @chatroom.name.capitalize %></strong>
+    <strong><%= @chatroom.name.capitalize %></strong> </br ><span class="users"><%= fa_icon "users" %> <%= @current_chatroom_user %></span>
   </p>
+  <hr>
 </div>
 
 <% unread_messages = false %>
