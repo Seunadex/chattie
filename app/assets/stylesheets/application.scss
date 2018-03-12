@@ -17,6 +17,36 @@
 @import 'base';
 
 
+.btn {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0;
+}
+
+.submit {
+  &:hover{
+    color: #431c43;
+    background-color: #fff;
+    border: 1px solid #431c43;
+  }
+}
+
+.close-btn {
+  padding: 0.25rem 0.75rem;
+  background-color: none;
+  border: 1px solid #431c43;
+  margin-right: 0.1rem;
+  color: #431c43;
+
+  &:hover {
+    color: #fff;
+    background-color: #431c43;
+    transition: ease
+  }
+}
+.btn-wrapper {
+  text-align: right;
+}
+
 .strike {
   display: block;
   text-align: center;
@@ -163,9 +193,6 @@ a.list:hover {
   font-size: 11px;
 }
 
-
-
-  
   .nav-link,
   .navbar-brand {
     color: #431c43 !important;
@@ -176,7 +203,7 @@ a.list:hover {
    margin-top: 3em;
 
    .btn-primary {
-    color: rgb(178, 174, 174);
+    color: rgb(241, 239, 239);
     background-color: #431c43;
     border-color: #431c43;
   }
@@ -280,12 +307,25 @@ a.list:hover {
 
       .users {
         font-family: $font-family-light;
-        font-size: 11px;
+        font-size: 12px;
         margin-bottom: 20px;
       }
 
       hr {
         margin-top: -1rem;
+      }
+
+      .purpose-btn {
+        border: none ;
+        background: none;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+          border: 1px solid grey;
+          background-color: rgba(242, 247, 242, 0.709);
+          border-radius: 3px;
+        }
       }
     }
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  post "/chatrooms/:id" => "chatrooms#update_purpose"
 
   resources :chatrooms do
     resource :chatroom_users

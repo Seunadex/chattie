@@ -2,14 +2,10 @@ class ChatroomsController < ApplicationController
   before_action :set_chatroom, only: %i(show edit update destroy)
   before_action :get_all_users
 
-  # GET /chatrooms
-  # GET /chatrooms.json
   def index
     @chatrooms = Chatroom.public_channels
   end
 
-  # GET /chatrooms/1
-  # GET /chatrooms/1.json
   def show
     @messages = @chatroom.messages.order(created_at: :desc).limit(100).reverse
     @chatroom_user = current_user.chatroom_users.find_by(
@@ -19,16 +15,12 @@ class ChatroomsController < ApplicationController
     @chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
   end
 
-  # GET /chatrooms/new
   def new
     @chatroom = Chatroom.new
   end
 
-  # GET /chatrooms/1/edit
   def edit; end
 
-  # POST /chatrooms
-  # POST /chatrooms.json
   def create
     @chatroom = Chatroom.new(chatroom_params)
 
@@ -50,8 +42,6 @@ class ChatroomsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /chatrooms/1
-  # PATCH/PUT /chatrooms/1.json
   def update
     respond_to do |format|
       if @chatroom.update(chatroom_params)
@@ -70,8 +60,6 @@ class ChatroomsController < ApplicationController
     end
   end
 
-  # DELETE /chatrooms/1
-  # DELETE /chatrooms/1.json
   def destroy
     @chatroom.destroy
     respond_to do |format|
@@ -81,6 +69,13 @@ class ChatroomsController < ApplicationController
       end
       format.json { head :no_content }
     end
+  end
+
+  def update_purpose
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.update_attribute(:purpose, params[:purpose])
+    redirect_to chatroom_path,
+                notice: "Topic has been set."
   end
 
   private
@@ -100,8 +95,10 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.get_chatroom(params[:id])
   end
 
-  # Never trust parameters from the scary internet,
-  # only allow the white list through.
+  def purpose_params
+    params.require(:chatroom).permit(:purpose)
+  end
+
   def chatroom_params
     params.require(:chatroom).permit(:name)
   end

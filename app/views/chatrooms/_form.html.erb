@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+    <%= select_tag "acess", "<option>Private</option><option selected='selected'>Public</option>".html_safe %>
     <%= form.label :name %>
     <%= form.text_field :name, id: :chatroom_name, autofocus: true %>
   </div>
