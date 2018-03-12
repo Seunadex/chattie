@@ -22,7 +22,7 @@
             <% end %></p>
             </div>
                 <% if current_user.chatrooms.length > 0 %>
-                  <% current_user.chatrooms.each do |chatroom| %>
+                  <% show_public_channels.each do |chatroom| %>
                     <div class="list"><%= fa_icon "hashtag bullet" %> <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %><span class="badge badge-default hide-badge chatroom-<%= chatroom.id %>-span">New</span></div>
                   <% end %>
                 <% else %>

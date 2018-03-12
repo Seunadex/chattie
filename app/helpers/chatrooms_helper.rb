@@ -23,4 +23,12 @@ module ChatroomsHelper
       </button>".html_safe
     end
   end
+
+  def show_public_channels
+    Chatroom.public_channels
+  end
+
+  def show_user_count
+    ChatroomUser.get_chatroom_users(params[:id]).count
+  end
 end
