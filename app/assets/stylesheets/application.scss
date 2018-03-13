@@ -199,6 +199,13 @@ a.list:hover {
     font-weight: bold;
   }
 
+  .navbar-brand {
+
+    @media screen and (max-width: 450px) {
+      text-align: center;
+    }
+  }
+
  .main {
    margin-top: 3em;
 
@@ -240,6 +247,10 @@ a.list:hover {
     padding-top: 20px;
     overflow: auto;
     font-family: $font-family-light;
+
+    @media screen and (max-width: 450px) {
+      display: none;
+    }
 
     .badge {
       color: red;

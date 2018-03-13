@@ -24,8 +24,8 @@ module ChatroomsHelper
     end
   end
 
-  def show_public_channels
-    Chatroom.public_channels
+  def show_public_channels(current_user)
+    current_user.chatrooms.where('direct_message = ?', false)
   end
 
   def show_user_count

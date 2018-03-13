@@ -1,0 +1,38 @@
+<div class="scroll">
+  <% if user_signed_in? %>
+   <div class="chatroom-header"> <span>Chatrooms</span><p><%= link_to new_chatroom_path do %>
+      <%= fa_icon "plus-circle add-icon" %>
+    <% end %></p>
+    </div>
+      <% if show_public_channels(current_user) %>
+        <% show_public_channels(current_user).each do |chatroom| %>
+          <div class="list">
+            <%= fa_icon "hashtag bullet" %>
+            <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %>
+            <span class="badge badge-default hide-badge chatroom-<%= chatroom.id %>-span">New</span>
+          </div>
+        <% end %>
+        <% else %>
+          <div class="nothing">
+            <p>No Channels yet!!!</p>
+          </div>
+        <% end %>
+    </br >
+    <div class="direct-message">
+    <h6>Direct Messages</h6>
+      <% if (get_other_users).length > 0 %>
+        <% (get_other_users).each do |user| %>
+          <div class="list">
+            <%= fa_icon "circle" %>
+            <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %>
+            <span class="badge badge-default hide-badge chatroom-<%= user.id %>-span">New</span>
+          </div>
+        <% end %>
+      <% else %>
+       <div class="nothing">
+        <p>Nobody here yet!!!</p>
+      </div>
+      <% end %>
+    <% end %>
+    </div>
+</div>
