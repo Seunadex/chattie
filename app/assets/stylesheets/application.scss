@@ -16,7 +16,6 @@
 @import "font-awesome";
 @import 'base';
 
-
 .btn {
   padding: 0.25rem 0.75rem;
   border-radius: 0;
@@ -145,6 +144,11 @@ input#user_login.form-control,
     flex-wrap: wrap;
   }
 
+  .fa {
+    color: #7a237a;
+    font-size: 14px;
+  }
+
   .no-room {
     margin-top: 50px;
   }
@@ -183,13 +187,8 @@ a.list:hover {
   background-color: #4f314f; 
 }
 
-.fa {
-  color: #7a237a;
-  font-size: 14px;
-}
-
 .fa-bullet {
-  color: rgba(157, 154, 154, 0.655);
+  // color: rgba(157, 154, 154, 0.655);
   font-size: 11px;
 }
 
@@ -269,8 +268,12 @@ a.list:hover {
       flex-direction: row;
       justify-content: space-between;
 
-      .fa-add-icon {
-        color: #ff9900;
+      .fa-add-icon, .fa-bullet {
+        color: #ff9900dd;
+      }
+
+      .fa-circle {
+        color: #b5b8b9 !important;
       }
     }
 

@@ -9,7 +9,7 @@ class Chatroom < ApplicationRecord
   scope :direct_messages, -> { where(direct_message: true) }
 
   def self.get_chatroom(chatroom_id)
-    Chatroom.find(chatroom_id)
+    find(chatroom_id)
   end
 
   def self.direct_message_for_users(users)
@@ -35,4 +35,9 @@ class Chatroom < ApplicationRecord
   def self.get_chatroom_purpose(set_chatroom)
     set_chatroom.purpose
   end
+
+  def self.get_chatroom_access(id)
+    find(id).access
+  end
+
 end
