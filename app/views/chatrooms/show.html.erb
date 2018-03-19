@@ -15,7 +15,9 @@
     <% unread_messages = true %>
     <div class="strike"><span>New Messages</span></div>
     <% end %>
-    <%= render message %>
+      <% cache message do %>
+        <%= render message %>
+      <% end %>
     <% end %>
   </div>
   

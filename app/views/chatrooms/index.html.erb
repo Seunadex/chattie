@@ -2,7 +2,7 @@
 <div class="index-page">
 <%= link_to 'New Chatroom', new_chatroom_path, { :class=>"btn btn-primary new-chatroom-btn" } %>
 <h3>Chatrooms</h3>
-
+<% cache @chatrooms do %>
 <div class="room-container">
   <% if @chatrooms.length > 0 %>
     <% @chatrooms.each do |chatroom| %>
@@ -36,4 +36,5 @@
       </div>
   <% end %>
   </div>
+<% end %>
 </div>
