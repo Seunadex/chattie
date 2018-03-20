@@ -14,7 +14,7 @@ class Chatroom < ApplicationRecord
 
   def self.direct_message_for_users(users)
     user_name = users.map(&:username).sort
-    name = "#{user_name.join(' and ')}"
+    name = user_name.join(" and ").to_s
 
     if chatroom = direct_messages.where(name: name).first
       chatroom
@@ -39,5 +39,4 @@ class Chatroom < ApplicationRecord
   def self.get_chatroom_access(id)
     find(id).access
   end
-
 end

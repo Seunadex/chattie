@@ -13,19 +13,21 @@ module ChatroomsHelper
 
   def check_purpose
     if @chatroom_purpose && !direct_message(@chatroom.id)
-      "<button class='purpose-btn' data-toggle='modal' data-target='#exampleModal'>
+      "<button class='purpose-btn' data-toggle='modal'
+      data-target='#exampleModal'>
        </i> #{@chatroom_purpose} </button>".html_safe
     elsif direct_message(@chatroom.id)
-      'Direct Conversation'
+      "Direct Conversation"
     else
-      "<button class='purpose-btn' data-toggle='modal' data-target='#exampleModal' >
+      "<button class='purpose-btn' data-toggle='modal'
+      data-target='#exampleModal' >
         <i class='fa fa-pencil'> </i>Add a purpose
       </button>".html_safe
     end
   end
 
   def show_public_channels(current_user)
-    current_user.chatrooms.where('direct_message = ?', false)
+    current_user.chatrooms.where("direct_message = ?", false)
   end
 
   def show_user_count
@@ -33,10 +35,10 @@ module ChatroomsHelper
   end
 
   def publicly_accessible?(chatroom_id)
-    if Chatroom.get_chatroom_access(chatroom_id) == 'public'
-      'hashtag bullet'
+    if Chatroom.get_chatroom_access(chatroom_id) == "public"
+      "hashtag bullet"
     else
-      'lock bullet'
+      "lock bullet"
     end
   end
 end
