@@ -275,7 +275,6 @@ a.list:hover {
 
       .fa-circle {
         color: #b5b8b9 !important;
-        // font-size: 12px !important;
       }
     }
 
@@ -314,7 +313,6 @@ a.list:hover {
       background-color: rgba(193, 191, 191, 0.442);
     }
 
-
     .container-wrapper {
       display: flex;
       flex-direction: row;
@@ -328,11 +326,21 @@ a.list:hover {
         border-left: 1px solid #cac5c5;
         height: calc(100vh - 30px);
         box-sizing: border-box;
+        overflow: auto;
+        padding-bottom: 5em;
 
-        h6 {
-          padding: 30px 10px;
+        .about-header {
+          padding: 26px 10px;
           text-align: left;
-          background-color: #dfe6e9
+          background-color: #dfe6e9;
+          font-family: $font-family-bold;
+          position: fixed;
+          width: 100%;
+          border-bottom: 1px solid #cac5c5;
+        }
+
+        .about-body {
+          margin-top: 4.95em;
         }
 
         .accordion {
@@ -341,14 +349,13 @@ a.list:hover {
           cursor: pointer;
           padding: 10px;
           width: 100%;
-          border-bottom: 1px solid #cac5c5;
-          border-top: none;
+          border-bottom: none;
+          border-top: 1px solid #cac5c5;
           border-left: none;
           text-align: left;
           outline: none;
           font-size: 15px;
           transition: 0.3s;
-          margin-bottom: 5px;
 
           .fa-star {
             color: #7a237a
@@ -372,7 +379,7 @@ a.list:hover {
       }
       
       .accordion:after {
-          content: '\002B';
+          content: '\276F';
           color: #777;
           font-weight: bold;
           float: right;
@@ -389,6 +396,12 @@ a.list:hover {
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.3s ease-out;
+          font-family: $font-family-light;
+          font-size: 13px;
+
+          .purpose-panel {
+            margin-bottom: 10px;
+          }
 
           .fa-circle {
             font-size: 10px;
@@ -396,6 +409,7 @@ a.list:hover {
 
           p {
             margin-bottom: 0;
+            font-family: $font-family-regular;
           }
         }
       }
@@ -405,7 +419,7 @@ a.list:hover {
       position: fixed;
       flex: 1;
       margin-top: 30px;
-      width: 61%;
+      width: 59.5%;
       background-color: inherit;
 
       .users {
@@ -434,7 +448,7 @@ a.list:hover {
 
     #message-wrapper {
       flex: 5;
-      height: 480px;
+      height: 475px;
       overflow: auto;
       margin-top: 100px;
       padding-bottom: 10px;
@@ -457,6 +471,10 @@ a.list:hover {
       .message-container {
         margin-bottom: 1em;
 
+        &:hover {
+          background-color: #b1c9d84b;
+        }
+
         .message-owner {
           font-size: 15px;
           font-family: $font-family-medium;
@@ -473,7 +491,7 @@ a.list:hover {
       flex: 1;
       position: fixed;
       bottom: 20px;
-      width: 55%
+      width: 58%
     }
   }
 
@@ -486,6 +504,4 @@ a.list:hover {
    right: 100px;
    z-index: 1;
  }
-
-
 

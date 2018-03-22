@@ -39,4 +39,12 @@ class Chatroom < ApplicationRecord
   def self.get_chatroom_access(id)
     find(id).access
   end
+
+  def timestamp_1
+    created_at.strftime("%B %d, %Y")
+  end
+
+  def timestamp_2
+    created_at.strftime("%I:%M%p")
+  end
 end

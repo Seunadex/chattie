@@ -15,6 +15,7 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :chatroom_name, autofocus: true %>
     <%= form.select "access", "<option value='private'>Private</option><option value='public' selected>Public</option>".html_safe %>
+    <%= form.hidden_field :creator, :value => current_user.username %>
   </div>
 
   <div class="actions">

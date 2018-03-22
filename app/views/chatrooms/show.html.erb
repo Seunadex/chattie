@@ -1,5 +1,5 @@
 
-<div class='container-wrapper'>
+<div class='container-wrapper' id='container-wrapp'>
   <div class='message-side'>
     <div class="name-header">
       <p>
@@ -27,20 +27,27 @@
     <% end %>
     <%= render "chatrooms/add_purpose" %>
   </div>
-  <div class='channel-details'>
-    <h6>About <%= fa_icon publicly_accessible?(@chatroom.id) %><%= @chatroom.name %></h6>
-
-    <button class="accordion"><%= fa_icon "info-circle" %> Channel Details</button>
-    <div class="panel">
-      <p>Purpose</p>
-      <%= check_purpose %>
-
-      <p>Created</p>
-      <p>Created by on </p>
+  <div class='channel-details' id="channel-detail">
+    <div class='about-header'>
+      <h6>About <%= fa_icon publicly_accessible?(@chatroom.id) %><%= @chatroom.name %></h6>
     </div>
 
-    <button class="accordion"><%= fa_icon "user" %> <%= show_user_count %> Members</button>
+  <div class='about-body'>
+    <button class="accordion"><%= fa_icon "info-circle" %> Channel Details</button>
     <div class="panel">
+      <div class='purpose-panel'>
+        <p><strong>Purpose</strong></p>
+        <%= check_purpose %>
+      </div>
+
+      <div class='purpose-panel'>
+        <p><strong>Created</strong></p>
+        <p>Created by <em><%= @chatroom.creator %></em> on <%= @chatroom.timestamp_1 %> at <%= @chatroom.timestamp_2 %></p>
+      </div>
+    </div>
+
+    <button class="accordion" id="member"><%= fa_icon "user" %> <%= show_user_count %> Members</button>
+    <div class="panel  purpose-panel">
       <% cache show_members do %>
         <% show_members.each do |member| %>
           <% cache member do %>
@@ -64,6 +71,7 @@
     <button class="accordion"><%= fa_icon "folder-open" %> Shared Files</button>
     <div class="panel">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
     </div>
   </div>
 </div>

@@ -11,6 +11,4 @@ class ChatroomUser < ApplicationRecord
   def self.get_chatroom_users(chatroom_id)
     ChatroomUser.joins(:chatroom, :user).where("chatroom_id = ?", chatroom_id)
   end
-
-
 end
