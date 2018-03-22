@@ -7,11 +7,17 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    @messages = @chatroom.messages.order(created_at: :desc).limit(100).reverse
-    @chatroom_user = current_user.chatroom_users.find_by(
+    messages = @chatroom.messages.order(created_at: :desc).limit(200).reverse
+    chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
-    @chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
+    chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
+
+    @chatroom_info = {
+      messages: messages,
+      chatroom_user: chatroom_user,
+      purpose: chatroom_purpose,
+    }
   end
 
   def new
@@ -27,15 +33,13 @@ class ChatroomsController < ApplicationController
       if @chatroom.save
         join_room(@chatroom)
         format.html do
-          redirect_to @chatroom,
-                      notice: "Chatroom was successfully created."
+          redirect_to @chatroom, notice: "Chatroom was successfully created."
         end
         format.json { render :show, status: :created, location: @chatroom }
       else
         format.html { render :new }
         format.json do
-          render json: @chatroom.errors,
-                 status: :unprocessable_entity
+          render json: @chatroom.errors, status: :unprocessable_entity
         end
       end
     end
@@ -45,15 +49,13 @@ class ChatroomsController < ApplicationController
     respond_to do |format|
       if @chatroom.update(chatroom_params)
         format.html do
-          redirect_to @chatroom,
-                      notice: "Chatroom was successfully updated."
+          redirect_to @chatroom, notice: "Chatroom was successfully updated."
         end
         format.json { render :show, status: :ok, location: @chatroom }
       else
         format.html { render :edit }
         format.json do
-          render json: @chatroom.errors,
-                 status: :unprocessable_entity
+          render json: @chatroom.errors, status: :unprocessable_entity
         end
       end
     end
@@ -63,8 +65,7 @@ class ChatroomsController < ApplicationController
     @chatroom.destroy
     respond_to do |format|
       format.html do
-        redirect_to chatrooms_url,
-                    notice: "Chatroom was successfully deleted."
+        redirect_to chatrooms_url, notice: "Chatroom was successfully deleted."
       end
       format.json { head :no_content }
     end
@@ -73,8 +74,7 @@ class ChatroomsController < ApplicationController
   def update_purpose
     @chatroom = Chatroom.find(params[:id])
     @chatroom.update_attribute(:purpose, params[:purpose])
-    redirect_to chatroom_path,
-                notice: "Topic has been set."
+    redirect_to chatroom_path, notice: "Topic has been set."
   end
 
   private

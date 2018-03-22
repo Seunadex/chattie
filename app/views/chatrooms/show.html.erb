@@ -12,7 +12,7 @@
     <% unread_messages = false %>
 
     <div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' id="message-wrapper">
-      <% @messages.each do |message| %>
+      <% @chatroom_info[:messages].each do |message| %>
         <% if !unread_messages && check_message(message) %>
           <% unread_messages = true %>
           <div class="strike"><span>New Messages</span></div>
