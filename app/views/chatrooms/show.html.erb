@@ -1,29 +1,72 @@
 
-<div class="name-header">
-  <p>
-    <strong><%= @chatroom.name.capitalize %></strong> </br >
-    <span class="users"><%= fa_icon "users" %> <%= show_user_count %>  |  <%= check_purpose %></span>
-  </p>
-  <hr>
+<div class='container-wrapper'>
+  <div class='message-side'>
+    <div class="name-header">
+      <p>
+        <strong><%= @chatroom.name.capitalize %></strong> </br >
+        <span class="users"><%= fa_icon "users" %> <%= show_user_count %>  |  <%= check_purpose %></span>
+      </p>
+      <hr>
+    </div>
+
+    <% unread_messages = false %>
+
+    <div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' id="message-wrapper">
+      <% @messages.each do |message| %>
+        <% if !unread_messages && check_message(message) %>
+          <% unread_messages = true %>
+          <div class="strike"><span>New Messages</span></div>
+        <% end %>
+        <% cache message do %>
+          <%= render message %>
+        <% end %>
+      <% end %>
+    </div>
+    <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
+    <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name.split(' and ')[0]}" %>
+    <% end %>
+    <%= render "chatrooms/add_purpose" %>
+  </div>
+  <div class='channel-details'>
+    <h6>About <%= fa_icon publicly_accessible?(@chatroom.id) %><%= @chatroom.name %></h6>
+
+    <button class="accordion"><%= fa_icon "info-circle" %> Channel Details</button>
+    <div class="panel">
+      <p>Purpose</p>
+      <%= check_purpose %>
+
+      <p>Created</p>
+      <p>Created by on </p>
+    </div>
+
+    <button class="accordion"><%= fa_icon "user" %> <%= show_user_count %> Members</button>
+    <div class="panel">
+      <% cache show_members do %>
+        <% show_members.each do |member| %>
+          <% cache member do %>
+            <p><%= fa_icon "circle" %> <%= member %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <button class="accordion"><%= fa_icon "star" %> Highlights</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+
+    <button class="accordion"><%= fa_icon "map-pin" %> Pinned Items</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion"><%= fa_icon "folder-open" %> Shared Files</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
 </div>
 
-<% unread_messages = false %>
 
-<div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' id="message-wrapper">
-    <% @messages.each do |message| %>
-    <% if !unread_messages && check_message(message) %>
-    <% unread_messages = true %>
-    <div class="strike"><span>New Messages</span></div>
-    <% end %>
-      <% cache message do %>
-        <%= render message %>
-      <% end %>
-    <% end %>
-  </div>
-  
-  
-  <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
-  <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name.split(' and ')[0]}" %>
-  <% end %>
-  <%= render "chatrooms/add_purpose" %>
 

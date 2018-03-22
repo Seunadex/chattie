@@ -34,6 +34,10 @@ module ChatroomsHelper
     ChatroomUser.get_chatroom_users(params[:id]).count
   end
 
+  def show_members
+    ChatroomUser.get_chatroom_users(params[:id]).pluck(:username)
+  end
+
   def publicly_accessible?(chatroom_id)
     if Chatroom.get_chatroom_access(chatroom_id) == "public"
       "hashtag bullet"

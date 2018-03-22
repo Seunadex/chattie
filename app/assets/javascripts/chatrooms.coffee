@@ -7,6 +7,20 @@ $(document).ready ->
     scroll.scrollTop(scroll.prop("scrollHeight"))
   messages_to_bottom()
 
+  acc = document.getElementsByClassName('accordion')
+  i = 0
+  while i < acc.length
+    acc[i].addEventListener 'click', ->
+      console.log acc
+      @classList.toggle 'active'
+      panel = @nextElementSibling
+      if panel.style.maxHeight
+        panel.style.maxHeight = null
+      else
+        panel.style.maxHeight = panel.scrollHeight + 'px'
+      return
+    i++
+
 handleVisibilityChange = ->
   $strike = $(".strike")
   if $strike.length > 0
