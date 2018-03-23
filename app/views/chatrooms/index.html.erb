@@ -9,12 +9,20 @@
     <div class="card">
       <%= chatroom.name %>
         <div class="icon-link">
-        <p><%= link_to chatroom  do %>
-          <%= fa_icon "eye" %>
-        <% end %></p>
-        <p><%= link_to edit_chatroom_path(chatroom) do %>
-          <%= fa_icon "edit" %>
-        <% end %></p>
+        <% if check_member(chatroom.id) %>
+          <p>
+            <%= link_to chatroom  do %>
+              <%= fa_icon "eye" %>
+            <% end %>
+          </p>
+
+          <p>
+            <%= link_to edit_chatroom_path(chatroom) do %>
+              <%= fa_icon "edit" %>
+            <% end %>
+          </p>
+        <% end %>
+
         <% if current_user.admin? %>
           <p><%= link_to chatroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <%= fa_icon "trash" %>

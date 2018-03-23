@@ -16,7 +16,7 @@ class ChatroomsController < ApplicationController
     @chatroom_info = {
       messages: messages,
       chatroom_user: chatroom_user,
-      purpose: chatroom_purpose,
+      purpose: chatroom_purpose
     }
   end
 

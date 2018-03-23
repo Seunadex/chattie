@@ -12,10 +12,10 @@ module ChatroomsHelper
   end
 
   def check_purpose
-    if @chatroom_purpose && !direct_message(@chatroom.id)
+    if @chatroom_info[:purpose] && !direct_message(@chatroom.id)
       "<button class='purpose-btn' data-toggle='modal'
       data-target='#exampleModal'>
-       </i> #{@chatroom_purpose} </button>".html_safe
+       </i> #{@chatroom_info[:purpose]} </button>".html_safe
     elsif direct_message(@chatroom.id)
       "Direct Conversation"
     else
@@ -44,5 +44,9 @@ module ChatroomsHelper
     else
       "lock bullet"
     end
+  end
+
+  def check_member(chatroom_id)
+    !ChatroomUser.member?(chatroom_id, current_user.id).empty?
   end
 end
