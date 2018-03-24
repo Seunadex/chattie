@@ -8,6 +8,6 @@ class DirectMessagesController < ApplicationController
     @chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
-    render "chatrooms/show"
+    redirect_to @chatroom
   end
 end
