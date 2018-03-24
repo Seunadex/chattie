@@ -1,6 +1,6 @@
 module ChatroomsHelper
   def check_message(message)
-    @chatroom_info[:chatroom_user].last_read_at < message.created_at
+    @chatroom_user.last_read_at < message.created_at
   end
 
   def get_other_users
@@ -12,10 +12,10 @@ module ChatroomsHelper
   end
 
   def check_purpose
-    if @chatroom_info[:purpose] && !direct_message(@chatroom.id)
+    if @chatroom_purpose && !direct_message(@chatroom.id)
       "<button class='purpose-btn' data-toggle='modal'
       data-target='#exampleModal'>
-       </i> #{@chatroom_info[:purpose]} </button>".html_safe
+       </i> #{@chatroom_purpose} </button>".html_safe
     elsif direct_message(@chatroom.id)
       "Direct Conversation"
     else
@@ -30,12 +30,12 @@ module ChatroomsHelper
     current_user.chatrooms.where("direct_message = ?", false)
   end
 
-  def show_user_count
-    ChatroomUser.get_chatroom_users(params[:id]).count
+  def show_user_count(chatroom_id)
+    ChatroomUser.member?(chatroom_id).count
   end
 
-  def show_members
-    ChatroomUser.get_chatroom_users(params[:id]).pluck(:username)
+  def show_members(chatroom_id)
+    ChatroomUser.member?(chatroom_id).pluck(:username)
   end
 
   def publicly_accessible?(chatroom_id)
@@ -47,6 +47,14 @@ module ChatroomsHelper
   end
 
   def check_member(chatroom_id)
-    !ChatroomUser.member?(chatroom_id, current_user.id).empty?
+    !ChatroomUser.member?(chatroom_id).empty?
+  end
+
+  def channel_details
+    if Chatroom.check_dm(@chatroom.id)
+      'this conversation'
+    else
+      "#{@chatroom.name}"
+    end
   end
 end

@@ -8,11 +8,7 @@ class ChatroomUser < ApplicationRecord
     self.last_read_at = Time.zone.now
   end
 
-  def self.get_chatroom_users(chatroom_id)
+  def self.member?(chatroom_id)
     joins(:chatroom, :user).where("chatroom_id = ?", chatroom_id)
-  end
-
-  def self.member?(chatroom_id, user_id)
-    where(["chatroom_id = ? and user_id = ?", chatroom_id, user_id])
   end
 end

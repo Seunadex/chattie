@@ -4,7 +4,7 @@
     <div class="name-header">
       <p>
         <strong><%= @chatroom.name.capitalize %></strong> </br >
-        <span class="users"><%= fa_icon "users" %> <%= show_user_count %>  |  <%= check_purpose %></span>
+        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  |  <%= check_purpose %></span>
       </p>
       <hr>
     </div>
@@ -12,7 +12,7 @@
     <% unread_messages = false %>
 
     <div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' id="message-wrapper">
-      <% @chatroom_info[:messages].each do |message| %>
+      <% @messages.each do |message| %>
         <% if !unread_messages && check_message(message) %>
           <% unread_messages = true %>
           <div class="strike"><span>New Messages</span></div>
@@ -29,7 +29,7 @@
   </div>
   <div class='channel-details' id="channel-detail">
     <div class='about-header'>
-      <h6>About <%= fa_icon publicly_accessible?(@chatroom.id) %><%= @chatroom.name %></h6>
+      <h6>About <%= channel_details %></h6>
     </div>
 
   <div class='about-body'>
@@ -46,10 +46,10 @@
       </div>
     </div>
 
-    <button class="accordion" id="member"><%= fa_icon "user" %> <%= show_user_count %> Members</button>
+    <button class="accordion" id="member"><%= fa_icon "user" %> <%= show_user_count(@chatroom.id) %> Members</button>
     <div class="panel  purpose-panel">
-      <% cache show_members do %>
-        <% show_members.each do |member| %>
+      <% cache show_members(@chatroom.id) do %>
+        <% show_members(@chatroom.id).each do |member| %>
           <% cache member do %>
             <p><%= fa_icon "circle" %> <%= member %></p>
           <% end %>

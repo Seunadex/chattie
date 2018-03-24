@@ -7,17 +7,17 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    messages = @chatroom.messages.order(created_at: :desc).limit(200).reverse
-    chatroom_user = current_user.chatroom_users.find_by(
+    @messages = @chatroom.messages.order(created_at: :desc).limit(200).reverse
+    @chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
-    chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
+    @chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
 
-    @chatroom_info = {
-      messages: messages,
-      chatroom_user: chatroom_user,
-      purpose: chatroom_purpose
-    }
+    # @chatroom_info = {
+    #   messages: messages,
+    #   chatroom_user: chatroom_user,
+    #   purpose: chatroom_purpose
+    # }
   end
 
   def new

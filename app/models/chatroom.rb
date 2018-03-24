@@ -47,4 +47,8 @@ class Chatroom < ApplicationRecord
   def timestamp_2
     created_at.strftime("%I:%M%p")
   end
+
+  def self.check_dm(id)
+    find(id).direct_message
+  end
 end
