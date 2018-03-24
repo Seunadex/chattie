@@ -16,7 +16,7 @@ module ChatroomsHelper
       "<button class='purpose-btn' data-toggle='modal'
       data-target='#exampleModal'>
        </i> #{@chatroom_purpose} </button>".html_safe
-    elsif direct_message(@chatroom.id)
+    elsif direct_message(@chatroom.id) && @chatroom_purpose.nil?
       "Direct Conversation"
     else
       "<button class='purpose-btn' data-toggle='modal'
