@@ -7,19 +7,15 @@ $(document).ready ->
     scroll.scrollTop(scroll.prop("scrollHeight"))
   messages_to_bottom()
 
-  handleAccordionToggle = ->
-    $('.accordion').unbind('click')
-    $('.accordion').on 'click', ->
-      @classList.toggle 'active'
-      panel = @nextElementSibling
-      if panel.style.maxHeight
-        panel.style.maxHeight = null
-      else
-        panel.style.maxHeight = panel.scrollHeight + 'px'
-
-  setInterval (->
-    handleAccordionToggle()
-  ), 1000
+handleAccordionToggle = ->
+  $('.accordion').unbind('click')
+  $('.accordion').on 'click', ->
+    @classList.toggle 'active'
+    panel = @nextElementSibling
+    if panel.style.maxHeight
+      panel.style.maxHeight = null
+    else
+      panel.style.maxHeight = (panel.scrollHeight + 100) + 'px'
 
 
 handleVisibilityChange = ->
@@ -31,6 +27,20 @@ handleVisibilityChange = ->
 
 
 $(document).on "turbolinks:load", ->
+  handleAccordionToggle()
+
+  $('#purpose-panel').hover (->
+    $('.hide-edit-btn').show()
+    return
+  ), ->
+    $('.hide-edit-btn').hide()
+    return
+
+  $('.hide-edit-btn').click ->
+    $('.purpose').hide()
+    $('#purpose-form').show()
+    $('#purpose-panel').css('max-height', '300px')
+
   $(document).on 'click', handleVisibilityChange
 
   $("#new_message").on "keypress", (event) ->

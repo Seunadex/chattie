@@ -11,19 +11,36 @@ module ChatroomsHelper
     Chatroom.find(id).direct_message
   end
 
+  # def check_purpose
+  #   if @chatroom_purpose && !direct_message(@chatroom.id)
+  #     "<button class='purpose-btn' data-toggle='modal'
+  #     data-target='#exampleModal'>
+  #      </i> #{@chatroom_purpose} </button>".html_safe
+  #   elsif direct_message(@chatroom.id) && @chatroom_purpose.nil?
+  #     "Direct Conversation"
+  #   else
+  #     "<button class='purpose-btn' data-toggle='modal'
+  #     data-target='#exampleModal' >
+  #       <i class='fa fa-pencil'> </i>Add a topic
+  #     </button>".html_safe
+  #   end
+  # end
+
   def check_purpose
-    if @chatroom_purpose && !direct_message(@chatroom.id)
-      "<button class='purpose-btn' data-toggle='modal'
-      data-target='#exampleModal'>
-       </i> #{@chatroom_purpose} </button>".html_safe
-    elsif direct_message(@chatroom.id) && @chatroom_purpose.nil?
-      "Direct Conversation"
+    if !direct_message(@chatroom.id)
+      "<div class='purpose-panel' id='purpose-panel'>
+        <div class='purpose'>
+          <span><strong>Purpose</strong></span> <span class='hide-edit-btn'>Edit</span>
+          <p class='channel-purpose'>#{@chatroom.purpose}<p>
+        </div>
+       <div id='purpose-form'>
+        #{render 'chatrooms/purpose_form'}
+       </div>
+      </div>".html_safe
     else
-      "<button class='purpose-btn' data-toggle='modal'
-      data-target='#exampleModal' >
-        <i class='fa fa-pencil'> </i>Add a purpose
-      </button>".html_safe
+      "#{show_members(@chatroom.id) - [current_user.username]}"
     end
+
   end
 
   def show_public_channels(current_user)

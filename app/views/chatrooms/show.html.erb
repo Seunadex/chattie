@@ -4,7 +4,7 @@
     <div class="name-header">
       <p>
         <strong><%= @chatroom.name.capitalize %></strong> </br >
-        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  |  <%= check_purpose %></span>
+        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | topic coming soon</span>
       </p>
       <hr>
     </div>
@@ -12,6 +12,7 @@
     <% unread_messages = false %>
 
     <div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' id="message-wrapper">
+      <% cache @messages do %>
       <% @messages.each do |message| %>
         <% if !unread_messages && check_message(message) %>
           <% unread_messages = true %>
@@ -35,10 +36,7 @@
   <div class='about-body'>
     <button class="accordion"><%= fa_icon "info-circle" %> Channel Details</button>
     <div class="panel">
-      <div class='purpose-panel'>
-        <p><strong>Purpose</strong></p>
-        <%= check_purpose %>
-      </div>
+      <%= check_purpose %>
 
       <div class='purpose-panel'>
         <p><strong>Created</strong></p>
@@ -54,6 +52,7 @@
             <p><%= fa_icon "circle" %> <%= member %></p>
           <% end %>
         <% end %>
+      <% end %>
       <% end %>
     </div>
 
