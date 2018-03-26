@@ -38,9 +38,8 @@ module ChatroomsHelper
        </div>
       </div>".html_safe
     else
-      "#{show_members(@chatroom.id) - [current_user.username]}"
+      (show_members(@chatroom.id) - [current_user.username]).to_s
     end
-
   end
 
   def show_public_channels(current_user)
@@ -69,9 +68,9 @@ module ChatroomsHelper
 
   def channel_details
     if Chatroom.check_dm(@chatroom.id)
-      'this conversation'
+      "this conversation"
     else
-      "#{@chatroom.name}"
+      @chatroom.name.to_s
     end
   end
 end

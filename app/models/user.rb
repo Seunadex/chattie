@@ -9,11 +9,11 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :messages
 
-  validates :username, :email, presence: true
+  validates :username, :first_name, :last_name, :email, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
 
-  attr_accessor :login
+  attr_accessor :login, :first_name, :last_name
 
   validate :validate_username
 
