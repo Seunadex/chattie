@@ -36,6 +36,10 @@ class Chatroom < ApplicationRecord
     set_chatroom.purpose
   end
 
+  def self.get_topic(set_chatroom)
+    set_chatroom.topic
+  end
+
   def self.get_chatroom_access(id)
     find(id).access
   end

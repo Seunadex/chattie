@@ -12,6 +12,7 @@ class ChatroomsController < ApplicationController
       chatroom_id: @chatroom.id
     )
     @chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
+    @chatroom_topic = Chatroom.get_topic(set_chatroom)
 
     # @chatroom_info = {
     #   messages: messages,
@@ -74,6 +75,12 @@ class ChatroomsController < ApplicationController
   def update_purpose
     @chatroom = Chatroom.find(params[:id])
     @chatroom.update_attribute(:purpose, params[:purpose])
+    redirect_to chatroom_path, notice: "Purpose has been set."
+  end
+
+  def update_topic
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.update_attribute(:topic, params[:topic])
     redirect_to chatroom_path, notice: "Topic has been set."
   end
 
