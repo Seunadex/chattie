@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :get_all_users
   skip_before_action :verify_authenticity_token
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :authenticate_user!
 
@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
       username
       first_name
       last_name
+      qoute
+      job_description
       email
       password
       password_confirmation
