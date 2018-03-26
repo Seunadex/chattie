@@ -1,0 +1,10 @@
+ <div class="body">
+    <%= form_tag url_for(action: 'update_purpose'), method: "post", class: 'submit-purpose' do %>
+      <% label_tag 'Purpose' %>
+      <%= text_area_tag 'purpose', @chatroom.purpose, class: 'form-control' %>
+      <div class="set-purpose-btn">
+        <input type='button' value="Cancel" data-dismiss="modal" class="btn close-btn"/>
+        <%= submit_tag 'Set purpose', class: 'btn btn-primary submit' %>
+      </div>
+    <% end %>
+</div>

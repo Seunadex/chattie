@@ -345,6 +345,23 @@ a.list:hover {
 
         .about-body {
           margin-top: 4.95em;
+
+          .hide-edit-btn,
+          #purpose-form {
+            display: none;
+          }
+
+          .set-purpose-btn {
+            margin-top: 10px;
+            text-align: right;
+
+            .close-btn,
+            .submit {
+              font-size: 10px;
+              border-radius: 2px;
+            }
+          }
+
         }
 
         .accordion {
