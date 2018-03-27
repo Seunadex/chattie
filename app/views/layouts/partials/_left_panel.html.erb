@@ -28,11 +28,11 @@
       <% if (get_other_users).length > 0 %>
         <% (get_other_users).each do |user| %>
           <% cache user do %>
-          <div class="list">
-            <%= fa_icon "circle" %>
-            <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %>
-            <span class="badge badge-default hide-badge chatroom-<%= user.id %>-span">New</span>
-          </div>
+            <div class="list">
+              <%= fa_icon "circle" %>
+              <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %>
+              <span class="badge badge-default hide-badge chatroom-<%= user.id %>-span">New</span>
+            </div>
         <% end %>
         <% end %>
       <% else %>
@@ -41,6 +41,6 @@
       </div>
       <% end %>
     <% end %>
-    <% end %>
-    </div>
+  <% end %>
+  </div>
 </div>
