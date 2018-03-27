@@ -97,7 +97,6 @@ module ChatroomsHelper
   end
 
   def channel_details(chatroom_id)
-    binding.pry
     if Chatroom.check_dm(chatroom_id)
       "this conversation"
     else
