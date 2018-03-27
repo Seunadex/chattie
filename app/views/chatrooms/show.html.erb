@@ -4,7 +4,7 @@
     <div class="name-header">
       <p>
         <strong><%= @chatroom.name.capitalize %></strong> </br >
-        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %></span>
+        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %></span>
       </p>
       <hr>
     </div>
@@ -49,7 +49,7 @@
       <% cache show_members(@chatroom.id) do %>
         <% show_members(@chatroom.id).each do |member| %>
           <% cache member do %>
-            <p><%= fa_icon "circle" %> <%= member %></p>
+            <p><%= fa_icon "circle" %> <%= member[0] %></p>
           <% end %>
         <% end %>
       <% end %>
