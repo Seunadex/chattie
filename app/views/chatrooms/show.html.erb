@@ -4,7 +4,7 @@
     <div class="name-header">
       <p>
         <strong><%= @chatroom.name.capitalize %></strong> </br >
-        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %></span>
+        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %> </span>
       </p>
       <hr>
     </div>
@@ -12,25 +12,22 @@
     <% unread_messages = false %>
 
     <div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' id="message-wrapper">
-      <% cache @messages do %>
-      <% @messages.each do |message| %>
-        <% if !unread_messages && check_message(message) %>
-          <% unread_messages = true %>
-          <div class="strike"><span>New Messages</span></div>
-        <% end %>
-        <% cache message do %>
+        <% @messages.each do |message| %>
+          <% if !unread_messages && check_message(message) %>
+            <% unread_messages = true %>
+            <div class="strike"><span>New Messages</span></div>
+          <% end %>
           <%= render message %>
         <% end %>
-      <% end %>
     </div>
     <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
-    <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name.split(' and ')[0]}" %>
+      <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name.split(' and ')[0]}" %>
     <% end %>
     <%= render "chatrooms/add_topic" %>
   </div>
   <div class='channel-details' id="channel-detail">
     <div class='about-header'>
-      <h6>About <%= channel_details %></h6>
+      <h6>About <%= channel_details(@chatroom.id) %></h6>
     </div>
 
   <div class='about-body'>
@@ -46,13 +43,8 @@
 
     <button class="accordion" id="member"><%= fa_icon "user" %> <%= show_user_count(@chatroom.id) %> Members</button>
     <div class="panel  purpose-panel">
-      <% cache show_members(@chatroom.id) do %>
-        <% show_members(@chatroom.id).each do |member| %>
-          <% cache member do %>
-            <p><%= fa_icon "circle" %> <%= member[0] %></p>
-          <% end %>
-        <% end %>
-      <% end %>
+      <% show_members(@chatroom.id).each do |member| %>
+        <p><%= fa_icon "circle" %> <%= member[0] %></p>
       <% end %>
     </div>
 

@@ -96,8 +96,8 @@ module ChatroomsHelper
     !ChatroomUser.member?(chatroom_id).empty?
   end
 
-  def channel_details
-    if Chatroom.check_dm(@chatroom.id)
+  def channel_details(chatroom_id)
+    if Chatroom.check_dm(chatroom_id)
       "this conversation"
     else
       @chatroom.name.to_s
