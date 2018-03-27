@@ -89,6 +89,10 @@ input#user_email.form-control,
 input#user_password.form-control,
 input#user_password_confirmation.form-control,
 input#user_login.form-control,
+input#user_first_name.form-control,
+input#user_last_name.form-control,
+input#user_qoute.form-control,
+input#user_job_description.form-control,
  {
   box-shadow: none;
   
@@ -106,8 +110,8 @@ input#user_login.form-control,
 }
 
 .sign-up {
-  width: 25rem;
-  margin: 2rem auto;
+  width: 35rem;
+  margin: 5rem auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
   box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
@@ -431,6 +435,19 @@ a.list:hover {
           p {
             margin-bottom: 0;
             font-family: $font-family-regular;
+
+            &.username {
+              font-family: $font-family-bold;
+            }
+
+            &.full-name {
+              text-transform: capitalize;
+              color: #a0a1a2;
+            }
+
+            &.job-description {
+              margin-bottom: 15px;
+            }
           }
         }
       }
@@ -447,6 +464,10 @@ a.list:hover {
         font-family: $font-family-light;
         font-size: 12px;
         margin-bottom: 20px;
+
+        .full-name {
+          text-transform: capitalize;
+        }
       }
 
       hr {

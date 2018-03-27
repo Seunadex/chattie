@@ -4,7 +4,7 @@
     <div class="name-header">
       <p>
         <strong><%= @chatroom.name.capitalize %></strong> </br >
-        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | topic coming soon</span>
+        <span class="users"><%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %></span>
       </p>
       <hr>
     </div>
@@ -26,7 +26,7 @@
     <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
     <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name.split(' and ')[0]}" %>
     <% end %>
-    <%= render "chatrooms/add_purpose" %>
+    <%= render "chatrooms/add_topic" %>
   </div>
   <div class='channel-details' id="channel-detail">
     <div class='about-header'>
@@ -49,7 +49,7 @@
       <% cache show_members(@chatroom.id) do %>
         <% show_members(@chatroom.id).each do |member| %>
           <% cache member do %>
-            <p><%= fa_icon "circle" %> <%= member %></p>
+            <p><%= fa_icon "circle" %> <%= member[0] %></p>
           <% end %>
         <% end %>
       <% end %>

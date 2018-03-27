@@ -1,18 +1,45 @@
-<div class="login">
+<div class="sign-up">
   <div class="col-sm-12">
+    <h3 class='text-center'>Update your profile</h3>
     <hr>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="form-group">
-          <%= f.label :username %><br />
-          <%= f.text_field :username, autofocus: true, class: 'form-control', required: true %>
-        </div>
-
-      <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, class: 'form-control'  %>
+      <div class='form-row'>
+      <div class="col form-group">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autofocus: true, class: 'form-control form-control-sm', required: true %>
       </div>
+
+      <div class="col form-group">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, class: 'form-control form-control-sm', required: true %>
+      </div>
+    </div>
+
+    <div class='form-row'>
+      <div class="col form-group">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, class: 'form-control form-control-sm', required: true %>
+      </div>
+
+      <div class="col form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: 'form-control form-control-sm'%>
+      </div>
+    </div>
+
+    <div class='form-row'>
+      <div class="col form-group">
+        <%= f.label :qoute %><br />
+        <%= f.text_field :qoute, class: 'form-control form-control-sm', placeholder: 'Something light'%>
+      </div>
+
+      <div class="col form-group">
+        <%= f.label :job_description %><br />
+        <%= f.text_field :job_description, class: 'form-control form-control-sm'%>
+      </div>
+    </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
