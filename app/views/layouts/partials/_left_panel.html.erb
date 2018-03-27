@@ -6,11 +6,13 @@
     </div>
       <% if show_public_channels(current_user) %>
         <% show_public_channels(current_user).each do |chatroom| %>
+        <% cache chatroom do %>
           <div class="list">
             <%= fa_icon publicly_accessible?(chatroom.id) %>
             <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %>
             <span class="badge badge-default hide-badge chatroom-<%= chatroom.id %>-span">New</span>
           </div>
+        <% end %>
           <% end %>
       <% else %>
         <div class="nothing">
