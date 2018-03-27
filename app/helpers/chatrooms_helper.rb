@@ -61,8 +61,10 @@ module ChatroomsHelper
 
   def reciever_fullname
     get_reciever_info
-    "<span class='full-name'>#{@reciever_info[1]} #{@reciever_info[2]}</span>
-    ".html_safe
+    if direct_message(@chatroom.id)
+      "<span class='full-name'>#{@reciever_info[1]} #{@reciever_info[2]}</span>
+      ".html_safe
+    end
   end
 
   def show_public_channels(current_user)
