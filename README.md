@@ -1,5 +1,8 @@
 # README
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/685ed75a9aade5c70d03/maintainability)](https://codeclimate.com/github/Seunadex/chattie/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/685ed75a9aade5c70d03/test_coverage)](https://codeclimate.com/github/Seunadex/chattie/test_coverage)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
