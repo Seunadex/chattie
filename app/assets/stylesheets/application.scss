@@ -16,6 +16,10 @@
 @import "font-awesome";
 @import 'base';
 
+.fa-active {
+  color: #d09a11
+}
+
 .btn {
   padding: 0.25rem 0.75rem;
   border-radius: 0;
@@ -350,6 +354,15 @@ a.list:hover {
         .about-body {
           margin-top: 4.95em;
 
+          .hide-edit-btn {
+            color: #431c43;
+            text-decoration: underline;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
           .hide-edit-btn,
           #purpose-form {
             display: none;
@@ -467,6 +480,12 @@ a.list:hover {
 
         .full-name {
           text-transform: capitalize;
+        }
+
+        .fa-color-star {
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
 

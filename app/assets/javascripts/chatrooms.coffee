@@ -41,6 +41,13 @@ $(document).on "turbolinks:load", ->
     $('#purpose-form').show()
     $('#purpose-panel').css('max-height', '300px')
 
+  $('.close-btn').click ->
+    $('#purpose-form').hide()
+    $('.purpose').show()
+
+  $('.fa-color-star').click ->
+    $('.fa-color-star').toggleClass 'fa-active'
+
   $(document).on 'click', handleVisibilityChange
 
   $("#new_message").on "keypress", (event) ->
