@@ -83,7 +83,7 @@
 }
 
 body {
-  background-color: #ecf4f7;
+  background-color: #fff;
   font-family: $font-family-regular !important;
   box-sizing: border-box;
 }
@@ -172,12 +172,13 @@ input#user_job_description.form-control,
 }
 
 nav {
-  background-color: #fff;
+  background-color: #ecf4f7;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
 textarea#message_body.form-control {
   border: 1px solid #431c43;
   box-shadow: none;
+  background-color: #ecf4f7;
 }
 
 textarea {
