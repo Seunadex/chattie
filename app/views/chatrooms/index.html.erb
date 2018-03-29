@@ -8,18 +8,20 @@
     <div class="card">
       <%= chatroom.name %>
         <div class="icon-link">
-        <% if check_member(chatroom.id) %>
-          <p>
-            <%= link_to chatroom  do %>
-              <%= fa_icon "eye" %>
-            <% end %>
-          </p>
-
+        <% if check_member(chatroom.id, current_user.id) %>
           <p>
             <%= link_to edit_chatroom_path(chatroom) do %>
               <%= fa_icon "edit" %>
             <% end %>
           </p>
+
+           <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
+            <%= fa_icon "times-circle" %>
+            <% end %></p>
+        <% else %>
+          <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :post do %>
+            <%= fa_icon "sign-in" %>
+          <% end %></p>
         <% end %>
 
         <% if admin? %>
@@ -27,13 +29,7 @@
             <%= fa_icon "trash" %>
           <% end %></p>
         <% end %>
-        <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :post do %>
-          <%= fa_icon "sign-in" %>
-        <% end %></p>
-        
-          <p><%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
-            <%= fa_icon "times-circle" %>
-          <% end %></p>
+
         </div>
       </div>
     <% end %>
