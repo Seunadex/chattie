@@ -1,5 +1,12 @@
 class ChatroomsController < ApplicationController
-  before_action :set_chatroom, only: %i(show edit update destroy)
+  before_action :set_chatroom, only: %i(
+    show
+    edit
+    update
+    destroy
+    update_purpose
+    update_topic
+  )
   before_action :get_all_users
 
   def index
@@ -74,13 +81,11 @@ class ChatroomsController < ApplicationController
   end
 
   def update_purpose
-    @chatroom = Chatroom.find(params[:id])
     @chatroom.update_attribute(:purpose, params[:purpose])
     redirect_to chatroom_path, notice: "Purpose has been set."
   end
 
   def update_topic
-    @chatroom = Chatroom.find(params[:id])
     @chatroom.update_attribute(:topic, params[:topic])
     redirect_to chatroom_path, notice: "Topic has been set."
   end
