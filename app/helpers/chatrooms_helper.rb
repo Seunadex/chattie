@@ -40,7 +40,7 @@ module ChatroomsHelper
 
   def check_purpose
     get_reciever_info
-    if !direct_message(@chatroom.id)
+    if !direct_message(@chatroom.id) && !@chatroom.purpose.empty?
       "<div class='purpose-panel' id='purpose-panel'>
         <div class='purpose'>
           <span><strong>Purpose</strong></span>
@@ -51,6 +51,19 @@ module ChatroomsHelper
         #{render 'chatrooms/purpose_form'}
        </div>
       </div>".html_safe
+    elsif !direct_message(@chatroom.id)
+      if @chatroom.purpose == "" || @chatroom.purpose.nil?
+        "<div class='purpose-panel' id='purpose-panel'>
+          <div class='purpose'>
+            <span><strong>Purpose</strong></span>
+            <span class='hide-edit-btn'>Edit</span>
+            <p class='channel-purpose'>Add chatroom purpose<p>
+          </div>
+        <div id='purpose-form'>
+          #{render 'chatrooms/purpose_form'}
+        </div>
+        </div>".html_safe
+      end
     else
       "<p class='username'>#{@reciever_info[0]}</p>
       <p class='full-name'>#{@reciever_info[1]} #{@reciever_info[2]}</p>
@@ -92,8 +105,8 @@ module ChatroomsHelper
     end
   end
 
-  def check_member(chatroom_id)
-    !ChatroomUser.member?(chatroom_id).empty?
+  def check_member(chatroom_id, user_id)
+    !ChatroomUser.has_joined?(chatroom_id, user_id).empty?
   end
 
   def channel_details(chatroom_id)
