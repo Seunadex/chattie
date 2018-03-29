@@ -21,7 +21,7 @@
 }
 
 .btn {
-  padding: 0.25rem 0.75rem;
+  padding: 0.15rem 0.7rem;
   border-radius: 0;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .close-btn {
-  padding: 0.25rem 0.75rem;
+  padding: 0.15rem 0.7rem;
   background-color: none;
   border: 1px solid #431c43;
   margin-right: 0.1rem;
@@ -97,9 +97,12 @@ input#user_first_name.form-control,
 input#user_last_name.form-control,
 input#user_qoute.form-control,
 input#user_job_description.form-control,
+textarea#purpose.form-control,
+textarea#topic.form-control,
+input.form-control,
  {
   box-shadow: none;
-  
+
   &:focus {
     border-color: #431c43;
   }
@@ -127,7 +130,7 @@ input#user_job_description.form-control,
   height: 90px;
   border-radius: 6px;
   background-color: #ffffff;
-  box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 9px 0 rgba(119, 165, 201, 0.439);
   text-align: center;
   padding-top: 10px;
   margin-bottom: 20px;
@@ -345,7 +348,7 @@ a.list:hover {
         .about-header {
           padding: 26px 10px;
           text-align: left;
-          background-color: #dfe6e9;
+          background-color: #eceff1;
           font-family: $font-family-bold;
           position: fixed;
           width: 100%;
