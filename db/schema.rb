@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20180326121656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "direct_message", default: false
-    t.string "purpose"
     t.string "access", default: "public"
     t.string "creator"
     t.string "topic"
+    t.string "purpose", default: ""
   end
 
   create_table "messages", force: :cascade do |t|
