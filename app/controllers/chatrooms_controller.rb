@@ -11,7 +11,12 @@ class ChatroomsController < ApplicationController
   before_action :get_all_users
 
   def index
-    @chatrooms = Chatroom.public_channels
+    search = params[:term].present? ? params[:term] : nil
+    @chatrooms = if search
+      Chatroom.search(search)
+    else
+      @chatrooms = Chatroom.public_channels
+    end
   end
 
   def show
