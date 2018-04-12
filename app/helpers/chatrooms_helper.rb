@@ -40,7 +40,7 @@ module ChatroomsHelper
 
   def check_purpose
     get_reciever_info
-    if !direct_message(@chatroom.id) && !@chatroom.purpose.empty?
+    if !direct_message(@chatroom.id) && !@chatroom.purpose.nil?
       "<div class='purpose-panel' id='purpose-panel'>
         <div class='purpose'>
           <span><strong>Purpose</strong></span>

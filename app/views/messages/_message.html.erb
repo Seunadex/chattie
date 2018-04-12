@@ -1,4 +1,4 @@
 <div class="message-container" data-chatroom-id="<%= message.chatroom.id %>">
   <div class="message-owner"><strong><%= message.user.username %></strong> <span class="timestamp"><%= message.timestamp %></span></div>
-  <div class="message-content"><%= sanitize markdown_to_html(message.body) %></div>
+  <div class="message-content"><%= sanitize markdown emojify(message.body) %></div>
 </div>
