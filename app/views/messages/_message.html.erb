@@ -1,4 +1,12 @@
 <div class="message-container" data-chatroom-id="<%= message.chatroom.id %>">
-  <div class="message-owner"><strong><%= message.user.username %></strong> <span class="timestamp"><%= message.timestamp %></span></div>
-  <div class="message-content"><%= sanitize markdown emojify(message.body) %></div>
+  <div class='message-wrapper'>
+    <div class="message-owner"><strong><%= message.user.username %></strong> <span class="timestamp"><%= message.timestamp %></span></div>
+    <div class="message-content"><%= sanitize markdown emojify(message.body) %></div>
+  </div>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Star message"><%= fa_icon "star" %></button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Pin message"><%= fa_icon "map-pin" %></button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit message"><%= fa_icon "edit" %></button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Delete message"><%= fa_icon "close" %></button>
+  </div>
 </div>
