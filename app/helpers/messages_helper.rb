@@ -3,7 +3,7 @@ module MessagesHelper
     @messages.last.user = current_user
   end
 
-  def markdown_to_html(text)
-    Kramdown::Document.new(text, input: "GFM").to_html
+  def markdown(message)
+    Kramdown::Document.new(message, input: "GFM").to_html
   end
 end

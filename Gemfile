@@ -40,6 +40,7 @@ gem 'bootstrap'
 gem 'devise'
 gem 'jquery-rails'
 gem 'devise-bootstrapped'
+gem 'gemoji'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
