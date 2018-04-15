@@ -540,9 +540,32 @@ a.list:hover {
 
       .message-container {
         margin-bottom: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
         &:hover {
-          background-color: #b1c9d84b;
+          background-color: #e3e6e94b;
+          .btn-group {
+            visibility: visible;
+          }
+        }
+
+        .btn-group {
+          margin-right: 20px;
+          visibility: hidden;
+          margin-top: -10px;
+
+          .btn {
+            background-color: #fff;
+            border-radius: 3px;
+            height: 30px;
+            border: 1px solid rgba(155, 152, 152, 0.714)
+          }
+
+          .fa {
+            color: rgb(130, 127, 127);
+          }
         }
 
         .message-owner {
