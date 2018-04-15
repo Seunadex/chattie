@@ -41,6 +41,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'devise-bootstrapped'
 gem 'gemoji'
+gem 'client_side_validations'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
