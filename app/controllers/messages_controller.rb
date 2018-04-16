@@ -12,7 +12,25 @@ class MessagesController < ApplicationController
     end
   end
 
+  def pin_message
+    message = @chatroom.messages.find(params[:id])
+    if message.pinned
+      message.update_attributes(pinned: false, pinned_by: nil)
+    else
+      message.update_attributes(pinned: true, pinned_by: current_user.username)
+    end
+  end
+
   def show; end
+
+  def get_pinned_messages
+    @data = Message.pinned?(@chatroom.id)
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @data }
+    # end
+    render json: @data
+  end
 
   private
 

@@ -1,12 +1,12 @@
-<div class="message-container" data-chatroom-id="<%= message.chatroom.id %>">
+<div class="message-container <%= persist_pin(message, 'class') %>" data-chatroom-id="<%= message.chatroom.id %>">
   <div class='message-wrapper'>
     <div class="message-owner"><strong><%= message.user.username %></strong> <span class="timestamp"><%= message.timestamp %></span></div>
     <div class="message-content"><%= sanitize markdown emojify(message.body) %></div>
   </div>
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Star message"><%= fa_icon "star" %></button>
-    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Pin message"><%= fa_icon "map-pin" %></button>
-    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit message"><%= fa_icon "edit" %></button>
-    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Delete message"><%= fa_icon "close" %></button>
+  <div class="btn-group" role="group" aria-label="Basic example" message-id="<%= message.id %>">
+    <button type="button" class="btn btn-secondary star-msg" data-toggle="tooltip" data-placement="top" title="Star message"><%= fa_icon "star" %></button>
+    <button type="button" class="btn btn-secondary pin-msg" data-toggle="tooltip" data-placement="top" title="Pin message"><%= persist_pin(message, 'pin') %></button>
+    <button type="button" class="btn btn-secondary edit-msg" data-toggle="tooltip" data-placement="top" title="Edit message"><%= fa_icon "edit" %></button>
+    <button type="button" class="btn btn-secondary delete-msg" data-toggle="tooltip" data-placement="top" title="Delete message"><%= fa_icon "close" %></button>
   </div>
 </div>

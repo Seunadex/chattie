@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326121656) do
+ActiveRecord::Schema.define(version: 20180415075801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20180326121656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "direct_message", default: false
+    t.string "purpose", default: ""
     t.string "access", default: "public"
     t.string "creator"
     t.string "topic"
-    t.string "purpose", default: ""
   end
 
   create_table "messages", force: :cascade do |t|
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20180326121656) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "pinned", default: false
+    t.string "pinned_by"
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end

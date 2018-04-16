@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   post "/chatrooms/:id" => "chatrooms#update_purpose"
   post "/direct_messages/:id" => "direct_messages#update_purpose"
   put "/direct_messages/:id" => "direct_messages#update_topic"
-
-
+  put "/chatrooms/:chatroom_id/messages/:id" => "messages#pin_message"
+  get "chatrooms/:chatroom_id/messages" => "messages#get_pinned_messages"
 
   resources :chatrooms do
     resource :chatroom_users
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :direct_messages
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "chatrooms#index"

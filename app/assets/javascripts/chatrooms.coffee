@@ -2,6 +2,32 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
+
+getPinnedItems = (chatroomId) ->
+  $.ajax
+    url: "/chatrooms/#{chatroomId}/messages"
+    type: "GET"
+    # contentType: 'application/json;charset=utf-8'
+    # dataType: 'json'
+    success: (data) ->
+      console.log data
+      $('.pinned-msg-count').text(data.length)
+
+
+
+handlePinClick = ->
+  $('.pin-msg').click ->
+    msgId = $(this).parent().attr('message-id')
+    chatroomId = $('.message-container').attr('data-chatroom-id')
+    self = this
+    $.ajax
+      url: "/chatrooms/#{chatroomId}/messages/#{msgId}"
+      type: "PUT"
+      success: ->
+        $(self).find('i').toggleClass 'fa-red'
+        $(self).parent().parent().toggleClass('show-pinned')
+        getPinnedItems(chatroomId)
+
   messages_to_bottom = ->
     scroll = $('#message-wrapper')
     scroll.scrollTop(scroll.prop("scrollHeight"))
@@ -25,9 +51,9 @@ handleVisibilityChange = ->
     App.last_read.update(chatroomId)
     $strike.remove()
 
-
 $(document).on "turbolinks:load", ->
   handleAccordionToggle()
+  handlePinClick()
 
   $('#purpose-panel').hover (->
     $('.hide-edit-btn').show()
