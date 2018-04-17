@@ -58,7 +58,9 @@
     <% if Message.pinned?(@chatroom.id).length > 0 %>
       <%= render "messages/pinned_messages" %>
     <% else %>
-      <p class='empty-pin'>No items have been pinned yet! click the pin icon on the message to stick them here.</p>
+      <div class='panel'>
+        <p class='empty-pin'>No items have been pinned yet! click the pin icon on the message to stick them here.</p>
+      </div>
     <% end %>
 
     <button class="accordion"><%= fa_icon "folder-open" %> Shared Files</button>
