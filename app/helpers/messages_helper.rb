@@ -10,8 +10,10 @@ module MessagesHelper
   def persist_pin(message, status)
     if status == "pin"
       if message.pinned then fa_icon "map-pin red" else fa_icon "map-pin" end
-    else
+    elsif status == "class"
       message.pinned ? "show-pinned" : ""
+    else
+      message.pinned ? "visible" : ""
     end
   end
 end

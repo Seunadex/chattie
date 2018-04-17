@@ -1,5 +1,6 @@
 <div class="message-container <%= persist_pin(message, 'class') %>" data-chatroom-id="<%= message.chatroom.id %>">
   <div class='message-wrapper'>
+  <p class='show-pin <%= persist_pin(message, 'seun') %>'><%= fa_icon "map-pin active-red" %> Pinned</p>
     <div class="message-owner"><strong><%= message.user.username %></strong> <span class="timestamp"><%= message.timestamp %></span></div>
     <div class="message-content"><%= sanitize markdown emojify(message.body) %></div>
   </div>

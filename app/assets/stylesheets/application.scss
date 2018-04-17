@@ -29,6 +29,16 @@ label.message {
   color: #d09a11;
 }
 
+.fa-active-red {
+  color: #f20b0b;
+  margin-right: 8px;
+}
+
+.visible {
+  visibility: visible;
+  margin-bottom: -5px;
+}
+
 .btn {
   padding: 0.15rem 0.7rem;
   border-radius: 0;
@@ -566,16 +576,21 @@ a.list:hover {
       }
 
       .message-container {
-        margin-bottom: 1em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding-bottom: 10px;
 
         &:hover {
           background-color: #e3e6e94b;
           .btn-group {
             visibility: visible;
           }
+        }
+
+        .show-pin {
+          font-size: 10px;
+          visibility: hidden;
         }
 
         .btn-group {

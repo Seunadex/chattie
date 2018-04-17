@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
-
 getPinnedItems = (chatroomId) ->
   $.ajax
     url: "/chatrooms/#{chatroomId}/messages"
@@ -10,8 +9,25 @@ getPinnedItems = (chatroomId) ->
     # contentType: 'application/json;charset=utf-8'
     # dataType: 'json'
     success: (data) ->
-      console.log data
+      data
       $('.pinned-msg-count').text(data.length)
+      # displayData()
+
+# displayData = ->
+#   console.log pinnedData.data
+#   something = pinnedData.data.map (dat) ->
+#     "<div class='pinned-msg'>
+#       <span class='pin-head'></span>
+#       <span class='pin-time'>#{dat.created_at}</span>
+#       <p>#{dat.body}</p>
+#     </div>"
+#   seun = ''
+#   seun += x for x in something
+#   $('.pinnned').html seun
+
+#   user = ''
+#   user += y for y in pinnedData.user
+#   $('.pin-head').html user
 
 
 
@@ -26,6 +42,7 @@ handlePinClick = ->
       success: ->
         $(self).find('i').toggleClass 'fa-red'
         $(self).parent().parent().toggleClass('show-pinned')
+        $(self).parent().parent().find('p').toggleClass('visible')
         getPinnedItems(chatroomId)
 
   messages_to_bottom = ->
