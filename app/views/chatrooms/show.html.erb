@@ -54,10 +54,12 @@
     </div>
 
 
-    <button class="accordion"><%= fa_icon "map-pin" %> Pinned Items</button>
-    <div class="panel">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+    <button class="accordion"><%= fa_icon "map-pin" %> <span class='pinned-msg-count'><%= Message.pinned?(@chatroom.id).length %></span> Pinned Items</button>
+    <% if Message.pinned?(@chatroom.id).length > 0 %>
+      <%= render "messages/pinned_messages" %>
+    <% else %>
+      <p class='empty-pin'>No items have been pinned yet! click the pin icon on the message to stick them here.</p>
+    <% end %>
 
     <button class="accordion"><%= fa_icon "folder-open" %> Shared Files</button>
     <div class="panel">

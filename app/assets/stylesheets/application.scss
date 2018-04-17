@@ -21,8 +21,22 @@ label.message {
   font-size: 13px;
 }
 
+.empty-pin {
+  padding: 10px;
+}
+
 .fa-active {
-  color: #d09a11
+  color: #d09a11;
+}
+
+.fa-active-red {
+  color: #f20b0b;
+  margin-right: 8px;
+}
+
+.visible {
+  visibility: visible;
+  margin-bottom: -5px;
 }
 
 .btn {
@@ -436,15 +450,34 @@ a.list:hover {
       .active:after {
           content: "\2212";
       }
-      
+
       .panel {
           padding: 0 18px;
           background-color: #ecf4f7;
           max-height: 0;
-          overflow: hidden;
+          overflow-y: scroll;
           transition: max-height 0.3s ease-out;
           font-family: $font-family-light;
           font-size: 13px;
+
+          .pinned-msg {
+            height: 70px;
+            background-color: rgb(248, 248, 248);
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid rgb(186, 182, 182);
+            margin-bottom: 10px;
+            word-wrap: break-word;
+
+            .pin-head {
+              font-size: 17px;
+              font-family: $font-family-medium;
+            }
+
+            .pin-time {
+              font-size: 12px;
+            }
+          }
 
           .purpose-panel {
             margin-bottom: 10px;
@@ -538,11 +571,15 @@ a.list:hover {
         font-size: 11px;
       }
 
+      .show-pinned {
+        background-color: #f9f4d1 !important;
+      }
+
       .message-container {
-        margin-bottom: 1em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding-bottom: 10px;
 
         &:hover {
           background-color: #e3e6e94b;
@@ -551,10 +588,19 @@ a.list:hover {
           }
         }
 
+        .show-pin {
+          font-size: 10px;
+          visibility: hidden;
+        }
+
         .btn-group {
           margin-right: 20px;
           visibility: hidden;
           margin-top: -10px;
+
+          .fa-red {
+            color: red !important;
+          }
 
           .btn {
             background-color: #fff;
