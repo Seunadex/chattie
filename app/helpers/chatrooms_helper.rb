@@ -116,4 +116,8 @@ module ChatroomsHelper
       @chatroom.name.to_s
     end
   end
+
+  def pinned_message_length(chatroom_id)
+    Message.pinned?(chatroom_id).count
+  end
 end

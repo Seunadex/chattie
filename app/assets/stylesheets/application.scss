@@ -357,7 +357,7 @@ a.list:hover {
       }
 
       .channel-details {
-        flex: 1.1;
+        flex: 0;
         border-left: 1px solid #cac5c5;
         height: calc(100vh - 30px);
         box-sizing: border-box;
@@ -372,6 +372,15 @@ a.list:hover {
           position: fixed;
           width: 100%;
           border-bottom: 1px solid #cac5c5;
+          display: flex;
+          flex-direction: row;
+
+          .fa-close {
+            margin-left: 10%;
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
 
         .about-body {
@@ -515,6 +524,28 @@ a.list:hover {
       width: 59.5%;
       background-color: inherit;
 
+      .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+
+        .info-icons {
+          margin-right: 20px;
+
+          .fa-opener {
+            margin: 0 5px;
+          }
+
+          .fa {
+            &:hover {
+              cursor: pointer;
+              color: #833b83;
+            }
+          }
+        }
+      }
+
       .users {
         font-family: $font-family-light;
         font-size: 12px;
@@ -625,7 +656,7 @@ a.list:hover {
         }
       }
     }
-  
+
     .new_message {
       flex: 1;
       position: fixed;

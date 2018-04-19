@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
+  openSideBar()
 getPinnedItems = (chatroomId) ->
   $.ajax
     url: "/chatrooms/#{chatroomId}/messages"
@@ -28,6 +29,13 @@ getPinnedItems = (chatroomId) ->
 #   user = ''
 #   user += y for y in pinnedData.user
 #   $('.pin-head').html user
+
+openSideBar = ->
+  document.getElementById('channel-detail').style.flex = '1.1'
+
+closeSideBar = ->
+  document.getElementById('channel-detail').style.flex = '0'
+
 
 
 
@@ -69,6 +77,12 @@ handleVisibilityChange = ->
     $strike.remove()
 
 $(document).on "turbolinks:load", ->
+  $('.fa-opener').click ->
+    openSideBar()
+
+  $('.fa-closer').click ->
+    closeSideBar()
+
   handleAccordionToggle()
   handlePinClick()
 

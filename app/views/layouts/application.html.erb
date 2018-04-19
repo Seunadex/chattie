@@ -13,17 +13,7 @@
     <%= render  "layouts/partials/navbar" %>
     <%= render "layouts/partials/flash" %>
 
-    <div class="fluid-container main">
-      <div class="row">
-        <div class="col-md-2 left-side">
-          <%= render "layouts/partials/left_panel" %>
-        </div>
+    <%= yield %>
 
-        <div class="col-md-10 offset-md-2 right-side">
-          <%= yield %>
-        </div>
-      </div>
-    </div>
-    
   </body>
 </html>
