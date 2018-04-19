@@ -4,55 +4,7 @@
        <%= render "layouts/partials/left_panel" %>
     </div>
 
-    <div class='col-md-10 offset-md-2 right-side'>
-      <div class="index-page">
-        <%= link_to 'New Chatroom', new_chatroom_path, { :class=>"btn btn-primary new-chatroom-btn" } %>
-        <h3>Chatrooms</h3>
-        <div class="room-container">
-          <% if @chatrooms.length > 0 %>
-            <% @chatrooms.each do |chatroom| %>
-              <div class="card">
-                <%= chatroom.name %>
-                <div class="icon-link">
-                  <% if check_member(chatroom.id, current_user.id) %>
-                    <p data-toggle="tooltip" data-placement="bottom" title="Edit channel">
-                      <%= link_to edit_chatroom_path(chatroom) do %>
-                        <%= fa_icon "edit" %>
-                      <% end %>
-                    </p>
-
-                    <p data-toggle="tooltip" data-placement="bottom" title="Leave channel">
-                      <%= link_to chatroom_chatroom_users_path(chatroom), method: :delete do %>
-                        <%= fa_icon "times-circle" %>
-                      <% end %>
-                    </p>
-                  <% else %>
-                    <p data-toggle="tooltip" data-placement="bottom" title="Join channel">
-                      <%= link_to chatroom_chatroom_users_path(chatroom), method: :post do %>
-                        <%= fa_icon "sign-in" %>
-                      <% end %>
-                    </p>
-                  <% end %>
-
-                  <% if admin? %>
-                    <p data-toggle="tooltip" data-placement="bottom" title="Delete channel">
-                      <%= link_to chatroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                        <%= fa_icon "trash" %>
-                      <% end %>
-                    </p>
-                  <% end %>
-
-                </div>
-              </div>
-            <% end %>
-          <% else %>
-            <div class="no-room">
-              <h4>No Chatroom yet!!!</h4>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= react_component 'Chatrooms', {
+  chatrooms: @chatrooms,
+  } %>
 
