@@ -12,7 +12,7 @@ class Message < ApplicationRecord
   end
 
   def self.pinned?(chatroom_id)
-    where(["pinned = ? and chatroom_id = ?", true, chatroom_id])
-    .order(created_at: :asc)
+    where(["pinned = ? and chatroom_id = ?", true, chatroom_id]).
+      order(created_at: :asc)
   end
 end

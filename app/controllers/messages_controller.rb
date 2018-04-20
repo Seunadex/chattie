@@ -2,8 +2,6 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_chatroom
 
-  # respond_to  :html, :json
-
   def create
     message = @chatroom.messages.new(message_params)
     message.user = current_user
@@ -30,10 +28,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.json { render json: @data }
     end
-
-    # render json: @data
   end
-
 
   private
 
