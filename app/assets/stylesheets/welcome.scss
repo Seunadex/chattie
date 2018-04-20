@@ -1,3 +1,88 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'base';
+
+.bg {
+  height: 100vh;
+  background-image: url('bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .overlay {
+    height: 100vh;
+    background-color: #431c43;
+    opacity: 0.8;
+
+    .navs {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 2.5em;
+      color: #c7cfef;
+
+      h5 {
+        font-size: 30px;
+        font-family: "Arizonia", cursive;
+      }
+
+      .navbar-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        li {
+          a {
+            text-decoration: none;
+            color: #c7cfef;
+
+            &:hover {
+              color: #ff9900;
+            }
+          }
+
+          & + li {
+            margin-left: 1em;
+          }
+        }
+      }
+    }
+
+    .hero-text {
+      text-align: center;
+      margin-top: 3em;
+      color: #c7cfef;
+
+      @include respond-to(handhelds) {
+        margin-top: 5em;
+      }
+
+      h1 {
+        margin-bottom: 1em;
+        font-size: 3.5em;
+        font-family: $font-family-bold;
+        text-shadow: 1px 0 10px #ff99009e;
+      }
+
+      a {
+        text-decoration: none;
+        background-color: #431c43;
+        border: 1px solid #c7cfef;
+        padding: 0.5em 2em;
+        color: #c7cfef;
+        border-radius: 2px;
+        margin-top: 2em;
+
+        &:hover {
+          background-color: #c7cfef;
+          color: #431c43;
+          border: 1px solid #c7cfef;
+          transition: ease-in-out all 0.3s;
+        }
+      }
+    }
+  }
+}
+

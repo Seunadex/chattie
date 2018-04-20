@@ -1,6 +1,6 @@
 <div class="scroll">
   <% if user_signed_in? %>
-   <div class="chatroom-header"><%= link_to 'Chatrooms', root_path %><p><%= link_to new_chatroom_path do %>
+   <div class="chatroom-header"><%= link_to 'Chatrooms', chatrooms_path %><p><%= link_to new_chatroom_path do %>
       <%= fa_icon "plus-circle add-icon" %>
     <% end %></p>
     </div>

@@ -1,0 +1,11 @@
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (min-width: $break-point-smobile) and (max-width: $break-point-mobile) { @content; }
+  } @else if $media == tablets {
+    @media only screen and (min-width: $break-point-mobile + 1) and (max-width: $break-point-large-tablet) { @content; }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: $break-point-desktop + 1) and (max-width: $break-point-large) { @content; }
+  } @else if $media == wide-screens {
+    @media only screen and (min-width: $break-point-large) { @content; }
+  }
+}

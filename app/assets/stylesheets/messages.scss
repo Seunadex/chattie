@@ -2,3 +2,113 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'base';
+
+
+#message-wrapper {
+  flex: 5;
+  height: 475px;
+  overflow: auto;
+  margin-top: 100px;
+  padding-bottom: 10px;
+
+  @media screen and (min-width: 1600px) {
+    height: 50em;
+  }
+
+  .message-content {
+    font-size: 14px;
+    margin-left: 1em;
+  }
+
+  .strike {
+    color: rgb(197, 59, 59);
+    font-family: $font-family-light;
+    font-size: 11px;
+  }
+
+  .show-pinned {
+    background-color: #f9f4d1 !important;
+  }
+
+  .message-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 10px;
+
+    &:hover {
+      background-color: #e3e6e94b;
+      .btn-group {
+        visibility: visible;
+      }
+    }
+
+    .show-pin {
+      font-size: 10px;
+      visibility: hidden;
+    }
+
+    .btn-group {
+      margin-right: 20px;
+      visibility: hidden;
+      margin-top: -10px;
+
+      .fa-red {
+        color: red !important;
+      }
+
+      .btn {
+        background-color: #fff;
+        border-radius: 3px;
+        height: 30px;
+        border: 1px solid rgba(155, 152, 152, 0.714)
+      }
+
+      .fa {
+        color: rgb(130, 127, 127);
+      }
+    }
+
+    .message-owner {
+      font-size: 15px;
+      font-family: $font-family-medium;
+    }
+
+    .timestamp {
+      font-size: 10px;
+      font-family: $font-family-light;
+    }
+  }
+
+  .strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+  
+    span {
+      position: relative;
+      display: inline-block;
+  
+      &:before, &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 9999px;
+        height: 1px;
+        background: red;
+      }
+  
+      &:before {
+        right: 100%;
+        margin-right: 15px;
+      }
+  
+      &:after {
+        left: 100%;
+        margin-left: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+@import 'base';
+
+.channel-details {
+  flex: 0;
+  border-left: 1px solid #cac5c5;
+  height: calc(100vh - 30px);
+  box-sizing: border-box;
+  overflow: auto;
+  padding-bottom: 5em;
+
+  .about-header {
+    padding: 26px 10px;
+    text-align: left;
+    background-color: #eceff1;
+    font-family: $font-family-bold;
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid #cac5c5;
+    display: flex;
+    flex-direction: row;
+
+    .fa-close {
+      margin-left: 10%;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .about-body {
+    margin-top: 4.95em;
+
+    .hide-edit-btn {
+      color: #431c43;
+      text-decoration: underline;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .hide-edit-btn,
+    #purpose-form {
+      display: none;
+    }
+
+    .set-purpose-btn {
+      margin-top: 10px;
+      text-align: right;
+
+      .close-btn,
+      .submit {
+        font-size: 10px;
+        border-radius: 2px;
+      }
+    }
+
+  }
+
+  .accordion {
+    background-color: #ecf4f7;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border-bottom: none;
+    border-top: 1px solid #cac5c5;
+    border-left: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+
+    .fa-star {
+      color: #7a237a
+    }
+
+    .fa-user {
+      color: #23307a
+    }
+
+    .fa-map-pin {
+      color: #b52424
+    }
+
+    .fa-folder-open {
+      color: #5d7a23
+    }
+}
+
+.accordion:hover {
+    background-color: rgba(204, 204, 204, 0.522);
+}
+
+.accordion:after {
+    content: '\276F';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: #ecf4f7;
+    max-height: 0;
+    overflow-y: scroll;
+    transition: max-height 0.3s ease-out;
+    font-family: $font-family-light;
+    font-size: 13px;
+
+    .pinned-msg {
+      height: 70px;
+      background-color: rgb(248, 248, 248);
+      padding: 5px 10px;
+      border-radius: 4px;
+      border: 1px solid rgb(186, 182, 182);
+      margin-bottom: 10px;
+      word-wrap: break-word;
+
+      .pin-head {
+        font-size: 17px;
+        font-family: $font-family-medium;
+      }
+
+      .pin-time {
+        font-size: 12px;
+      }
+    }
+
+    .purpose-panel {
+      margin-bottom: 10px;
+    }
+
+    .fa-circle {
+      font-size: 10px;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-family: $font-family-regular;
+
+      &.username {
+        font-family: $font-family-bold;
+      }
+
+      &.full-name {
+        text-transform: capitalize;
+        color: #a0a1a2;
+      }
+
+      &.job-description {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

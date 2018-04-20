@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
-  openSideBar()
 getPinnedItems = (chatroomId) ->
   $.ajax
     url: "/chatrooms/#{chatroomId}/messages"
@@ -77,6 +76,10 @@ handleVisibilityChange = ->
     $strike.remove()
 
 $(document).on "turbolinks:load", ->
+  path = location.pathname.split('/')
+  if Number(path[2])
+    openSideBar()
+
   $('.fa-opener').click ->
     openSideBar()
 
