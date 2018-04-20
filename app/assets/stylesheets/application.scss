@@ -19,6 +19,7 @@
 @import 'messages';
 @import 'channel_details';
 @import 'welcome';
+@import 'auth';
 
 label.message {
   color: #b52424;
@@ -97,23 +98,6 @@ input.form-control,
   &:focus {
     border-color: #431c43;
   }
-}
-
-.login {
-  width: 25rem;
-  margin: 5rem auto;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
-}
-
-.sign-up {
-  width: 35rem;
-  margin: 5rem auto;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
-  background-color: #fff;
 }
 
 .card {

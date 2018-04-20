@@ -10,8 +10,13 @@
           <div class="name-header">
             <p>
               <span class='heading'><strong><%= @chatroom.name.capitalize %></strong>
-              <span class='info-icons'><%= fa_icon "phone" %> <%= fa_icon "info-circle opener" %> <%= fa_icon "wrench" %></span></span>
-              <span class="users"><%= fa_icon "star color-star" %> | <%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %> </span>
+                <span class='info-icons'>
+                  <span data-toggle="tooltip" data-placement="top" title="Make a call"><%= fa_icon "phone" %></span>
+                  <span data-toggle="tooltip" data-placement="top" title="Show channel details"><%= fa_icon "info-circle opener" %> </span>
+                  <span data-toggle="tooltip" data-placement="top" title="Preference"><%= fa_icon "wrench" %></span>
+                </span>
+              </span>
+              <span class="users"><span data-toggle="tooltip" data-placement="top" title="Star this channel"><%= fa_icon "star color-star" %></span> | <%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %> </span>
             </p>
             <hr>
           </div>

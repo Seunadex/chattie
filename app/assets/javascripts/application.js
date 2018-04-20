@@ -29,3 +29,4 @@ window.setTimeout(function() {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+

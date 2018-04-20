@@ -1,14 +1,21 @@
-<div class="sign-up">
+<div class='auth'>
+  <div class='row'>
+    <div class='purple col-md-6'></div>
+    <div class='yellow col-md-6'></div>
+  </div>
+
+  <div class="sign-up">
   <div class="col-sm-12">
 
-    <h2 class="text-center">Sign Up</h2>
+    <h3 class="text-center">Sign Up</h3>
+    <%= link_to 'Home', root_path, class: 'home'%>
     <hr>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
 
     <div class='form-row'>
       <div class="col form-group">
         <%= f.label :first_name %>
-        <%= f.text_field :first_name, autofocus: true, class: 'form-control form-control-sm' %>
+        <%= f.text_field :first_name, class: 'form-control form-control-sm' %>
       </div>
 
       <div class="col form-group">
@@ -63,4 +70,5 @@
       <%= render "devise/shared/links" %>
     </div>
   </div>
+</div>
 </div>
