@@ -5,11 +5,8 @@ class MessagesController < ApplicationController
   def create
     message = @chatroom.messages.new(message_params)
     message.user = current_user
-    unless message.body == ""
-      if message.save
-        MessageRelayJob.perform_later(message)
-      end
-    end
+    
+    MessageRelayJob.perform_later(message) if message.body.present? && message.save
   end
 
   def pin_message
