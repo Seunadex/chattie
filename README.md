@@ -1,5 +1,6 @@
 # README
 
+[![Build Status](https://travis-ci.org/Seunadex/chattie.svg?branch=master)](https://travis-ci.org/Seunadex/chattie)
 [![Maintainability](https://api.codeclimate.com/v1/badges/685ed75a9aade5c70d03/maintainability)](https://codeclimate.com/github/Seunadex/chattie/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/685ed75a9aade5c70d03/test_coverage)](https://codeclimate.com/github/Seunadex/chattie/test_coverage)
 
