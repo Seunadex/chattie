@@ -61,6 +61,10 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control form-control-sm' %>
       </div>
     </div>
+    <div class='form-group'>
+      <%= f.label :upload_image %>
+      <%= f.file_field :image, class: 'form-control' %>
+    </div>
 
       <div class="form-group">
         <%= f.submit "Sign up", 'data-disable-with' => "Signing up....", class: "btn btn-primary btn-block btn-lg" %>
