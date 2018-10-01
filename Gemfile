@@ -33,6 +33,10 @@ gem 'redis', '~> 3.0'
 
 gem 'pry'
 gem "font-awesome-rails"
+gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'bootstrap-typeahead-rails'
 
 gem 'kramdown'
 

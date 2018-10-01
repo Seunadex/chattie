@@ -29,6 +29,20 @@ label.message {
 .empty-pin {
   padding: 10px;
 }
+#search-result {
+  margin-top: 50px;
+
+  .search_results em {
+    background-color: yellow;
+    font-style: normal;
+    font-weight: bold;
+
+    &:hover {
+      color: blue;
+      text-decoration: none;
+    }
+  }
+}
 
 .fa-active {
   color: #d09a11;

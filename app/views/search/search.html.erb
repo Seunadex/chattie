@@ -1,0 +1,21 @@
+<div id='search-result'>
+  <h4>Search Results for: <i><%= params[:term] %></i></h4>
+
+  <h6><%= @chatrooms.length %> Result(s) </h6>
+<% if @chatrooms.length > 0 %>
+  <ul class="search_results">
+    <% @chatrooms.with_details.each do |chatroom, details| %>
+      <li>
+        <h5>
+          <%= link_to chatroom.name, controller: "chatrooms", action: "show", id: chatroom.id %>
+        </h5>
+        <p><%= raw details[:highlight][:creator] %>...</p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Your search did not match any documents.</p>
+<% end %>
+
+<%= link_to 'Back', chatrooms_path %>
+</div>
