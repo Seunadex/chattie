@@ -27,7 +27,8 @@ class RegistrationsController < Devise::RegistrationsController
       :password,
       :password_confirmation,
       :current_password,
-      :remember_me
+      :remember_me,
+      :image
     )
   end
 end
