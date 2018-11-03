@@ -35,6 +35,7 @@ gem 'pry'
 gem "font-awesome-rails"
 
 gem 'kramdown'
+gem 'dotenv-rails'
 
 gem 'bootstrap'
 gem 'devise'

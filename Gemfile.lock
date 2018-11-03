@@ -102,6 +102,10 @@ GEM
       warden (~> 1.2.3)
     devise-bootstrapped (0.1.1)
     diff-lcs (1.3)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.10.0)
@@ -283,6 +287,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-bootstrapped
+  dotenv-rails
   factory_bot_rails
   faker
   font-awesome-rails

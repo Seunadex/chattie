@@ -6,9 +6,10 @@ local:
   service: disk
   root: <%= Rails.root.join("storage") %>
 
-# amazon:
-#   service: S3
-#   access_key_id: <%= Rails.application.secrets.dig(:aws, :access_key_id) %>
-#   secret_access_key: <%= Rails.application.secrets.dig(:aws, :secret_access_key) %>
-#   region: us-east-1
-#   bucket: your_own_bucket
+amazon:
+  service: S3
+  access_key_id: <%= ENV['S3_KEY'] %>
+  secret_access_key: <%= ENV['S3_SECRET'] %>
+  region: us-east-1
+  bucket: <%= ENV['S3_BUCKET'] %>
+

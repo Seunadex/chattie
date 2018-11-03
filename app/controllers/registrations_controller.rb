@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
-  # before_action :sign_up_params, only: [:create]
-  # before_action :account_update_params, only: [:update]
+  before_action :sign_up_params, only: [:create]
+  before_action :account_update_params, only: [:update]
 
   private
 
@@ -12,7 +12,8 @@ class RegistrationsController < Devise::RegistrationsController
       :email,
       :password,
       :password_confirmation,
-      :remember_me
+      :remember_me,
+      :image
     )
   end
 

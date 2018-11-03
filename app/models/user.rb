@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :messages
   has_one_attached :image
+  # user.image.attachment.blob.filename
 
   validates :username, :first_name, :last_name, :email, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }
