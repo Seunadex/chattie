@@ -9,8 +9,8 @@
       </div>
       <div class="modal-body">
         <%= form_tag url_for(action: 'update_topic'), method: "put" do %>
-          <% label_tag 'Topic' %>
-          <%= text_area_tag 'topic', @chatroom.topic, class: 'form-control' %>
+          <%= label_tag :topic %>
+          <%= text_area_tag :topic, @chatroom.topic, class: 'form-control' %>
           <br /> <br />
         <div class="btn-wrapper">
           <input type='button' value="Cancel" data-dismiss="modal" class="btn close-btn"/>
