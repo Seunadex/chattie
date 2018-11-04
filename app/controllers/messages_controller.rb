@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def create
     message = @chatroom.messages.new(message_params)
     message.user = current_user
-    
+
     MessageRelayJob.perform_later(message) if message.body.present? && message.save
   end
 
