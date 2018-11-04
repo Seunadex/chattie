@@ -21,6 +21,12 @@
 @import 'welcome';
 @import 'auth';
 
+
+.form-field {
+  width: 300px;
+  margin: 10% auto;
+}
+
 label.message {
   color: #b52424;
   font-size: 13px;
@@ -50,7 +56,7 @@ label.message {
 }
 
 .submit {
-  &:hover{
+  &:hover {
     color: #431c43;
     background-color: #fff;
     border: 1px solid #431c43;
@@ -70,6 +76,7 @@ label.message {
     transition: ease
   }
 }
+
 .btn-wrapper {
   text-align: right;
 }
@@ -92,7 +99,7 @@ input#user_job_description.form-control,
 textarea#purpose.form-control,
 textarea#topic.form-control,
 input.form-control,
- {
+  {
   box-shadow: none;
 
   &:focus {
@@ -153,6 +160,7 @@ nav {
   background-color: #ecf4f7;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
+
 textarea#message_body.form-control {
   border: 1px solid #431c43;
   box-shadow: none;
@@ -162,7 +170,7 @@ textarea#message_body.form-control {
 textarea {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-   box-shadow: none;
+  box-shadow: none;
 }
 
 li {
@@ -172,30 +180,30 @@ li {
 
 a.list:hover {
   text-decoration: none;
-  background-color: #4f314f; 
+  background-color: #4f314f;
 }
 
 .fa-bullet {
   font-size: 11px;
 }
 
-  .nav-link,
-  .navbar-brand {
-    color: #431c43 !important;
-    font-weight: bold;
+.nav-link,
+.navbar-brand {
+  color: #431c43 !important;
+  font-weight: bold;
+}
+
+.navbar-brand {
+
+  @media screen and (max-width: 450px) {
+    text-align: center;
   }
+}
 
-  .navbar-brand {
+.main {
+  margin-top: 3em;
 
-    @media screen and (max-width: 450px) {
-      text-align: center;
-    }
-  }
-
- .main {
-   margin-top: 3em;
-
-   .btn-primary {
+  .btn-primary {
     color: rgb(241, 239, 239);
     background-color: #431c43;
     border-color: #431c43;
@@ -255,7 +263,8 @@ a.list:hover {
       flex-direction: row;
       justify-content: space-between;
 
-      .fa-add-icon, .fa-bullet {
+      .fa-add-icon,
+      .fa-bullet {
         color: #ff9900dd;
       }
 
@@ -363,7 +372,7 @@ a.list:hover {
       }
 
       .purpose-btn {
-        border: none ;
+        border: none;
         background: none;
         cursor: pointer;
         outline: none;
@@ -386,11 +395,10 @@ a.list:hover {
 
 }
 
- .alert {
-   position: absolute;
-   width: 30%;
-   top: 70px;
-   right: 100px;
-   z-index: 1;
- }
-
+.alert {
+  position: absolute;
+  width: 30%;
+  top: 70px;
+  right: 100px;
+  z-index: 1;
+}
