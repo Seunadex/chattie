@@ -34,12 +34,26 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   Shoulda::Matchers.configure do |c|
     c.integrate do |with|
       with.test_framework :rspec
+      with.library :active_record
+      with.library :active_model
+      with.library :action_controller
       with.library :rails
+    end
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
     end
   end
 
@@ -62,4 +76,25 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # config.include Devise::TestHelpers, type: :controller
+  # config.include Devise::Test::ControllerHelpers
+  config.include Warden::Test::Helpers
 end
+
+# Capybara.register_driver :selenium do |app|
+#   Capybara::Selenium::Driver.new(app,
+#     browser: :chrome
+#   )
+# end
+
+# Capybara.configure do |config|
+#   config.default_max_wait_time = 10 # seconds
+#   config.default_driver        = :chrome
+# end
+
+# Capybara.register_driver :chrome do |app|
+#   Capybara::Selenium::Driver.new(app, :browser => :chrome)
+# end
+
+# Capybara.javascript_driver = :chrome
