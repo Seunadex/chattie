@@ -12,6 +12,9 @@ AllCops:
     - "micro-shared/**/*"
     - "Gemfile"
     - "Gemfile.lock"
+    - "node_modules/**/*"
+    - "lib/tasks/*"
+
   UseCache: false
   TargetRubyVersion: 2.2
 Style/CollectionMethods:

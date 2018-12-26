@@ -1,5 +1,3 @@
-
-
 Given("I am an authenticated user") do
   @user = FactoryBot.create(:user)
   visit root_path
