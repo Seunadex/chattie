@@ -1,7 +1,7 @@
 require "rails_helper"
 require "spec_helper"
 
-describe "Chatrooms", type: :feature do
+xdescribe "Chatrooms", type: :feature do
   before(:all) do
     user = FactoryBot.create(:user)
     login_as(user, scope: :user)

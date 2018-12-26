@@ -1,7 +1,7 @@
 require "rails_helper"
 require "spec_helper"
 
-describe "Set topic", type: :feature do
+xdescribe "Set topic", type: :feature do
   before(:all) do
     user = FactoryBot.create(:user, username: "johndoe")
     login_as(user, scope: :user)

@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2'
 # Use postgresql as the database for Active Record
 
 # Use Puma as the app server
@@ -61,6 +61,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rack-mini-profiler'
   gem 'chromedriver-helper'
+  gem 'rubocop-rspec'
   
 end
 

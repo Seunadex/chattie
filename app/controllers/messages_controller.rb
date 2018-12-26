@@ -3,10 +3,10 @@ class MessagesController < ApplicationController
   before_action :set_chatroom
 
   def create
-    message = @chatroom.messages.new(message_params)
-    message.user = current_user
+    msg = @chatroom.messages.new(message_params)
+    msg.user = current_user
 
-    MessageRelayJob.perform_later(message) if message.body.present? && message.save
+    MessageRelayJob.perform_later(msg) if msg.body.present? && msg.save
   end
 
   def pin_message
