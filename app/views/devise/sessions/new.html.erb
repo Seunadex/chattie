@@ -1,39 +1,41 @@
-<div class='auth'>
-  <div class='row'>
-    <div class='purple col-md-6'></div>
-    <div class='yellow col-md-6'></div>
-  </div>
+<div class='login'>
+  <div class="login-form">
 
-  <div class="login">
-    <div class="col-sm-12">
-    <h1 class="text-center"><%= fa_icon "user" %></h1>
-    <%= link_to 'Home', root_path, class: 'home'%>
-    <hr>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group">
-        <%= f.label :login %>
-        <%= f.text_field :login, autofocus: true, placeholder: 'Email or Username', class: 'form-control', required: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control', required: true %>
-      </div>
-
-      <% if devise_mapping.rememberable? -%>
+    <h1 class="form-header">Sign in to Chattie</h1>
+    <div class="form-body">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= f.text_field :login, autofocus: true, placeholder: "Email or Username", class: 'form-control', required: true %>
         </div>
-      <% end -%>
 
-      <div class="form-group">
-        <%= f.submit "Log in",'data-disable-with' => "Logging in...",  class: "btn btn-block btn-lg" %>
-      </div>
-    <% end %>
-      <div class="text-center">
-        <%= render "devise/shared/links" %>
-      </div>
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control', required: true %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+        <div class="form-group text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Sign in",'data-disable-with' => "Signing in...",  class: "form-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="login-note">
+    <div class="note-body">
+      <div class="brand-logo"></div>
+      <%= image_tag('internet.svg', size: "100x100", alt: "Brand Logo", class: "img-logo")  %>
+
+      <h1>Hello, Friend!</h1>
+      <p>Enter your personal details and start enjoying the world of smart communication.</p>
+      <%= link_to 'Sign up', new_registration_path(resource_name), class: "slide-out form-button" %>
     </div>
   </div>
 </div>

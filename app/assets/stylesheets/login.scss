@@ -1,0 +1,45 @@
+@import 'base';
+
+.login {
+  @include flex-row;
+
+  .form-button {
+    @include button
+  }
+
+  .login-note {
+    @include note-side;
+
+    .note-body {
+      @include note-body;
+    }
+  }
+
+  .login-form {
+    @include auth-form;
+
+    .form-header {
+      color: $lemon-green;
+      margin-top: 3em;
+      font-family: $font-family-bold;
+    }
+
+    .form-body {
+      margin: 2em 13em;
+      a {
+        color: $dark-grey;
+
+        &:hover {
+          text-decoration: none;
+          opacity: 0.5;
+        }
+      }
+
+      input#user_login.form-control,
+      input#user_password.form-control {
+        @include input-field;
+      }
+    }
+  }
+}
+

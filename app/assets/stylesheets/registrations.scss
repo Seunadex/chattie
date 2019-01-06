@@ -1,3 +1,48 @@
 // Place all the styles related to the registrations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'base';
+
+.registration {
+  @include flex-row;
+
+  .form-button {
+    @include button
+  }
+
+  .registration-note {
+    @include note-side;
+
+    .note-body {
+      @include note-body;
+    }
+  }
+
+  .registration-form {
+    @include auth-form;
+    background-color: $white;
+    position: relative;
+
+    .form-header {
+      color: $lemon-green;
+      margin-top: 3em;
+      font-family: $font-family-bold;
+    }
+
+    .form-body {
+      margin: 2em 4em;
+
+      input#user_username.form-control,
+      input#user_email.form-control,
+      input#user_password.form-control,
+      input#user_first_name.form-control,
+      input#user_last_name.form-control,
+      input#user_qoute.form-control,
+      input#user_job_description.form-control,
+      input#user_password_confirmation.form-control {
+        @include input-field;
+      }
+    }
+  }
+}
