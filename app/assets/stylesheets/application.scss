@@ -19,8 +19,11 @@
 @import 'messages';
 @import 'channel_details';
 @import 'welcome';
-@import 'auth';
+@import 'login';
+@import 'registrations';
 
+
+@include bounce-img;
 
 .form-field {
   width: 300px;
@@ -30,6 +33,8 @@
 label.message {
   color: #b52424;
   font-size: 13px;
+  float: left;
+  margin-bottom: unset;
 }
 
 .empty-pin {
@@ -83,7 +88,7 @@ label.message {
 
 body {
   background-color: #fff;
-  font-family: $font-family-regular !important;
+  font-family: $font-family-regular;
   box-sizing: border-box;
 }
 
@@ -103,7 +108,7 @@ input.form-control,
   box-shadow: none;
 
   &:focus {
-    border-color: #431c43;
+    border-color: #58Af9B;
   }
 }
 
@@ -209,8 +214,8 @@ a.list:hover {
     border-color: #431c43;
   }
 
-  .login {
-    background-color: #fff;
+  .loginr {
+    // background-color: #fff;
 
     h3 {
       text-align: center;
@@ -398,7 +403,7 @@ a.list:hover {
 .alert {
   position: absolute;
   width: 30%;
-  top: 70px;
-  right: 100px;
+  top: 50px;
+  left: 100px;
   z-index: 1;
 }

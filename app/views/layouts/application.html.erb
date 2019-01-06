@@ -6,11 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
+    <%= favicon_link_tag asset_path('internet.png'), :rel => 'icon', :type =>  'image/png' %>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
   </head>
 
   <body>
-    <%= render  "layouts/partials/navbar" unless current_page? root_path %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item'%>
+    <% end %>
     <%= render "layouts/partials/flash" %>
 
     <%= yield %>

@@ -19,10 +19,9 @@
 //= require bootstrap
 //= require_tree .
 
-
 window.setTimeout(function() {
-  $(".alert").fadeTo(2000, 0).slideUp(2000, function(){
-      $(this).remove(); 
+  $(".alert").fadeTo(3000, 0).slideUp(2000, function(){
+    $(this).remove();
   });
 }, 2000);
 

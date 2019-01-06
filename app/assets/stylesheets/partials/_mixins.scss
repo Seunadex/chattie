@@ -1,11 +1,117 @@
 @mixin respond-to($media) {
-  @if $media == handhelds {
-    @media only screen and (min-width: $break-point-smobile) and (max-width: $break-point-mobile) { @content; }
-  } @else if $media == tablets {
-    @media only screen and (min-width: $break-point-mobile + 1) and (max-width: $break-point-large-tablet) { @content; }
-  } @else if $media == medium-screens {
-    @media only screen and (min-width: $break-point-desktop + 1) and (max-width: $break-point-large) { @content; }
-  } @else if $media == wide-screens {
-    @media only screen and (min-width: $break-point-large) { @content; }
+  @if $media==handhelds {
+    @media only screen and (min-width: $break-point-smobile) and (max-width: $break-point-mobile) {
+      @content;
+    }
+  }
+
+  @else if $media==tablets {
+    @media only screen and (min-width: $break-point-mobile + 1) and (max-width: $break-point-large-tablet) {
+      @content;
+    }
+  }
+
+  @else if $media==medium-screens {
+    @media only screen and (min-width: $break-point-desktop + 1) and (max-width: $break-point-large) {
+      @content;
+    }
+  }
+
+  @else if $media==wide-screens {
+    @media only screen and (min-width: $break-point-large) {
+      @content;
+    }
+  }
+}
+
+@mixin button {
+  border: 1px solid $white;
+  background-color: $lemon-green;
+  border-radius: 25px;
+  color: $white;
+  padding: 8px 50px;
+  font-size: 17px;
+  cursor: pointer;
+  font-family: $font-family-light;
+
+  &:hover {
+    border-color: $lemon-green;
+    color: $lemon-green;
+    background-color: $white;
+    transition: 0.3s ease-in-out;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin note-side {
+  height: 100vh;
+  flex: 1;
+  background: linear-gradient($lemon-green,$lemon-green 60%, #062a52);
+}
+
+@mixin note-body {
+  margin: 22% 10% 0;
+  text-align: center;
+  color: $white;
+
+  >h1 {
+    font-family: $font-family-medium;
+  }
+
+  >p {
+    margin-bottom: 4em;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin auth-form {
+  flex: 2;
+  height: 100vh;
+  text-align: center;
+}
+
+@mixin input-field {
+  padding: 25px 20px;
+  font-size: 17px;
+  border-radius: unset;
+  background-color: $light-grey;
+  border: none;
+}
+
+@mixin bounce-img {
+  .img-logo {
+    -webkit-animation: mover 2s infinite alternate;
+    animation: mover 1s infinite alternate;
+  }
+
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-20px);
+    }
   }
 }
