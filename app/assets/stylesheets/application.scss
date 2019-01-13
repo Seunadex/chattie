@@ -17,7 +17,7 @@
 @import 'base';
 
 @import 'messages';
-@import 'channel_details';
+@import 'chatrooms';
 @import 'welcome';
 @import 'login';
 @import 'registrations';
@@ -214,94 +214,8 @@ a.list:hover {
     border-color: #431c43;
   }
 
-  .loginr {
-    // background-color: #fff;
-
-    h3 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    input#chatroom_name {
-      border: 1px solid #431c43;
-    }
-
-    .new-room {
-      text-align: center;
-    }
-
-  }
-
   input {
     outline: none;
-  }
-
-  .left-side {
-    background-color: #431c43;
-    color: #ff9900;
-    height: 100vh;
-    position: fixed;
-    top: 57px;
-    left: 0;
-    padding-top: 20px;
-    overflow: auto;
-    font-family: $font-family-light;
-
-    @media screen and (max-width: 450px) {
-      display: none;
-    }
-
-    .badge {
-      color: red;
-    }
-
-    .hide-badge {
-      display: none;
-    }
-
-    .show-badge {
-      display: inline-block;
-    }
-
-    .chatroom-header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      .fa-add-icon,
-      .fa-bullet {
-        color: #ff9900dd;
-      }
-
-      .fa-circle {
-        color: #b5b8b9 !important;
-      }
-    }
-
-    .nothing {
-      font-size: 14px;
-      color: #b5b8b9;
-      text-align: center;
-    }
-
-    .direct-message {
-      margin-bottom: 60px;
-
-      .fa-circle {
-        font-size: 11px;
-        color: grey;
-      }
-    }
-
-    a {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.734);
-    }
-
-    .list:hover {
-      background-color: #151415;
-    }
-
   }
 
   .right-side {

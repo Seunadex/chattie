@@ -1,40 +1,61 @@
-<div class="scroll">
-  <% if user_signed_in? %>
-   <div class="chatroom-header"><%= link_to 'Chatrooms', chatrooms_path %><p><%= link_to new_chatroom_path do %>
-      <%= fa_icon "plus-circle add-icon" %>
-    <% end %></p>
-    </div>
-      <% if show_public_channels(current_user) %>
-        <% show_public_channels(current_user).each do |chatroom| %>
-        <% cache chatroom do %>
-          <div class="list">
-            <%= fa_icon publicly_accessible?(chatroom.id) %>
-            <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %>
-            <span class="badge badge-default hide-badge chatroom-<%= chatroom.id %>-span">New</span>
-          </div>
-        <% end %>
-          <% end %>
-      <% else %>
-        <div class="nothing">
-          <p>No Channel yet!!!</p>
-        </div>
-      <% end %>
-    </br >
-    <div class="direct-message">
-    <h6>Direct Messages</h6>
-      <% if (get_other_users).length > 0 %>
-        <% (get_other_users).each do |user| %>
-            <div class="list">
-              <%= fa_icon "circle" %>
-              <%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %>
-              <span class="badge badge-default hide-badge chatroom-<%= user.id %>-span">New</span>
-            </div>
-        <% end %>
-      <% else %>
-       <div class="nothing">
-        <p>Nobody here yet!!!</p>
+<div class="user-section">
+  <div class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+    <span class=""><%= current_user.username %></span>
+
+  </div>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <div class="user-profile">
+      <div class="user-image"></div>
+      <div>
+        <div class="username"><%= current_user.username %></div>
+        <div class="fullname"><%= current_user.fullname %></div>
       </div>
-      <% end %>
-    <% end %>
+    </div>
+    <hr>
+    <%= link_to 'Preferences', edit_user_registration_path, class: 'dropdown-item'%>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item'%>
+    <a class="dropdown-item" href="#">Another action</a>
   </div>
 </div>
+
+<% if user_signed_in? %>
+  <div class="chatroom-header">
+    <%= link_to 'Chatrooms', chatrooms_path %>
+    <p>
+      <%= link_to new_chatroom_path do %>
+        <%= fa_icon "plus-circle add-icon" %>
+      <% end %>
+    </p>
+  </div>
+
+  <div class="chatrooms">
+    <% if show_public_channels(current_user) %>
+      <% show_public_channels(current_user).each do |chatroom| %>
+        <% cache chatroom do %>
+          <% chatroom_access = chatroom.public? ? "public" : "private" %>
+          <%= link_to chatroom.name, chatroom, class: "chatroom-link #{chatroom_access}", data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %>
+          <span class="badge badge-default hide-badge chatroom-<%= chatroom.id %>-span">New</span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="nothing">
+        <p>No Channel yet!!!</p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="direct-message">
+    <h6>Direct Messages</h6>
+    <% if (get_other_users).length > 0 %>
+      <% (get_other_users).each do |user| %>
+        <%= link_to user.username, direct_message_path(user.id), class: "dm-link", data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %>
+        <span class="badge badge-default hide-badge chatroom-<%= user.id %>-span">New</span>
+      <% end %>
+    <% else %>
+      <div class="nothing">
+        <p>Nobody here yet!!!</p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

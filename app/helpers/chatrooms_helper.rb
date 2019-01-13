@@ -97,14 +97,6 @@ module ChatroomsHelper
     )
   end
 
-  def publicly_accessible?(chatroom_id)
-    if Chatroom.get_chatroom_access(chatroom_id) == "public"
-      "hashtag bullet"
-    else
-      "lock bullet"
-    end
-  end
-
   def check_member(chatroom_id, user_id)
     !ChatroomUser.has_joined?(chatroom_id, user_id).empty?
   end

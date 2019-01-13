@@ -4,3 +4,179 @@
 
 @import 'base';
 
+
+
+.left-side {
+  background-color: $lemon-green;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  font-family: $font-family-light;
+
+  @media screen and (max-width: 450px) {
+    display: none;
+  }
+
+  .user-section {
+    background-color: $light-grey;
+    margin: 0 -15px;
+    padding: 15px 10px;
+    color: $white;
+    font-family: $font-family-medium;
+    font-size: 15px;
+    cursor: pointer;
+
+    .dropdown-menu {
+      color: #5c5a5c;
+
+      &.show {
+        top: -5px !important;
+      }
+
+      a {
+        color: #5c5a5c;
+        font-family: $font-family-regular;
+      }
+
+      .user-profile {
+        display: flex;
+        flex-direction: row;
+        padding: 5px 40px 10px 20px;
+
+        .username {
+          font-family: $font-family-bold;
+        }
+
+        .fullname {
+          font-family: $font-family-regular;
+        }
+
+
+        .user-image {
+          width: 40px;
+          height: 40px;
+          background-color: grey;
+          margin-right: 5px;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  .chatrooms {
+    margin: 0 -15px 20px -15px;
+
+    .chatroom-link {
+      padding-left: 10px;
+      width: inherit;
+      display: block;
+
+      &:hover {
+        background-color: #151415;
+      }
+
+      @mixin before {
+        font-family: 'FontAwesome';
+        display: inline-block;
+        margin-right: 4px;
+        font-size: 10px;
+      }
+
+      &.private::before {
+        @include before;
+        content: "\f023";
+
+      }
+
+      &.public::before {
+        @include before;
+        content: "\f292";
+      }
+    }
+
+  }
+
+  .dm-link {
+    padding-left: 10px;
+    width: inherit;
+    display: block;
+
+    &:hover {
+      background-color: #151415;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background-color: rgb(71, 71, 70);
+      margin-right: 4px;
+    }
+  }
+
+
+  .badge {
+    color: red;
+  }
+
+  .hide-badge {
+    display: none;
+  }
+
+  .show-badge {
+    display: inline-block;
+  }
+
+  .chatroom-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .fa-add-icon,
+    .fa-bullet {
+      color: #a200ffdd;
+    }
+
+    .fa-circle {
+      color: #b5b8b9 !important;
+    }
+  }
+
+  .nothing {
+    font-size: 14px;
+    color: #b5b8b9;
+    text-align: center;
+  }
+
+  .direct-message {
+    margin: 0 -15px 60px -15px;
+
+    h6 {
+      padding-left: 10px;
+    }
+
+    .fa-circle {
+      font-size: 11px;
+      color: grey;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.734);
+  }
+
+  // .list {
+  //   padding-left: 10px;
+
+  //   &:hover {
+  //     background-color: #151415;
+  //   }
+  // }
+
+}

@@ -40,9 +40,14 @@ class Chatroom < ApplicationRecord
     set_chatroom.topic
   end
 
-  def self.get_chatroom_access(id)
-    find(id).access
+  def public?
+    access == 'public'
   end
+
+  def private?
+    !public?
+  end
+
 
   def timestamp_1
     created_at.strftime("%B %d, %Y")

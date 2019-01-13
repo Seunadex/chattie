@@ -40,4 +40,8 @@ class User < ApplicationRecord
   def self.get_users
     User.all
   end
+
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end
