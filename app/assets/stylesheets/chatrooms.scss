@@ -171,12 +171,90 @@
     color: rgba(255, 255, 255, 0.734);
   }
 
-  // .list {
-  //   padding-left: 10px;
+}
 
-  //   &:hover {
-  //     background-color: #151415;
-  //   }
-  // }
+.new-chatroom {
+  width: 50%;
+  height: auto;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  border-style: solid;
+  border-color: #e7eaec;
+  border-width: 7px 1px 1px 1px;
+  padding: 30px;
 
+  h3 {
+    margin-bottom: 30px;
+    color: $lemon-green;
+    font-family: $font-family-regular;
+  }
+
+  input#chatroom_name.form-control {
+    @include input-field;
+    padding: 20px;
+  }
+
+  .access-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    label {
+      margin-right: 10px;
+    }
+
+    select {
+      cursor: pointer;
+      background-color: #e7eaec;
+      color: #495057;
+      font-size: inherit;
+      padding: .5em;
+      padding-right: 2.5em;
+      border: 0;
+      margin: 0;
+      border-radius: 3px;
+      text-indent: 0.01px;
+      text-overflow: '';
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-ms-expand {
+        display: none;
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      content: "\25BC";
+      height: 1em;
+      font-size: .6em;
+      line-height: 1;
+      right: 1.2em;
+      top: 50%;
+      margin-top: -.5em;
+      font-family: "FontAwesome"
+    }
+
+    &:before {
+      width: 2em;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 0 3px 3px 0;
+      background-color: rgba(0, 0, 0, .2);
+    }
+
+  }
 }

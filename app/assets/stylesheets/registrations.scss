@@ -40,7 +40,8 @@
       input#user_last_name.form-control,
       input#user_qoute.form-control,
       input#user_job_description.form-control,
-      input#user_password_confirmation.form-control {
+      input#user_password_confirmation.form-control,
+      input#user_current_password {
         @include input-field;
       }
     }

@@ -4,6 +4,7 @@ class Chatroom < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :name, uniqueness: { case_sensitive: false }
+  validates :name, :access, presence: true
 
   scope :public_channels, -> { where(direct_message: false) }
   scope :direct_messages, -> { where(direct_message: true) }
@@ -41,13 +42,12 @@ class Chatroom < ApplicationRecord
   end
 
   def public?
-    access == 'public'
+    access == "public"
   end
 
   def private?
     !public?
   end
-
 
   def timestamp_1
     created_at.strftime("%B %d, %Y")

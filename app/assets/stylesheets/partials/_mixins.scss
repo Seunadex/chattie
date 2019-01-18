@@ -46,6 +46,12 @@
   }
 }
 
+@mixin button2 {
+  @include button;
+  border-radius: 3px;
+  padding: 5px 15px;
+}
+
 @mixin note-side {
   height: 100vh;
   flex: 1;
@@ -87,6 +93,10 @@
   border-radius: unset;
   background-color: $light-grey;
   border: none;
+
+  &:focus {
+    outline: none
+  }
 }
 
 @mixin bounce-img {
