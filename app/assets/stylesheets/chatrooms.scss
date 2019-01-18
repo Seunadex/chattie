@@ -57,7 +57,7 @@
         .user-image {
           width: 40px;
           height: 40px;
-          background-color: grey;
+          background-color: $light-grey;
           margin-right: 5px;
           border-radius: 3px;
         }
@@ -190,7 +190,8 @@
     font-family: $font-family-regular;
   }
 
-  input#chatroom_name.form-control {
+  input#chatroom_name.form-control,
+  input#chatroom_purpose.form-control {
     @include input-field;
     padding: 20px;
   }

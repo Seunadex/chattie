@@ -15,10 +15,15 @@
     <div class='form-group'>
       <%= form.text_field :name, id: :chatroom_name, autofocus: true, class: 'form-control form-control-sm', placeholder: "Name", required: true %>
     </div>
-    <div class="form-group access-dropdown">
-      <%= form.label :access %>
-      <%= form.select :access, options_for_select(['Public', 'Private'], selected: @chatroom.access), class: 'form-control' %>
+    <div class='form-group'>
+      <%= form.text_field :purpose, id: :chatroom_purpose, class: 'form-control form-control-sm', placeholder: "Purpose (Optional)" %>
     </div>
+    <% if controller.action_name == 'new' %>
+      <div class="form-group access-dropdown">
+        <%= form.label :access %>
+        <%= form.select :access, options_for_select(['Public', 'Private'], selected: @chatroom.access), class: 'form-control' %>
+      </div>
+    <% end %>
     <%= form.hidden_field :creator, value: current_user.username %>
   </div>
 

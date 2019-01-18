@@ -128,6 +128,10 @@ input.form-control,
   margin-top: 20px;
   border: none;
   font-family: $font-family-medium;
+
+  &:hover {
+    box-shadow: none;
+  }
 }
 
 .index-page {
@@ -135,8 +139,9 @@ input.form-control,
   width: 90%;
 
   .new-chatroom-btn {
+    @include button2;
     float: right;
-    margin-right: 1.1rem;
+    // margin-right: 1.1rem;
   }
 
   .room-container,
@@ -145,6 +150,11 @@ input.form-control,
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+
+  }
+
+  .room-container {
+    margin-top: 20px;
   }
 
   .fa {

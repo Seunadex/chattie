@@ -43,6 +43,10 @@
       input#user_password_confirmation.form-control,
       input#user_current_password {
         @include input-field;
+
+        &::placeholder {
+          color: #a4a7a8;
+        }
       }
     }
   }
