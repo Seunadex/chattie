@@ -3,8 +3,8 @@
       <% label_tag 'Purpose' %>
       <%= text_area_tag 'purpose', @chatroom.purpose, class: 'form-control' %>
       <div class="set-purpose-btn">
-        <input type='button' value="Cancel" class="btn close-btn"/>
-        <%= submit_tag 'Set purpose', class: 'btn btn-primary submit' %>
+        <a href="#" class="close-btn">Cancel</a>
+        <%= submit_tag 'Set purpose', class: 'submit' %>
       </div>
     <% end %>
 </div>

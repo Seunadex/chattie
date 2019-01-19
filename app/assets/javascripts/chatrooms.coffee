@@ -101,7 +101,8 @@ $(document).on "turbolinks:load", ->
     $('#purpose-form').show()
     $('#purpose-panel').css('max-height', '300px')
 
-  $('.close-btn').click ->
+  $('.close-btn').on 'click', (event) ->
+    event.preventDefault()
     $('#purpose-form').hide()
     $('.purpose').show()
 
