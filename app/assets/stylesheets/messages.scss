@@ -7,8 +7,8 @@
 
 #message-wrapper {
   flex: 5;
-  height: 475px;
-  overflow: auto;
+  max-height: 490px;
+  overflow-x: scroll;
   margin-top: 100px;
   padding-bottom: 10px;
 
@@ -17,8 +17,7 @@
   }
 
   .message-content {
-    font-size: 14px;
-    margin-left: 1em;
+    font-size: 11px;
   }
 
   .strike {
@@ -35,24 +34,48 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 10px;
+    position: relative;
+
 
     &:hover {
       background-color: #e3e6e94b;
       .btn-group {
-        visibility: visible;
+        display: block;
       }
+    }
+
+    .seun {
+      display: flex;
+      flex-direction: row
+    }
+
+    .message-wrapper {
+    }
+
+    .owner-img {
+      height: 30px;
+      width: 30px;
+      border-radius: 3px;
+      background-color: #f9dcd1;
+      margin-right: 5px;
+      margin-top: 4px;
     }
 
     .show-pin {
       font-size: 10px;
-      visibility: hidden;
+      display: none;
     }
 
     .btn-group {
       margin-right: 20px;
-      visibility: hidden;
-      margin-top: -10px;
+      display: none;
+      position: absolute;
+      top: -10px;
+      right: 0;
+
+      fa {
+        font-weight: 300;
+      }
 
       .fa-red {
         color: red !important;
@@ -61,8 +84,9 @@
       .btn {
         background-color: #fff;
         border-radius: 3px;
-        height: 30px;
-        border: 1px solid rgba(155, 152, 152, 0.714)
+        height: 25px;
+        border: 1px solid rgba(155, 152, 152, 0.714);
+        vertical-align: sub;
       }
 
       .fa {
@@ -71,8 +95,9 @@
     }
 
     .message-owner {
-      font-size: 15px;
+      font-size: 11px;
       font-family: $font-family-medium;
+      color: #464545;
     }
 
     .timestamp {

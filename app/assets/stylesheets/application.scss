@@ -55,8 +55,9 @@ label.message {
 }
 
 .visible {
-  visibility: visible;
-  margin-bottom: -5px;
+  // visibility: visible;
+  display: block !important;
+  margin-bottom: 0;
 }
 
 .btn {
@@ -244,9 +245,9 @@ a.list:hover {
     .name-header {
       position: fixed;
       flex: 1;
-      margin-top: 30px;
+      padding-top: 30px;
       width: 59.5%;
-      background-color: inherit;
+      background-color: $white;
 
       .heading {
         display: flex;
