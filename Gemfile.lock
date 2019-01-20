@@ -44,6 +44,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.4)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -58,6 +61,9 @@ GEM
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
+    bullet (5.9.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (10.0.2)
     capybara (2.18.0)
       addressable
@@ -183,6 +189,9 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
@@ -284,6 +293,7 @@ GEM
       rubyzip (~> 1.2, >= 1.2.2)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
+    slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-commands-cucumber (1.0.1)
@@ -311,6 +321,7 @@ GEM
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.4.1)
+    uniform_notifier (1.12.1)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -328,7 +339,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootstrap
+  bullet
   byebug
   capybara (~> 2.13)
   chromedriver-helper
@@ -347,7 +360,7 @@ DEPENDENCIES
   kramdown
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
-  pry
+  pry-remote
   puma (~> 3.7)
   rack-mini-profiler
   rails (~> 5.2)
