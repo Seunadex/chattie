@@ -30,10 +30,10 @@ getPinnedItems = (chatroomId) ->
 #   $('.pin-head').html user
 
 openSideBar = ->
-  document.getElementById('channel-detail').style.flex = '1.1'
+  $("#channel-detail").show()
 
 closeSideBar = ->
-  document.getElementById('channel-detail').style.flex = '0'
+  $("#channel-detail").hide()
 
 
 

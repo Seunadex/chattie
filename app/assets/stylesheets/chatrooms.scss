@@ -9,9 +9,9 @@
 .left-side {
   background-color: $lemon-green;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
+  max-width: 200px;
+  min-width: 199px;
+  padding-left: 30px;
   overflow: auto;
   font-family: $font-family-light;
 

@@ -6,11 +6,9 @@
 
 
 #message-wrapper {
-  flex: 5;
-  max-height: 490px;
-  overflow-x: scroll;
-  margin-top: 100px;
-  padding-bottom: 10px;
+  height: 600px;
+  overflow-y: scroll;
+  padding-bottom: 90px;
 
   @media screen and (min-width: 1600px) {
     height: 50em;
@@ -39,24 +37,25 @@
 
     &:hover {
       background-color: #e3e6e94b;
+
       .btn-group {
         display: block;
       }
     }
 
-    .seun {
+    .message-box {
       display: flex;
       flex-direction: row
     }
 
-    .message-wrapper {
-    }
+    .message-wrapper {}
 
     .owner-img {
       height: 30px;
+      min-width: 30px;
       width: 30px;
       border-radius: 3px;
-      background-color: #f9dcd1;
+      background-color: #a8a7a7;
       margin-right: 5px;
       margin-top: 4px;
     }
@@ -103,6 +102,7 @@
     .timestamp {
       font-size: 10px;
       font-family: $font-family-light;
+      margin-left: 5px;
     }
   }
 
@@ -111,12 +111,13 @@
     text-align: center;
     overflow: hidden;
     white-space: nowrap;
-  
+
     span {
       position: relative;
       display: inline-block;
-  
-      &:before, &:after {
+
+      &:before,
+      &:after {
         content: "";
         position: absolute;
         top: 50%;
@@ -124,12 +125,12 @@
         height: 1px;
         background: red;
       }
-  
+
       &:before {
         right: 100%;
         margin-right: 15px;
       }
-  
+
       &:after {
         left: 100%;
         margin-left: 15px;

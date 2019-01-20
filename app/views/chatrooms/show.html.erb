@@ -1,23 +1,29 @@
 <div class='fluid-container main'>
   <div class='row'>
-    <div class='col-md-2 left-side'>
+    <div class='col left-side'>
        <%= render "layouts/partials/left_panel" %>
     </div>
 
-    <div class='col-md-10 offset-md-2 right-side'>
-      <div class='container-wrapper' id='container-wrapp'>
+    <div class='col right-side'>
+
+ <div class='container-wrapper' id='container-wrapp'>
         <div class='message-side'>
           <div class="name-header">
-            <p>
-              <span class='heading'><strong><%= @chatroom.name.capitalize %></strong>
-                <span class='info-icons'>
+              <div class='heading'>
+                <div><strong><%= @chatroom.name.capitalize %></strong>
+                  <div class="users">
+                    <span data-toggle="tooltip" data-placement="top" title="Star this channel">
+                      <%= fa_icon "star color-star" %>
+                    </span> | <%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %>
+                  </div>
+                </div>
+                <div class='info-icons'>
                   <span data-toggle="tooltip" data-placement="top" title="Make a call"><%= fa_icon "phone" %></span>
                   <span data-toggle="tooltip" data-placement="top" title="Show channel details"><%= fa_icon "info-circle opener" %> </span>
-                  <span data-toggle="tooltip" data-placement="top" title="Preference"><%= fa_icon "wrench" %></span>
-                </span>
-              </span>
-              <span class="users"><span data-toggle="tooltip" data-placement="top" title="Star this channel"><%= fa_icon "star color-star" %></span> | <%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= check_topic %> | <%= reciever_fullname %> </span>
-            </p>
+                  <span data-toggle="tooltip" data-placement="top" title="Preference"><%= fa_icon "cog" %></span>
+                  <input class="form-control mr-sm-2 search" type="search" placeholder="Search">
+                </div>
+              </div>
             <hr>
           </div>
 
@@ -32,58 +38,17 @@
                 <%= render message, cache: true %>
               <% end %>
           </div>
-          <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
-            <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name.split(' and ')[0]}" %>
-          <% end %>
+            <%= form_with(model: [@chatroom, Message.new], id: "new_message", class: "new_message") do |form| %>
+              <%= form.text_area :body, rows: 1, class: "form-control", id: "message_body", autofocus: true, placeholder: "Message #{@chatroom.name.split(' and ')[0]}" %>
+            <% end %>
           <%= render "chatrooms/add_topic" %>
         </div>
-        <div class='channel-details' id="channel-detail">
-          <div class='about-header'>
-            <h6>About <%= channel_details(@chatroom.id) %></h6><%= fa_icon "close closer" %>
-          </div>
 
-          <div class='about-body'>
-            <button class="accordion"><%= fa_icon "info-circle" %> Channel Details</button>
-            <div class="panel">
-              <%= check_purpose %>
-
-              <div class='purpose-panel'>
-                <p><strong>Created</strong></p>
-                <p>Created by <em><%= @chatroom.creator %></em> on <%= @chatroom.timestamp_1 %> at <%= @chatroom.timestamp_2 %></p>
-              </div>
-            </div>
-
-            <button class="accordion" id="member"><%= fa_icon "user" %> <%= show_user_count(@chatroom.id) %> Members</button>
-            <div class="panel purpose-panel">
-              <div class="member-list">
-                <% show_members(@chatroom.id).each do |member| %>
-                  <p><%= fa_icon "circle" %> <%= member[0] %></p>
-                <% end %>
-              </div>
-            </div>
-
-            <button class="accordion"><%= fa_icon "map-pin" %> <span class='pinned-msg-count'><%= pinned_message_length(@chatroom.id) %></span> Pinned Items</button>
-            <% if pinned_message_length(@chatroom.id) > 0 %>
-              <%= render "messages/pinned_messages" %>
-            <% else %>
-              <div class='panel'>
-                <p class='empty-pin'>No items have been pinned yet! click the pin icon on the message to stick them here.</p>
-              </div>
-            <% end %>
-
-            <button class="accordion"><%= fa_icon "star" %> Highlights</button>
-            <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-          <button class="accordion"><%= fa_icon "folder-open" %> Shared Files</button>
-          <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-          </div>
-        </div>
       </div>
     </div>
+      <div class="col channel-details" id="channel-detail">
+        <%= render "chatrooms/chatroom_details" %>
+      </div>
   </div>
 </div>
 
