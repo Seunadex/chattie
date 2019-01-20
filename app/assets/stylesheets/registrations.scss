@@ -5,6 +5,7 @@
 @import 'base';
 
 .registration {
+  overflow: auto;
   @include flex-row;
 
   .form-button {
@@ -26,8 +27,14 @@
 
     .form-header {
       color: $lemon-green;
-      margin-top: 3em;
       font-family: $font-family-bold;
+      margin-top: 3em;
+    }
+
+    .form-head {
+      color: $lemon-green;
+      font-family: $font-family-bold;
+      margin-top: 1em;
     }
 
     .form-body {

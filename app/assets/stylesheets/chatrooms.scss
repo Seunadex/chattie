@@ -32,7 +32,9 @@
       color: #5c5a5c;
 
       &.show {
-        top: -5px !important;
+        // top: -5px !important;
+        left: 2px !important;
+        width: 180px;
       }
 
       a {
@@ -43,7 +45,7 @@
       .user-profile {
         display: flex;
         flex-direction: row;
-        padding: 5px 40px 10px 20px;
+        padding: 10px 8px;
 
         .username {
           font-family: $font-family-bold;
@@ -51,6 +53,7 @@
 
         .fullname {
           font-family: $font-family-regular;
+          font-size: 0.9rem;
         }
 
 

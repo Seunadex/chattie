@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :direct_messages
 
-  root to: "chatrooms#show"
+  root to: "chatrooms#index"
   # get 'homepage' => 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
