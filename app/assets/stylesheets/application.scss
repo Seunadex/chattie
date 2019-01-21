@@ -239,6 +239,7 @@ a.list:hover {
       flex-direction: row;
 
       .message-side {
+        width: -webkit-fill-available;
       }
     }
 
@@ -257,7 +258,7 @@ a.list:hover {
         .info-icons {
           display: flex;
           flex-direction: row;
-          margin-right: 20px;
+          margin-right: 15px;
 
           .search {
             height: calc(2rem + 2px);
@@ -315,13 +316,15 @@ a.list:hover {
     .message-input {
       height: 60px;
       background-color: $white;
+      position: fixed;
+      padding-top: 5px;
+      bottom: 0;
+      width: 62vw;
 
+      .new_message {
+        max-width: 100%;
+      }
     }
-        .new_message {
-          position: fixed;
-          bottom: 20px;
-          max-width: 100%;
-        }
   }
 
 }
