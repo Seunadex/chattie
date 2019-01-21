@@ -19,15 +19,6 @@ class ChatroomsController < ApplicationController
     @chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
-    @chatroom_purpose = Chatroom.get_chatroom_purpose(set_chatroom)
-    @chatroom_topic = Chatroom.get_topic(set_chatroom)
-
-    # @chatroom_info = {
-    #   messages: messages,
-    #   chatroom_user: chatroom_user,
-    #   purpose: chatroom_purpose,
-    #   topic: chatroom_topic
-    # }
   end
 
   def new
@@ -103,7 +94,6 @@ class ChatroomsController < ApplicationController
     @users = User.get_users
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_chatroom
     @chatroom = Chatroom.get_chatroom(params[:id])
   end

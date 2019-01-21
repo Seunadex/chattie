@@ -46,8 +46,8 @@
 
   <div class="direct-message">
     <h6>Direct Messages</h6>
-    <% if (get_other_users).length > 0 %>
-      <% (get_other_users).each do |user| %>
+    <% if get_other_users.any? %>
+      <% get_other_users.each do |user| %>
         <%= link_to user.username, direct_message_path(user.id), class: "dm-link", data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %>
         <span class="badge badge-default hide-badge chatroom-<%= user.id %>-span">New</span>
       <% end %>

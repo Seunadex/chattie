@@ -7,16 +7,12 @@ module ChatroomsHelper
     @users - [current_user]
   end
 
-  def direct_message(id)
-    Chatroom.find(id).direct_message
-  end
-
   def check_topic
-    if @chatroom_topic && !direct_message(@chatroom.id)
+    if @chatroom.topic && !@chatroom.direct_message
       "<button class='purpose-btn' data-toggle='modal'
       data-target='#exampleModal'>
-       </i> #{@chatroom_topic} </button>".html_safe
-    elsif direct_message(@chatroom.id) && @chatroom_topic.nil?
+       </i> #{@chatroom.topic} </button>".html_safe
+    elsif @chatroom.direct_message && @chatroom.topic.nil?
       "Direct Conversation"
     else
       "<button class='purpose-btn' data-toggle='modal'
@@ -40,7 +36,7 @@ module ChatroomsHelper
 
   def check_purpose
     get_reciever_info
-    if !direct_message(@chatroom.id) && !@chatroom.purpose.nil?
+    if !@chatroom.direct_message && !@chatroom.purpose.nil?
       "<div class='purpose-panel' id='purpose-panel'>
         <div class='purpose'>
           <span><strong>Purpose</strong></span>
@@ -51,8 +47,8 @@ module ChatroomsHelper
         #{render 'chatrooms/purpose_form'}
        </div>
       </div>".html_safe
-    elsif !direct_message(@chatroom.id)
-      if @chatroom.purpose == "" || @chatroom.purpose.nil?
+    elsif !@chatroom.direct_message
+      if @chatroom.purpose.blank?
         "<div class='purpose-panel' id='purpose-panel'>
           <div class='purpose'>
             <span><strong>Purpose</strong></span>
@@ -74,7 +70,7 @@ module ChatroomsHelper
 
   def reciever_fullname
     get_reciever_info
-    if direct_message(@chatroom.id)
+    if @chatroom.direct_message
       "<span class='full-name'>#{@reciever_info[1]} #{@reciever_info[2]}</span>
       ".html_safe
     end
@@ -98,15 +94,11 @@ module ChatroomsHelper
   end
 
   def check_member(chatroom_id, user_id)
-    !ChatroomUser.has_joined?(chatroom_id, user_id).empty?
+    ChatroomUser.has_joined?(chatroom_id, user_id).present?
   end
 
   def channel_details(chatroom_id)
-    if Chatroom.check_dm(chatroom_id)
-      "this conversation"
-    else
-      @chatroom.name.to_s
-    end
+    Chatroom.check_dm(chatroom_id) ? "this conversation" : @chatroom.name.to_s
   end
 
   def pinned_message_length(chatroom_id)
