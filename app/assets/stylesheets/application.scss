@@ -55,7 +55,6 @@ label.message {
 }
 
 .visible {
-  // visibility: visible;
   display: block !important;
   margin-bottom: 0;
 }
@@ -131,7 +130,6 @@ input.form-control,
   .new-chatroom-btn {
     @include button2;
     float: right;
-    // margin-right: 1.1rem;
   }
 
   .room-container,
@@ -210,7 +208,6 @@ a.list:hover {
 }
 
 .main {
-  // margin-top: 3em;
 
   .btn-primary {
     color: rgb(241, 239, 239);
@@ -266,6 +263,7 @@ a.list:hover {
             font-size: 0.9rem;
             display: inline-block;
             margin-left: 10px;
+            border-radius: 15px;
           }
 
           .fa-opener {
@@ -320,6 +318,10 @@ a.list:hover {
       padding-top: 5px;
       bottom: 0;
       width: 62vw;
+
+      @media screen and (min-width: 1600px) {
+        width: 74vw;
+      }
 
       .new_message {
         max-width: 100%;

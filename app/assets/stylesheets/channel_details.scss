@@ -15,7 +15,7 @@
   .about-header {
     position: fixed;
     border-bottom: 1px solid #cac5c5;
-    padding-right: 13px;
+    padding-right: 0px;
     padding-left: 13px;
     background-color: #eceff1;
     font-family: $font-family-bold;
@@ -29,6 +29,10 @@
     .fa-close {
       margin-top: 3px;
       margin-right: 15px;
+
+      @media screen and (min-width: 1600px) {
+        margin-right: 55px;
+      }
 
       &:hover {
         cursor: pointer;
@@ -154,7 +158,7 @@
     }
 
     .fa-circle {
-      font-size: 10px;
+      font-size: 8px;
     }
 
     p {
