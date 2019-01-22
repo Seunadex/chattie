@@ -5,6 +5,7 @@
     </div>
 
     <div class='col right-side'>
+      <%= react_component("HelloWorld", props: @hello_world_props, prerender: false) %>
       <div class="index-page">
         <%= link_to 'New Chatroom', new_chatroom_path, { class: "new-chatroom-btn" } %>
         <h3>Chatrooms</h3>

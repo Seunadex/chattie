@@ -12,6 +12,7 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.public_channels
+    @hello_world_props = { name: "Stranger" }
   end
 
   def show
