@@ -62,6 +62,7 @@
 #         rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions'}
   put "/chatrooms/:id" => "chatrooms#update_topic"
   post "/chatrooms/:id" => "chatrooms#update_purpose"
