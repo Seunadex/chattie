@@ -20,6 +20,12 @@ class ChatroomsController < ApplicationController
     @chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
+
+    # respond_to do |format|
+    #   format.json do
+    #     render json: @messages
+    #   end
+    # end
   end
 
   def new
