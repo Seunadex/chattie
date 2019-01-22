@@ -93,6 +93,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     cucumber (3.1.2)
       builder (>= 2.1.2)
@@ -203,6 +204,8 @@ GEM
     rack (2.0.7)
     rack-mini-profiler (1.0.2)
       rack (>= 1.2.0)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -247,6 +250,12 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     rb-readline (0.5.5)
+    react_on_rails (11.1.4)
+      addressable
+      connection_pool
+      execjs (~> 2.5)
+      rails (>= 3.2)
+      rainbow (~> 3.0)
     redis (3.3.5)
     regexp_parser (1.4.0)
     regexp_property_values (0.3.5)
@@ -348,6 +357,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (3.5.5)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -387,6 +400,7 @@ DEPENDENCIES
   rails-controller-testing
   rails_best_practices
   rb-readline
+  react_on_rails (= 11.1.4)
   redis (~> 3.0)
   rspec-rails
   rubocop-performance
@@ -402,6 +416,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker (~> 3)
 
 BUNDLED WITH
    2.0.1
