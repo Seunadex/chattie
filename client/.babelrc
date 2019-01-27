@@ -16,12 +16,8 @@
   "plugins": [
     "syntax-dynamic-import",
     "transform-object-rest-spread",
-    "rewire", "transform-decorators-legacy",
-    [
-      "transform-class-properties",
-      {
-        "spec": true
-      }
-    ]
+    "rewire",
+    "transform-decorators-legacy",
+    "transform-class-properties"
   ]
 }

@@ -21,7 +21,7 @@
           <p><%= fa_icon "circle" %> <%= member.user.username %></p>
         <% end %>
       </div>
-      <%= react_component("ChatroomMembers", props: show_members(@chatroom.id).to_json) %>
+      <%= react_component("ChatroomMembers", props: { members: show_members(chatroom.id)}) %>
     </div>
 
     <button class="accordion"><%= fa_icon "map-pin" %> <span class='pinned-msg-count'><%= pinned_message_length(chatroom.id) %></span> Pinned Items</button>

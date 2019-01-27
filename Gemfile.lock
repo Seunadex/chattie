@@ -24,6 +24,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.8)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.2.3)
       activesupport (= 5.2.3)
       globalid (>= 0.3.6)
@@ -72,6 +77,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    case_transform (0.2)
+      activesupport
     character_set (1.2.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
@@ -159,9 +166,9 @@ GEM
       regexp_parser (~> 1.1)
       regexp_property_values (~> 0.3)
     json (2.2.0)
+    jsonapi-renderer (0.2.0)
     kramdown (2.1.0)
     libv8 (6.7.288.46.1)
-    libv8 (6.7.288.46.1-x86_64-darwin-17)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -375,6 +382,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   annotate
   bootstrap
   bullet

@@ -66,7 +66,7 @@ class User < ApplicationRecord
     User.all
   end
 
-  def fullname
+  def full_name
     "#{first_name} #{last_name}"
   end
 end

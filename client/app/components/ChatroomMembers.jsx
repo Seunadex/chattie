@@ -1,25 +1,19 @@
-import PropTypes from "prop-types";
-import React from 'react';
+import React from "react";
+import {getCurrentUserStore} from "../stores/RootStore";
 
 export default class ChatroomMembers extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  currentUser = getCurrentUserStore();
+
 
   render() {
-    const { dms } = this.props;
-    console.log(dms);
-    return (
-      <div className="member-list">
-        {dms && dms.map (name => (
-          <div>
-            <h6>Seun Adekunle</h6>
-          <p>{name[0]}</p>
-          </div>
-        )
-        )}
+    const { members } = this.props;
+    console.log(this.currentUser);
 
+    const users = members.map(member => (
+      <div key={member.id}>
+        <p>{member.username}</p>
       </div>
-    )
+    ));
+    return <div className="member-list">{users}</div>;
   }
 }
