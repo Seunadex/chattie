@@ -13,10 +13,11 @@
 !/log/.keep
 !/tmp/.keep
 .DS_Store
-./public/.DS_Store
+public/.DS_Store
 ./public/images/.DS_Store
-
 /node_modules
+
+client/node_modules
 /yarn-error.log
 
 .byebug_history

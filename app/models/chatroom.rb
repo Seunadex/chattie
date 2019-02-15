@@ -65,6 +65,10 @@ class Chatroom < ApplicationRecord
     !public?
   end
 
+  def purpose?
+    !purpose.nil?
+  end
+
   def timestamp_1
     created_at.strftime("%B %d, %Y")
   end
