@@ -42,6 +42,7 @@ gem 'jquery-rails'
 gem 'devise-bootstrapped'
 gem 'gemoji'
 gem 'client_side_validations'
+gem "rails_best_practices"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -62,7 +63,6 @@ group :development, :test do
   gem 'rack-mini-profiler'
   gem 'chromedriver-helper'
   gem 'rubocop-rspec'
-  
 end
 
 group :development do

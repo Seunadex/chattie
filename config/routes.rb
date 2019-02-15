@@ -71,10 +71,10 @@ Rails.application.routes.draw do
   get "chatrooms/:chatroom_id/messages" => "messages#get_pinned_messages"
 
   resources :chatrooms do
-    resource :chatroom_users
-    resources :messages
+    resource :chatroom_users, only: [:create, :destroy]
+    resources :messages, only: [:show, :create]
   end
-  resources :direct_messages
+  resources :direct_messages, only: :show
 
   root to: "chatrooms#index"
   # get 'homepage' => 'welcome#index'

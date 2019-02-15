@@ -1,5 +1,5 @@
 <div class="panel pinnned">
-  <% Message.pinned?(@chatroom.id).each do |msg| %>
+  <% Message.pinned?(chatroom.id).each do |msg| %>
     <div class='pinned-msg'>
       <span class='pin-head'><%= msg.user.username %></span> <span class='pin-time'><%= msg.datetime %></span>
       <p><%= sanitize markdown emojify(msg.body) %>

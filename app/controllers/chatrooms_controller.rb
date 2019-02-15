@@ -98,10 +98,6 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.get_chatroom(params[:id])
   end
 
-  def purpose_params
-    params.require(:chatroom).permit(:purpose)
-  end
-
   def chatroom_params
     params.require(:chatroom).permit(:name, :access, :creator, :purpose)
   end
