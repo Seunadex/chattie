@@ -27,6 +27,7 @@ end
     return unless current_user
 
     mobx_store("currentUser", current_user, serializer: CurrentUserSerializer)
+    mobx_store("chatroom", serializer: ChatroomSerializer)
 
   end
 

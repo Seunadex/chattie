@@ -49,6 +49,11 @@ class Chatroom < ApplicationRecord
     ).first_or_create
   end
 
+
+  def direct?
+    direct_message
+  end
+
   def public?
     access == "public"
   end

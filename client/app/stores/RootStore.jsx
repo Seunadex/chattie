@@ -5,4 +5,6 @@ import UserStore from "./UserStore";
 const userStore = new UserStore();
 
 export const getCurrentUserStore = () => ReactOnRails.getStore("currentUser");
+export const getChatroomStore = () => ReactOnRails.getStore("chatroom");
+
 
