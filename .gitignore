@@ -20,6 +20,8 @@ public/.DS_Store
 client/node_modules
 /yarn-error.log
 
+.foreman
+
 .byebug_history
 /public/packs
 /public/packs-test

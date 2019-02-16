@@ -17,7 +17,7 @@ class ChatroomUser < ApplicationRecord
 
   before_create :set_last_read
 
-  delegate :username, :qoute, :job_description, :fullname,  :to => :user, :prefix => true
+  delegate :username, :qoute, :job_description, :full_name,  :to => :user, :prefix => true
 
   def set_last_read
     self.last_read_at = Time.zone.now
