@@ -22,7 +22,7 @@ class ChatroomUser < ApplicationRecord
   end
 
   def self.member?(chatroom_id)
-    joins(:chatroom, :user).where("chatroom_id = ?", chatroom_id)
+    includes(:user).where("chatroom_id = ?", chatroom_id)
   end
 
   def self.has_joined?(chatroom_id, user_id)

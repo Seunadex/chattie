@@ -1,0 +1,9 @@
+<% if chatroom.topic && !chatroom.direct_message %>
+  <button class="purpose-btn" data-toggle="modal" data-target="#exampleModal"><%= @chatroom.topic %></button>
+<% elsif chatroom.direct_message && chatroom.topic? %>
+  <span>Direct Conversation</span>
+<% else %>
+  <button class="purpose-btn" data-toggle="modal" data-target="#exampleModal">
+    <i class="fa fa-pencil"></i> Add a topic
+  </button>
+<% end %>

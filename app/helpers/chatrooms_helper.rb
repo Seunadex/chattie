@@ -4,68 +4,11 @@ module ChatroomsHelper
   end
 
   def get_other_users
-    @users - [current_user]
-  end
-
-  def check_topic
-    if @chatroom.topic && !@chatroom.direct_message
-      "<button class='purpose-btn' data-toggle='modal'
-      data-target='#exampleModal'>
-       </i> #{@chatroom.topic} </button>".html_safe
-    elsif @chatroom.direct_message && @chatroom.topic?
-      "Direct Conversation"
-    else
-      "<button class='purpose-btn' data-toggle='modal'
-      data-target='#exampleModal' >
-        <i class='fa fa-pencil'> </i>Add a topic
-      </button>".html_safe
-    end
+    @users.reject { |user| user == current_user }
   end
 
   def get_reciever_info
-    arr = []
-    arr += [
-      current_user.username,
-      current_user.first_name,
-      current_user.last_name,
-      current_user.job_description
-    ]
-
-    @reciever_info = (show_members(@chatroom.id) - [arr]).flatten
-  end
-
-  def check_purpose
-    get_reciever_info
-    if !@chatroom.direct_message && !@chatroom.purpose.nil?
-      "<div class='purpose-panel' id='purpose-panel'>
-        <div class='purpose'>
-          <span><strong>Purpose</strong></span>
-          <span class='hide-edit-btn'>Edit</span>
-          <p class='channel-purpose'>#{@chatroom.purpose}<p>
-        </div>
-       <div id='purpose-form'>
-        #{render 'chatrooms/purpose_form'}
-       </div>
-      </div>".html_safe
-    elsif !@chatroom.direct_message
-      if @chatroom.purpose?
-        "<div class='purpose-panel' id='purpose-panel'>
-          <div class='purpose'>
-            <span><strong>Purpose</strong></span>
-            <span class='hide-edit-btn'>Edit</span>
-            <p class='channel-purpose'>Add chatroom purpose<p>
-          </div>
-        <div id='purpose-form'>
-          #{render 'chatrooms/purpose_form'}
-        </div>
-        </div>".html_safe
-      end
-    else
-      "<p class='username'>#{@reciever_info[0]}</p>
-      <p class='full-name'>#{@reciever_info[1]} #{@reciever_info[2]}</p>
-      <p class='job-description'>#{@reciever_info[3]}</p>
-      ".html_safe
-    end
+    @reciever_info = (show_members(@chatroom.id) - [current_user]).flatten
   end
 
   def reciever_fullname
@@ -81,16 +24,11 @@ module ChatroomsHelper
   end
 
   def show_user_count(chatroom_id)
-    ChatroomUser.member?(chatroom_id).count
+    show_members(chatroom_id).size
   end
 
   def show_members(chatroom_id)
-    ChatroomUser.member?(chatroom_id).pluck(
-      :username,
-      :first_name,
-      :last_name,
-      :job_description
-    )
+    ChatroomUser.member?(chatroom_id)
   end
 
   def check_member(chatroom_id, user_id)

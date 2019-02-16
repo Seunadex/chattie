@@ -49,14 +49,6 @@ class Chatroom < ApplicationRecord
     ).first_or_create
   end
 
-  def self.get_chatroom_purpose(set_chatroom)
-    set_chatroom.purpose
-  end
-
-  def self.get_topic(set_chatroom)
-    set_chatroom.topic
-  end
-
   def public?
     access == "public"
   end

@@ -21,7 +21,7 @@
     <% if controller.action_name == 'new' %>
       <div class="form-group access-dropdown">
         <%= form.label :access %>
-        <%= form.select :access, options_for_select(['Public', 'Private'], selected: @chatroom.access), class: 'form-control' %>
+        <%= form.select :access, options_for_select(['Public', 'Private'], selected: chatroom.access), class: 'form-control' %>
       </div>
     <% end %>
     <%= form.hidden_field :creator, value: current_user.username %>

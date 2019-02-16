@@ -6,7 +6,7 @@
   <div class='about-body'>
     <button class="accordion"><%= fa_icon "info-circle" %> Channel Details</button>
     <div class="panel">
-      <%= check_purpose %>
+      <%= render "chatrooms/check_purpose", chatroom: @chatroom %>
 
       <div class='purpose-panel'>
         <p><strong>Created</strong></p>
@@ -18,7 +18,7 @@
     <div class="panel purpose-panel">
       <div class="member-list">
         <% show_members(chatroom.id).each do |member| %>
-          <p><%= fa_icon "circle" %> <%= member[0] %></p>
+          <p><%= fa_icon "circle" %> <%= member.user.username %></p>
         <% end %>
       </div>
     </div>
