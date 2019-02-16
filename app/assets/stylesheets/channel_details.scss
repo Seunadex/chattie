@@ -161,21 +161,36 @@
       font-size: 8px;
     }
 
-    p {
-      margin-bottom: 0;
-      font-family: $font-family-regular;
-
-      &.username {
-        font-family: $font-family-bold;
+    .user-profile {
+      display: flex;
+      margin-bottom: 15px;
+      margin-top: 10px;
+  
+      .user-info {
+        margin-top: -4px;
       }
 
-      &.full-name {
-        text-transform: capitalize;
-        color: #a0a1a2;
+      .user-image {
+        width: 50px;
+        height: 50px;
+        background-color: $light-grey;
+        margin-right: 5px;
+        border-radius: 3px;
+
       }
 
-      &.job-description {
-        margin-bottom: 15px;
+      p {
+        margin-bottom: 0;
+        font-family: $font-family-regular;
+  
+        &.username {
+          font-family: $font-family-bold;
+        }
+  
+        &.full-name {
+          text-transform: capitalize;
+          color: #a0a1a2;
+        }
       }
     }
   }

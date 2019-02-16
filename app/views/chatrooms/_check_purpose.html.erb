@@ -23,7 +23,12 @@
         </div>
       <% end %>
     <% else %>
-      <p class='username'><%= @reciever_info[0] %></p>
-      <p class='full-name'><%= @reciever_info[1] %> <%= @reciever_info[2] %></p>
-      <p class='job-description'><%= @reciever_info[3] %></p>
+      <div class="user-profile">
+        <div class="user-image"></div>
+        <div class="user-info">
+          <p class='username'><%= reciever_info[0].user.username %></p>
+          <p class='full-name'><%= reciever_info[0].user.fullname %></p>
+          <p class='job-description'><%= reciever_info[0].user.job_description %></p>
+        </div>
+      </div>
     <% end %>

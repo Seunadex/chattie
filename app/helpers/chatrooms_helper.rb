@@ -7,16 +7,8 @@ module ChatroomsHelper
     @users.reject { |user| user == current_user }
   end
 
-  def get_reciever_info
-    @reciever_info = (show_members(@chatroom.id) - [current_user]).flatten
-  end
-
-  def reciever_fullname
-    get_reciever_info
-    if @chatroom.direct_message
-      "<span class='full-name'>#{@reciever_info[1]} #{@reciever_info[2]}</span>
-      ".html_safe
-    end
+  def reciever_info
+    show_members(@chatroom.id).reject { |u| u.user == current_user }
   end
 
   def show_public_channels(current_user)
@@ -40,6 +32,6 @@ module ChatroomsHelper
   end
 
   def pinned_message_length(chatroom_id)
-    Message.pinned?(chatroom_id).count
+    Message.pinned?(chatroom_id).size
   end
 end

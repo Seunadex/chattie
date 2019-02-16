@@ -14,7 +14,7 @@
                   <div class="users">
                     <span data-toggle="tooltip" data-placement="top" title="Star this channel">
                       <%= fa_icon "star color-star" %>
-                    </span> | <%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= render "chatrooms/check_topic", chatroom: @chatroom %> | <%= reciever_fullname %>
+                    </span> | <%= fa_icon "users" %> <%= show_user_count(@chatroom.id) %>  | <%= render "chatrooms/check_topic", chatroom: @chatroom %> | <%= reciever_info[0].user.fullname if @chatroom.direct_message %>
                   </div>
                 </div>
                 <div class='info-icons'>

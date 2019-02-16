@@ -44,7 +44,6 @@
 
       .user-profile {
         display: flex;
-        flex-direction: row;
         padding: 10px 8px;
 
         .username {
@@ -55,7 +54,6 @@
           font-family: $font-family-regular;
           font-size: 0.9rem;
         }
-
 
         .user-image {
           width: 40px;
