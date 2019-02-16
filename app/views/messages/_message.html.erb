@@ -4,7 +4,7 @@
     <div class="message-box">
       <div class="owner-img"></div>
       <div>
-        <div class="message-owner"><strong><%= message.user.username %></strong> <span class="timestamp"><%= message.timestamp %></span></div>
+        <div class="message-owner"><strong><%= message.user_username %></strong> <span class="timestamp"><%= message.timestamp %></span></div>
         <div class="message-content"><%= sanitize markdown emojify(message.body) %></div>
       </div>
     </div>

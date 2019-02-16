@@ -5,7 +5,7 @@ class MessageRelayJob < ApplicationJob
     ActionCable.server.broadcast "chatrooms:#{message.chatroom.id}",
                                  message: render_message(message),
                                  chatroom_id: message.chatroom.id,
-                                 username: message.user.username,
+                                 username: message.user_username,
                                  body: message.body,
                                  created_at: message.created_at
   end
