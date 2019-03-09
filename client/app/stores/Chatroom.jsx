@@ -24,10 +24,8 @@ export default class Chatroom {
 
   }
 
-  @action
-  update({...attributes}) {
+  update(attributes) {
     set(this, attributes);
     this.loaded = true;
-
   }
 }

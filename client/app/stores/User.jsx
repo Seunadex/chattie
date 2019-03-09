@@ -11,7 +11,6 @@ export default class User {
   }
 
   update(attributes) {
-    console.log(attributes, 'attributes')
     set(this, attributes);
   }
 }

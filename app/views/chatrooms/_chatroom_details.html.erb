@@ -16,11 +16,6 @@
 
     <button class="accordion" id="member"><%= fa_icon "user" %> <%= show_user_count(chatroom.id) %> Members</button>
     <div class="panel purpose-panel">
-      <div class="member-list">
-        <% show_members(chatroom.id).each do |member| %>
-          <p><%= fa_icon "circle" %> <%= member.user.username %></p>
-        <% end %>
-      </div>
       <%= react_component("ChatroomMembers", props: { members: show_members(chatroom.id)}) %>
     </div>
 

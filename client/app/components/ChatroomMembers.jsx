@@ -1,14 +1,13 @@
 import React from "react";
-import {getCurrentUserStore, getChatroomStore} from "../stores/RootStore";
+import { getCurrentUserStore, getChatroomStore } from "../stores/RootStore";
 
 export default class ChatroomMembers extends React.Component {
   currentUser = getCurrentUserStore();
   chatroom = getChatroomStore();
 
-
   render() {
     const { members } = this.props;
-    console.log(this.chatroom);
+    console.log(this.currentUser.chatrooms.toJS());
 
     const users = members.map(member => (
       <div key={member.id}>
