@@ -26,6 +26,7 @@ gem 'gemoji'
 gem 'pry-rails'
 gem 'client_side_validations'
 gem "rails_best_practices"
+gem 'rubocop-performance'
 
 
 group :development, :test do
