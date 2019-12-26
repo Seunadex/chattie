@@ -1,5 +1,4 @@
 module MessagesHelper
-
   def markdown(message)
     Kramdown::Document.new(message, input: "GFM").to_html
   end

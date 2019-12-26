@@ -61,6 +61,6 @@ class Chatroom < ApplicationRecord
   end
 
   def members
-    ChatroomUser.includes(:user).where("chatroom_id = ?", self.id)
+    ChatroomUser.includes(:user).where("chatroom_id = ?", id)
   end
 end
