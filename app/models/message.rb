@@ -10,7 +10,7 @@
 #  updated_at  :datetime         not null
 #  pinned      :boolean          default(FALSE)
 #  pinned_by   :string
-# 
+#
 
 class Message < ApplicationRecord
   belongs_to :chatroom
