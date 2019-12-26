@@ -15,7 +15,11 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    @messages = @chatroom.messages.includes(:user).order(created_at: :desc).limit(200).reverse
+    @messages = @chatroom.messages.
+                includes(:user).
+                order(created_at: :desc).
+                limit(200).
+                reverse
     @chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
@@ -95,7 +99,12 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    fields = params.require(:chatroom).permit(:name, :access, :creator, :purpose)
+    fields = params.require(:chatroom).permit(
+      :name,
+      :access,
+      :creator,
+      :purpose
+    )
     fields[:access] = fields[:access].to_i
     fields
   end

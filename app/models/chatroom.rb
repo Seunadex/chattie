@@ -32,16 +32,13 @@ class Chatroom < ApplicationRecord
 
   def self.direct_message_for_users(users)
     user_name = users.pluck(:username).to_sentence
+    chatroom = direct_messages.find_by(name: user_name) ||
+               Chatroom.create(name: user_name, direct_message: true) do |c|
+                 c.users = users
+                 c.creator = users.last.username
+               end
 
-    if chatroom = direct_messages.find_by(name: user_name)
-      chatroom
-    else
-      chatroom = new(name: user_name, direct_message: true)
-      chatroom.users = users
-      chatroom.creator = users.last.username
-      chatroom.save
-      chatroom
-    end
+    chatroom
   end
 
   def public?

@@ -67,7 +67,9 @@ class User < ApplicationRecord
   end
 
   def has_joined?(chatroom)
-    ChatroomUser.where(["chatroom_id = ? and user_id = ?", chatroom.id, id]).present?
+    ChatroomUser.where(
+      ["chatroom_id = ? and user_id = ?", chatroom.id, id]
+    ).present?
   end
 
   def admin?
