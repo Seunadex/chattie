@@ -27,6 +27,7 @@ gem 'pry-rails'
 gem 'client_side_validations'
 gem "rails_best_practices"
 gem 'rubocop-performance'
+gem 'kramdown-parser-gfm', '~> 1.0', '>= 1.0.1'
 
 
 group :development, :test do

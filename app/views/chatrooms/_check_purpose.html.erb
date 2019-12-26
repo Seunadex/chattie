@@ -10,7 +10,7 @@
        </div>
       </div>
     <% elsif !chatroom.direct_message %>
-      <% if chatroom.purpose? %>
+      <% if chatroom.purpose.present? %>
         <div class='purpose-panel' id='purpose-panel'>
           <div class='purpose'>
             <span><strong>Purpose</strong></span>

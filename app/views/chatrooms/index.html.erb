@@ -14,7 +14,7 @@
               <div class="card">
                 <%= chatroom.name %>
                 <div class="icon-link">
-                  <% if check_member(chatroom.id, current_user.id) %>
+                  <% if current_user.has_joined?(chatroom) %>
                     <p data-toggle="tooltip" data-placement="bottom" title="Edit channel">
                       <%= link_to edit_chatroom_path(chatroom) do %>
                         <%= fa_icon "edit" %>
@@ -34,7 +34,7 @@
                     </p>
                   <% end %>
 
-                  <% if admin? %>
+                  <% if current_user.admin? %>
                     <p data-toggle="tooltip" data-placement="bottom" title="Delete channel">
                       <%= link_to chatroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
                         <%= fa_icon "trash" %>
