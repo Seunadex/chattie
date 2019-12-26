@@ -3,11 +3,11 @@ FactoryBot.define do
     sequence(:name) { |n| "Channel #{n}" }
     direct_message { false }
     purpose { Faker::Lorem.sentence }
-    access { "private" }
+    access { 0 }
     topic { Faker::Lorem.sentence }
 
     factory :public_chatroom do
-      access { "public" }
+      access { 1 }
     end
   end
 end

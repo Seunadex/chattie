@@ -23,7 +23,7 @@ RSpec.describe ChatroomsController, type: :controller do
 
   describe "#show" do
     it "should visit chatroom" do
-      get :show, id: @chatroom.id
+      get :show, params: { id: @chatroom.id }
       assert_response :success
     end
   end
