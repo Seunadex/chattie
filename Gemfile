@@ -47,6 +47,7 @@ group :development, :test do
   gem 'rack-mini-profiler'
   gem 'chromedriver-helper'
   gem 'rubocop-rspec'
+  gem 'simplecov', require: false
 end
 
 group :development do
