@@ -1,5 +1,6 @@
 class ChatroomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_users
   before_action :set_chatroom, only: %i(
     show
     edit
@@ -8,14 +9,13 @@ class ChatroomsController < ApplicationController
     update_purpose
     update_topic
   )
-  before_action :get_all_users
 
   def index
     @chatrooms = Chatroom.public_channels
   end
 
   def show
-    @messages = Chatroom.find(params[:id]).messages.includes(:user).order(created_at: :desc).limit(200).reverse
+    @messages = @chatroom.messages.includes(:user).order(created_at: :desc).limit(200).reverse
     @chatroom_user = current_user.chatroom_users.find_by(
       chatroom_id: @chatroom.id
     )
@@ -90,15 +90,17 @@ class ChatroomsController < ApplicationController
     ).first_or_create
   end
 
-  def get_all_users
-    @users = User.get_users
-  end
-
   def set_chatroom
-    @chatroom = Chatroom.get_chatroom(params[:id])
+    @chatroom = Chatroom.find(params[:id])
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :access, :creator, :purpose)
+    fields = params.require(:chatroom).permit(:name, :access, :creator, :purpose)
+    fields[:access] = fields[:access].to_i
+    fields
+  end
+
+  def set_users
+    @users = User.all
   end
 end

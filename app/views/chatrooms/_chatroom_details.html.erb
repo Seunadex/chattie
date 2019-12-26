@@ -1,6 +1,6 @@
 <div class="details-sidebar">
   <div class='about-header'>
-    <h6>About <%= channel_details(chatroom.id) %></h6><%= fa_icon "close closer" %>
+    <h6>About <%= chatroom.direct_message ? "this conversation" : @chatroom.name.to_s %></h6><%= fa_icon "close closer" %>
   </div>
 
   <div class='about-body'>
@@ -14,23 +14,17 @@
       </div>
     </div>
 
-    <button class="accordion" id="member"><%= fa_icon "user" %> <%= show_user_count(chatroom.id) %> Members</button>
+    <button class="accordion" id="member"><%= fa_icon "user" %> <%= chatroom.members.count %> Members</button>
     <div class="panel purpose-panel">
       <div class="member-list">
-        <% show_members(chatroom.id).each do |member| %>
+        <% chatroom.members.each do |member| %>
           <p><%= fa_icon "circle" %> <%= member.user.username %></p>
         <% end %>
       </div>
     </div>
 
-    <button class="accordion"><%= fa_icon "map-pin" %> <span class='pinned-msg-count'><%= pinned_message_length(chatroom.id) %></span> Pinned Items</button>
-    <% if pinned_message_length(chatroom.id) > 0 %>
-      <%= render "messages/pinned_messages", chatroom: chatroom %>
-    <% else %>
-      <div class='panel'>
-        <p class='empty-pin'>No items have been pinned yet! click the pin icon on the message to stick them here.</p>
-      </div>
-    <% end %>
+    <button class="accordion"><%= fa_icon "map-pin" %> <span class='pinned-msg-count'><%= chatroom.messages.pinned.count %></span> Pinned Items</button>
+    <div class="panel pinnned"></div>
 
     <button class="accordion"><%= fa_icon "star" %> Highlights</button>
     <div class="panel">

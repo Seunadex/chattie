@@ -2,7 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
-getPinnedItems = (chatroomId) ->
+getPinnedItems = () ->
+  chatroomId = $("[data-behavior='messages']").data("chatroom-id")
+
   $.ajax
     url: "/chatrooms/#{chatroomId}/messages"
     type: "GET"
@@ -11,23 +13,22 @@ getPinnedItems = (chatroomId) ->
     success: (data) ->
       data
       $('.pinned-msg-count').text(data.length)
-      # displayData()
+      displayData(data)
 
-# displayData = ->
-#   console.log pinnedData.data
-#   something = pinnedData.data.map (dat) ->
-#     "<div class='pinned-msg'>
-#       <span class='pin-head'></span>
-#       <span class='pin-time'>#{dat.created_at}</span>
-#       <p>#{dat.body}</p>
-#     </div>"
-#   seun = ''
-#   seun += x for x in something
-#   $('.pinnned').html seun
+displayData = (data) ->
+  if data.length > 0
+    something = data.map (msg) ->
+      "<div class='pinned-msg'>
+      <span class='pin-head'>#{msg.username}</span>
+      <span class='pin-time'>#{msg.date}</span>
+      <p>#{msg.body}</p>
+      </div>"
+  else
+    something = "<p class='empty-pin'>
+      No item has been pinned yet! Click the pin icon on the message to stick them here.
+      </p>"
 
-#   user = ''
-#   user += y for y in pinnedData.user
-#   $('.pin-head').html user
+  $(".pinnned").html(something)
 
 openSideBar = ->
   $("#channel-detail").show()
@@ -50,7 +51,7 @@ handlePinClick = ->
         $(self).find('i').toggleClass 'fa-red'
         $(self).parent().parent().toggleClass('show-pinned')
         $(self).parent().parent().find('p').toggleClass('visible')
-        getPinnedItems(chatroomId)
+        getPinnedItems()
 
   messages_to_bottom = ->
     scroll = $('#message-wrapper')
@@ -76,6 +77,8 @@ handleVisibilityChange = ->
     $strike.remove()
 
 $(document).on "turbolinks:load", ->
+  getPinnedItems()
+
   path = location.pathname.split('/')
   if Number(path[2])
     openSideBar()

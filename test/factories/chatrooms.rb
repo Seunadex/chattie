@@ -4,7 +4,6 @@ FactoryBot.define do
     direct_message { false }
     purpose { Faker::Lorem.sentence }
     access { "private" }
-    creator { "seunadex" }
     topic { Faker::Lorem.sentence }
 
     factory :public_chatroom do
@@ -12,3 +11,4 @@ FactoryBot.define do
     end
   end
 end
+

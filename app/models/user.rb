@@ -62,11 +62,15 @@ class User < ApplicationRecord
     end
   end
 
-  def self.get_users
-    User.all
-  end
-
   def fullname
     "#{first_name} #{last_name}"
+  end
+
+  def has_joined?(chatroom)
+    ChatroomUser.where(["chatroom_id = ? and user_id = ?", chatroom.id, self.id]).present?
+  end
+
+  def admin?
+    role == "admin"
   end
 end
