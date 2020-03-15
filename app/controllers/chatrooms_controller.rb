@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChatroomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_users
@@ -95,6 +97,7 @@ class ChatroomsController < ApplicationController
   end
 
   def set_chatroom
+    # binding.pry
     @chatroom = Chatroom.find(params[:id])
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def setup_user_and_log_in(request)
   user = FactoryBot.create(:user)
   chattie_log_in(request, user)

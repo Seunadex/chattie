@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -66,7 +68,7 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def has_joined?(chatroom)
+  def joined?(chatroom)
     ChatroomUser.where(
       ["chatroom_id = ? and user_id = ?", chatroom.id, id]
     ).present?

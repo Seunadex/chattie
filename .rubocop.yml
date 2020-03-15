@@ -21,7 +21,7 @@ AllCops:
     - "script/**/*"
 
   UseCache: false
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.4
 Style/CollectionMethods:
   Description: Preferred collection methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#map-find-select-reduce-size
@@ -80,7 +80,7 @@ Naming/PredicateName:
   - is_
   - has_
   - have_
-  NamePrefixBlacklist:
+  ForbiddenPrefixes:
   - is_
   Exclude:
   - spec/**/*
@@ -240,17 +240,10 @@ Style/WhenThen:
 Lint/EachWithObjectArgument:
   Description: Check for immutable argument given to each_with_object.
   Enabled: true
-Lint/HandleExceptions:
-  Description: Don't suppress exception.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#dont-hide-exceptions
-  Enabled: false
 Lint/LiteralAsCondition:
   Description: Checks of literals used in conditions.
   Enabled: false
 Lint/LiteralInInterpolation:
   Description: Checks for literals used in interpolation.
   Enabled: false
-Metrics/BlockLength:
-  Description: Increase block length "Block has too many lines"
-  CountComments: false
-  Max: 60
+

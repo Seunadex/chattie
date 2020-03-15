@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EmojiHelper
   def emojify(content)
     if content.present?

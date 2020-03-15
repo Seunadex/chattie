@@ -14,7 +14,7 @@
               <div class="card">
                 <%= chatroom.name %>
                 <div class="icon-link">
-                  <% if current_user.has_joined?(chatroom) %>
+                  <% if current_user.joined?(chatroom) %>
                     <p data-toggle="tooltip" data-placement="bottom" title="Edit channel">
                       <%= link_to edit_chatroom_path(chatroom) do %>
                         <%= fa_icon "edit" %>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MessagesHelper
   def markdown(message)
     Kramdown::Document.new(message, input: "GFM").to_html
