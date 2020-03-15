@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChatroomsChannel < ApplicationCable::Channel
   def subscribed
     current_user.chatrooms.each do |chatroom|
