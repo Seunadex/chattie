@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_chatroom
@@ -11,17 +13,22 @@ class MessagesController < ApplicationController
 
   def pin_message
     message = @chatroom.messages.find(params[:id])
-    if message.pinned
-      message.update_attributes(pinned: false, pinned_by: nil)
-    else
-      message.update_attributes(pinned: true, pinned_by: current_user.username)
-    end
+    message.update_attributes(
+      pinned: !message.pinned,
+      pinned_by: message.pinned ? nil : current_user.username
+    )
   end
 
   def show; end
 
   def get_pinned_messages
-    @data = Message.pinned?(@chatroom.id)
+    @data = @chatroom.messages.includes(:user).pinned.map do |msg|
+      {
+        body: Kramdown::Document.new(msg.body, input: "GFM").to_html,
+        username: msg.user_username,
+        date: msg.datetime
+      }
+    end
     respond_to do |format|
       format.json { render json: @data }
     end
@@ -30,7 +37,7 @@ class MessagesController < ApplicationController
   private
 
   def set_chatroom
-    @chatroom = Chatroom.get_chatroom(params[:chatroom_id])
+    @chatroom = Chatroom.find(params[:chatroom_id])
   end
 
   def message_params

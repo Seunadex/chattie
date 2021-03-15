@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -35,7 +37,11 @@ RSpec.describe User, type: :model do
   describe "Validations" do
     it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_presence_of(:email) }
-    it { is_expected.to validate_uniqueness_of(:username).ignoring_case_sensitivity }
-    it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
+    it {
+      is_expected.to validate_uniqueness_of(:username).ignoring_case_sensitivity
+    }
+    it {
+      is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity
+    }
   end
 end

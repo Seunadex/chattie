@@ -8,7 +8,7 @@ end
 
 gem 'rails', '~> 5.2'
 
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -27,6 +27,7 @@ gem 'pry-rails'
 gem 'client_side_validations'
 gem "rails_best_practices"
 gem 'rubocop-performance'
+gem 'kramdown-parser-gfm', '~> 1.0', '>= 1.0.1'
 
 
 group :development, :test do
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'rack-mini-profiler'
   gem 'chromedriver-helper'
   gem 'rubocop-rspec'
+  gem 'simplecov', require: false
 end
 
 group :development do

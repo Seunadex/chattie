@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: chatrooms
@@ -20,45 +22,33 @@ class Chatroom < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :name, uniqueness: { case_sensitive: false }
-  validates :name, :access, presence: true
+  validates :name, :access, :creator, presence: true
 
   scope :public_channels, -> { where(direct_message: false) }
   scope :direct_messages, -> { where(direct_message: true) }
 
-  def self.get_chatroom(chatroom_id)
-    find(chatroom_id)
-  end
+  enum access: {
+    general: 0,
+    secure: 1
+  }
 
   def self.direct_message_for_users(users)
-    user_name = users.map(&:username).sort
-    name = user_name.join(" and ").to_s
+    user_name = users.pluck(:username).to_sentence
+    chatroom = direct_messages.find_by(name: user_name) ||
+               Chatroom.create(name: user_name, direct_message: true) do |c|
+                 c.users = users
+                 c.creator = users.last.username
+               end
 
-    if chatroom = direct_messages.where(name: name).first
-      chatroom
-    else
-      chatroom = new(name: name, direct_message: true)
-      chatroom.users = users
-      chatroom.save
-      chatroom
-    end
-  end
-
-  def self.join_chatroom(set_chatroom, current_user_id)
-    set_chatroom.chatroom_users.where(
-      user_id: current_user_id
-    ).first_or_create
+    chatroom
   end
 
   def public?
-    access == "public"
+    general?
   end
 
   def private?
     !public?
-  end
-
-  def purpose?
-    !purpose.nil?
   end
 
   def timestamp_1
@@ -69,7 +59,7 @@ class Chatroom < ApplicationRecord
     created_at.strftime("%I:%M%p")
   end
 
-  def self.check_dm(id)
-    find(id).direct_message
+  def members
+    ChatroomUser.includes(:user).where("chatroom_id = ?", id)
   end
 end

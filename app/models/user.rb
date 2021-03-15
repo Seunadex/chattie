@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -62,11 +64,17 @@ class User < ApplicationRecord
     end
   end
 
-  def self.get_users
-    User.all
-  end
-
   def fullname
     "#{first_name} #{last_name}"
+  end
+
+  def joined?(chatroom)
+    ChatroomUser.where(
+      ["chatroom_id = ? and user_id = ?", chatroom.id, id]
+    ).present?
+  end
+
+  def admin?
+    role == "admin"
   end
 end

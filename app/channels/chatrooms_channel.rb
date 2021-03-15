@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class ChatroomsChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
     current_user.chatrooms.each do |chatroom|
       stream_from "chatrooms:#{chatroom.id}"
     end
@@ -12,8 +13,7 @@ class ChatroomsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    @chatroom = current_user.Chatroom.get_chatroom(data["chatroom_id"])
+    @chatroom = Chatroom.find(data["chatroom_id"])
     message = @chatroom.messages.create(body: data["body"], user: current_user)
-    MessageRelayJob.perform_later(message)
   end
 end

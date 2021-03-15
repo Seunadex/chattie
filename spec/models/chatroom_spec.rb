@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: chatrooms
@@ -24,6 +26,8 @@ RSpec.describe Chatroom, type: :model do
   end
 
   describe "Validations" do
-    it { is_expected.to validate_uniqueness_of(:name).ignoring_case_sensitivity }
+    it {
+      is_expected.to validate_uniqueness_of(:name).ignoring_case_sensitivity
+    }
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: messages
@@ -18,6 +20,8 @@ class Message < ApplicationRecord
 
   delegate :username, :job_description, to: :user, prefix: true
 
+  scope :pinned, -> { where("pinned = ?", true) }
+
   def timestamp
     created_at.strftime("%I:%M %p - %m/%d/%y")
   end
@@ -25,18 +29,5 @@ class Message < ApplicationRecord
   def datetime
     time = created_at
     time.strftime("%b #{time.day.ordinalize}")
-  end
-
-  def self.pinned?(chatroom_id)
-    where(["pinned = ? and chatroom_id = ?", true, chatroom_id]).includes(:user).
-      order(created_at: :asc)
-  end
-
-  def user_username
-    user.username
-  end
-
-  def user_job_description
-    user.job_description
   end
 end
