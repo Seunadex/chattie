@@ -21,4 +21,6 @@ client/node_modules
 /yarn-error.log
 
 .byebug_history
+.env
+public/assets/
 coverage
