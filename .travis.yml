@@ -3,7 +3,7 @@ env:
     - CC_TEST_REPORTER_ID=c090a51f1269f25e52013dd373d47392f26690c55f69312e7eca8cfd67162452
 language: ruby
 rvm:
-  - 2.4.2
+  - 2.5
 after_success:
   - bundle exec codeclimate-test-reporter
 # before_install:
