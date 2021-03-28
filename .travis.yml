@@ -13,8 +13,9 @@ after_success:
 #   - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
 #   - sudo service postgresql restart 11
 before_script:
+  - cp config/database.yml.travis config/database.yml
   - psql --version
-  - psql -c 'CREATE DATABASE chattie_test;' -U postgres
+  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
