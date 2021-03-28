@@ -24,4 +24,3 @@ client/node_modules
 .env
 public/assets/
 coverage
-.env
