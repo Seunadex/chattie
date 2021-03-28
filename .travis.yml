@@ -3,7 +3,7 @@ env:
     - CC_TEST_REPORTER_ID=c090a51f1269f25e52013dd373d47392f26690c55f69312e7eca8cfd67162452
 language: ruby
 rvm:
-  - 2.4.2
+  - 2.5
 after_success:
   - bundle exec codeclimate-test-reporter
 # before_install:
@@ -13,8 +13,9 @@ after_success:
 #   - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
 #   - sudo service postgresql restart 11
 before_script:
+  - cp config/database.yml.travis config/database.yml
   - psql --version
-  - psql -c 'CREATE DATABASE chattie_test;' -U postgres
+  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
