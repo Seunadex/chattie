@@ -12,6 +12,12 @@ This is a slack clone application I built while learning RoR, can also be benefi
 * Create database `rails db:create`
 * Run migration `rails db:migrate`
 * Run `rails server`
+#### Docker Setup
+* Make sure you docker installed
+* cp `.env.example` to `.env`
+* Run `docker-compose up`
+
+
 
 #### Contributing
 
