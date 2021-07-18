@@ -1,4 +1,4 @@
-FROM ruby:2.5-stretch
+FROM ruby:3.0.1-slim-buster
 
 LABEL Name=chattie Version=0.0.1
 
