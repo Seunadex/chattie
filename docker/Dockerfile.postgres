@@ -1,2 +1,0 @@
-FROM postgres:11
-RUN echo 'create database chattie_development; create database chattie_test' >/docker-entrypoint-initdb.d/00-createdb.sql
