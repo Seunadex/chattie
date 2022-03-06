@@ -1,5 +1,5 @@
 # ruby base image
-FROM ruby:2.5-stretch as ruby-base
+FROM ruby:2.6.8-stretch as ruby-base
 
 LABEL Name=chattie Version=0.0.1
 
