@@ -27,3 +27,4 @@ coverage
 
 # ignore all swp files
 *.swp
+*.swo

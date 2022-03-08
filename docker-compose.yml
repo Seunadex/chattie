@@ -8,11 +8,14 @@ services:
     ports:
       - 15432:5432
   web:
-    build: .
+    build:
+      context: .
+      target: rails-dev
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     env_file: .env
     volumes:
       - .:/app
+      - bundler:/usr/local/bundle
     ports:
       - 3000:3000
     depends_on:
@@ -23,3 +26,5 @@ services:
        - ./tmp/db:/var/lib/redisdata/data
      ports:
        - 6379:6379
+volumes:
+  bundler: {}
