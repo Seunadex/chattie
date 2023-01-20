@@ -6,14 +6,14 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.1'
 
 gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
