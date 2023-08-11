@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.4'
 
 gem 'puma', '~> 4.3', '>= 4.3.12'
 gem 'sass-rails', '~> 6.0', '>= 6.0.0'
@@ -38,7 +38,7 @@ group :development, :test do
   gem 'capybara', '~> 2.18', '>= 2.18.0'
   gem 'selenium-webdriver'
   gem "database_cleaner"
-  gem "rspec-rails"
+  gem "rspec-rails", ">= 6.0.2"
   gem 'factory_bot_rails'
   gem 'cucumber-rails', require: false
   gem 'shoulda-matchers'
