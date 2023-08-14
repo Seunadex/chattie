@@ -18,7 +18,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
 gem 'kramdown'
-gem 'bootstrap'
+gem 'bootstrap', '>= 5.3.0'
 gem 'devise'
 gem 'jquery-rails'
 gem 'devise-bootstrapped'
