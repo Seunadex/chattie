@@ -6,21 +6,21 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.5'
 
 gem 'puma', '~> 4.3', '>= 4.3.12'
 gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
+gem 'coffee-rails', '~> 5.0', '>= 5.0.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
 gem 'kramdown'
-gem 'bootstrap'
+gem 'bootstrap', '>= 5.3.0'
 gem 'devise'
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.6.0'
 gem 'devise-bootstrapped'
 gem 'gemoji'
 gem 'pry-rails'
@@ -38,7 +38,7 @@ group :development, :test do
   gem 'capybara', '~> 2.18', '>= 2.18.0'
   gem 'selenium-webdriver'
   gem "database_cleaner"
-  gem "rspec-rails"
+  gem "rspec-rails", ">= 6.0.2"
   gem 'factory_bot_rails'
   gem 'cucumber-rails', require: false
   gem 'shoulda-matchers'
