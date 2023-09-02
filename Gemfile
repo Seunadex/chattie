@@ -24,7 +24,7 @@ gem 'jquery-rails'
 gem 'devise-bootstrapped'
 gem 'gemoji'
 gem 'pry-rails'
-gem 'client_side_validations'
+gem 'client_side_validations', '>= 22.0.0'
 gem "rails_best_practices"
 gem 'rubocop-performance'
 gem 'kramdown-parser-gfm', '~> 1.1', '>= 1.1.0'
