@@ -19,7 +19,7 @@ gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
 gem 'kramdown'
 gem 'bootstrap'
-gem 'devise'
+gem 'devise', '>= 4.9.3'
 gem 'jquery-rails'
 gem 'devise-bootstrapped'
 gem 'gemoji'
