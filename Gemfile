@@ -41,7 +41,7 @@ group :development, :test do
   gem "rspec-rails"
   gem 'factory_bot_rails'
   gem 'cucumber-rails', require: false
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '>= 6.0.0'
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'rack-mini-profiler'
