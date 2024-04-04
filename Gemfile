@@ -6,25 +6,25 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
+gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
 
 gem 'puma', '~> 4.3', '>= 4.3.12'
 gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
+gem 'coffee-rails', '~> 5.0', '>= 5.0.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
 gem 'kramdown'
-gem 'bootstrap'
-gem 'devise'
-gem 'jquery-rails'
+gem 'bootstrap', '>= 5.3.0'
+gem 'devise', '>= 4.9.3'
+gem 'jquery-rails', '>= 4.6.0'
 gem 'devise-bootstrapped'
 gem 'gemoji'
 gem 'pry-rails'
-gem 'client_side_validations'
+gem 'client_side_validations', '>= 22.0.0'
 gem "rails_best_practices"
 gem 'rubocop-performance'
 gem 'kramdown-parser-gfm', '~> 1.1', '>= 1.1.0'
@@ -35,23 +35,23 @@ group :development, :test do
   gem 'rb-readline'
   gem 'pry-remote'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.18', '>= 2.18.0'
+  gem 'capybara', '~> 3.0', '>= 3.0.0'
   gem 'selenium-webdriver'
   gem "database_cleaner"
-  gem "rspec-rails"
-  gem 'factory_bot_rails'
-  gem 'cucumber-rails', require: false
+  gem "rspec-rails", ">= 6.0.2"
+  gem 'factory_bot_rails', '>= 6.3.0'
+  gem 'cucumber-rails', '>= 3.0.0', require: false
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'rails-controller-testing'
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', '>= 3.1.0'
   gem 'chromedriver-helper'
   gem 'rubocop-rspec'
   gem 'simplecov', require: false
 end
 
 group :development do
-  gem 'web-console', '>= 3.7.0'
+  gem 'web-console', '>= 4.2.1'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
