@@ -40,7 +40,7 @@ group :development, :test do
   gem "database_cleaner"
   gem "rspec-rails"
   gem 'factory_bot_rails'
-  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails', '>= 3.0.0', require: false
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'rails-controller-testing'
