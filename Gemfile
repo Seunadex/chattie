@@ -17,7 +17,7 @@ gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
-gem 'kramdown'
+gem 'kramdown', '>= 2.5.1'
 gem 'bootstrap'
 gem 'devise'
 gem 'jquery-rails'
