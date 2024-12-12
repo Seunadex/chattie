@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.9', '>= 2.9.1'
+gem 'jbuilder', '~> 2.12', '>= 2.12.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
