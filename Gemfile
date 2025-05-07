@@ -38,7 +38,7 @@ group :development, :test do
   gem 'capybara', '~> 2.18', '>= 2.18.0'
   gem 'selenium-webdriver'
   gem "database_cleaner"
-  gem "rspec-rails"
+  gem "rspec-rails", ">= 8.0.0"
   gem 'factory_bot_rails'
   gem 'cucumber-rails', '>= 3.0.0', require: false
   gem 'shoulda-matchers'
