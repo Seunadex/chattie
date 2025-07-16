@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
+gem 'rails', '~> 7.0.0'
 
 gem 'puma', '~> 5.6', '>= 5.6.9'
 gem 'sass-rails', '~> 6.0', '>= 6.0.0'
@@ -18,13 +18,13 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis', '~> 3.0'
 gem "font-awesome-rails"
 gem 'kramdown'
-gem 'bootstrap'
+gem 'bootstrap', '>= 5.3.2'
 gem 'devise'
 gem 'jquery-rails'
 gem 'devise-bootstrapped'
 gem 'gemoji'
 gem 'pry-rails'
-gem 'client_side_validations'
+gem 'client_side_validations', '>= 22.0.0'
 gem "rails_best_practices"
 gem 'rubocop-performance'
 gem 'kramdown-parser-gfm', '~> 1.1', '>= 1.1.0'
