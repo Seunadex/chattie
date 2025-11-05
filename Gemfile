@@ -25,7 +25,7 @@ gem 'devise-bootstrapped'
 gem 'gemoji'
 gem 'pry-rails'
 gem 'client_side_validations'
-gem "rails_best_practices"
+gem "rails_best_practices", ">= 1.23.3"
 gem 'rubocop-performance'
 gem 'kramdown-parser-gfm', '~> 1.1', '>= 1.1.0'
 
